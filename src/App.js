@@ -1,10 +1,15 @@
-import { BrowserRouter } from 'react-router-dom';
-import Routes from './Routes';
+import { BrowserRouter, Routes, Route, Router} from 'react-router-dom';
+import { AppRouter } from './Routes';
+import { Header }  from "./components/Header"
+import { Home } from "./pages/Home";
 
 function App() {
   return (
     <BrowserRouter>
-      <Routes />
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
     </BrowserRouter>
   );
 }

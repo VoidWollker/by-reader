@@ -1,10 +1,9 @@
 import React from "react";
-import styled from "styled-components";
 import Search from "./Header.Search";
 
 export const Header = () =>{
     const undottedUL = {
-        "list-style-type": "none"
+        "listStyleType": "none"
     }
 
     return(
