@@ -1,4 +1,4 @@
-export const ProductCardFooter = ({format, rate, countRates}) =>{
+export const Footer = ({format, rate, countRates}) =>{
     return(
         <>
             <div>

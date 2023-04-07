@@ -1,7 +1,7 @@
-export const ProductCardHeader = ({title, price, fakePrice, image}) =>{
+export const Header = ({title, price, fakePrice, image}) =>{
     return(
         <>
-            <img src={image} alt={'Book frontpage'}/>
+            <img src={require('../assets/books/' + image)} alt={'Book frontpage'}/>
             <div>
                 <p className="product-price">{price}</p>
                 <p className="product-fake-price">{fakePrice}</p>

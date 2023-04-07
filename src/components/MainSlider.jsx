@@ -1,8 +1,10 @@
 import {Swiper, SwiperSlide} from 'swiper/react';
-import { Autoplay } from 'swiper';
+import { Autoplay, Navigation, Pagination } from 'swiper';
 import "swiper/css";
+import "swiper/css/pagination"
+import "swiper/css/navigation";
 
-export const  MainSlider = ({slides}) => {
+export const  MainSlider = ({slides, style, className}) => {
 
     const createSlide = (slide, index) => {
         return(
@@ -11,23 +13,31 @@ export const  MainSlider = ({slides}) => {
                     src={require('../assets/img/'+slide)} 
                     alt={index + " slide"}
                     style = {{
-                        'min-width': 100 + '%',
-                        'max-width': 100 + '%',
+                        'minWidth': 100 + '%',
+                        'maxWidth': 100 + '%',
                     }}
+                    loading='lazy'
                 />
             </SwiperSlide>
         )
     }
 
     return(
-        <div>
+        <div className={className}>
             <Swiper
+                loop = {true}
+                style={style}
                 centeredSlides={true}
-                autoplay={{
-                delay: 3000,
-                disableOnInteraction: false,
+                navigation = {true}
+                pagination = {{
+                    clickable: true
                 }}
-                modules={[Autoplay]}
+                spaceBetween={30}
+                autoplay={{
+                    delay: 3000,
+                    disableOnInteraction: false,
+                }}
+                modules={[Autoplay, Navigation, Pagination]}
             >
                 {slides.map((slide, index) =>{
                     return(
