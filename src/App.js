@@ -1,15 +1,19 @@
-import { BrowserRouter, Routes, Route, Router} from 'react-router-dom';
+import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import { AppRouter } from './Routes';
 import { Header }  from "./components/Header"
 import { Home } from "./pages/Home";
+import { EnterOrRegister } from './pages/EnterOrRegister';
 
 function App() {
   return (
     <BrowserRouter>
       <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-      </Routes>
+      <body>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/enter" element={<EnterOrRegister />} />
+        </Routes>
+      </body>
     </BrowserRouter>
   );
 }
