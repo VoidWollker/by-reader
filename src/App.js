@@ -3,16 +3,18 @@ import { Header }  from "./components/Header"
 import { Home } from "./pages/Home";
 import { EnterOrRegister } from './pages/EnterOrRegister';
 
+import "./App.scss"
+
 function App() {
   return (
     <BrowserRouter>
       <Header />
-      <body>
+      <div className="app-body">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/enter" element={<EnterOrRegister />} />
         </Routes>
-      </body>
+      </div>
     </BrowserRouter>
   );
 }
