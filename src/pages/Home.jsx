@@ -1,6 +1,5 @@
 import React from "react"
 import { MainSlider } from "../components/MainSlider"
-import { ProductCardHeader } from "../components/ProductCard.Header"
 import { ProductSlider } from "../components/ProductSlider"
 
 export const Home = () =>{
