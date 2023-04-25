@@ -23,14 +23,17 @@ export const ProductCard = ({showType, title, author, image, price, fakePrice, f
                         bigSquareStyle}
             />
             <div className="d-flex flex-row">
-                <p className="product-price">{price}</p>
+                <p className="product-price">{price} руб.</p>
                 <p className="product-fake-price">{fakePrice}</p>
             </div>
             <p className="product-title">{title}</p>
             <p className="product-author">{author}</p>
             {format === 'Текст' ?
-                {textFormat} :
-                {audioFormat}
+                <p className="product-page-count">Страниц: {pageCount}</p> :
+                <>
+                    <p className="product-reader">Читает {reader}</p>
+                    <p className="product-length">Длительность: {length}</p>
+                </>
             }
             <div className="d-flex flex-row">
                 <p className="product-format">{format}</p>
