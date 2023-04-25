@@ -1,9 +1,10 @@
+@charset "UTF-8";
 .btn-primary {
   --bs-btn-color: #fff !important;
   --bs-btn-bg: #335B50 !important;
   --bs-btn-border-color: #335B50 !important;
   --bs-btn-hover-color: #fff !important;
-  --bs-btn-hover-bg: #0F0D18 !important;
+  --bs-btn-hover-bg: #295045 !important;
   --bs-btn-hover-border-color: #0F0D18 !important;
   --bs-btn-focus-shadow-rgb: 49, 132, 253 !important;
   --bs-btn-active-color: #fff !important;
@@ -28,4 +29,57 @@
   padding-top: 10px;
   padding-bottom: 10px;
   padding-right: 5vw;
+}
+
+.log-in {
+  width: auto;
+  height: 2.5vw;
+  min-height: 50%;
+  filter: brightness(85%);
+}
+
+.book-shelf {
+  width: auto;
+  height: 2.5vw;
+  filter: brightness(85%);
+}
+
+.gift {
+  width: auto;
+  height: 2vw;
+  filter: brightness(85%);
+  margin-bottom: 10px;
+}
+
+.btn-header {
+  padding-left: 2.5vw;
+}
+
+.center-elements {
+  text-align: center;
+  padding-right: 2vw;
+  margin-top: auto !important;
+  margin-bottom: auto !important;
+}
+
+p {
+  margin: 0px !important;
+}
+
+a {
+  color: #b3b3a5 !important;
+  text-decoration: none !important;
+  font-size: calc(8px + 0.5vw);
+}
+
+a:visited {
+  color: #b3b3a5 !important;
+}
+
+a:hover {
+  color: #F2F2EA !important; /* Цвет ссылки при наведении */
+}
+
+a:hover img {
+  filter: brightness(100%);
 }/*# sourceMappingURL=Header.css.map */

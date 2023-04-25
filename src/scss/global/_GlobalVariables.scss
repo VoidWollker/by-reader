@@ -1,11 +1,14 @@
 $bc-header-footer:#0F0D18;
 $bc-body:#F2F2EA;
+$color-primary: #0F0D18;
+$color-secondary: #F2F2EA;
+$color-link: #b3b3a5;
 .btn-primary{
     --bs-btn-color: #fff !important;
     --bs-btn-bg: #335B50 !important;
     --bs-btn-border-color: #335B50 !important;
     --bs-btn-hover-color: #fff !important;
-    --bs-btn-hover-bg: #0F0D18 !important;
+    --bs-btn-hover-bg: #295045 !important;
     --bs-btn-hover-border-color: #0F0D18 !important;
     --bs-btn-focus-shadow-rgb: 49, 132, 253 !important;
     --bs-btn-active-color: #fff !important;

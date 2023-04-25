@@ -16,6 +16,9 @@ input{
 .img-advanced-search{
     width: 70%;
 }
+img:hover{
+    filter: brightness(90%);
+}
 .search-btn{
     width: 3em !important;
     height: 2.8em !important;

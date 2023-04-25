@@ -3,7 +3,7 @@
   --bs-btn-bg: #335B50 !important;
   --bs-btn-border-color: #335B50 !important;
   --bs-btn-hover-color: #fff !important;
-  --bs-btn-hover-bg: #0F0D18 !important;
+  --bs-btn-hover-bg: #295045 !important;
   --bs-btn-hover-border-color: #0F0D18 !important;
   --bs-btn-focus-shadow-rgb: 49, 132, 253 !important;
   --bs-btn-active-color: #fff !important;
@@ -33,6 +33,10 @@ input {
 
 .img-advanced-search {
   width: 70%;
+}
+
+img:hover {
+  filter: brightness(90%);
 }
 
 .search-btn {
