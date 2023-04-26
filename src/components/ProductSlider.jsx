@@ -4,8 +4,9 @@ import {Swiper, SwiperSlide} from 'swiper/react';
 import "swiper/css";
 import "swiper/css/navigation";
 
+import "../css/ProductSlider.css"
 
-export const ProductSlider = ({slides, style, className}) => {
+export const ProductSlider = ({slides, slidesPerView, style, className}) => {
     const createSlide = (slide, index) => {
         return(
             <SwiperSlide key={index + 'slide'}>
@@ -17,7 +18,8 @@ export const ProductSlider = ({slides, style, className}) => {
     return(
         <div className={className} style={style}>
             <Swiper
-                slidesPerView={6}
+                slidesPerView={slidesPerView}
+                spaceBetween={100}
                 navigation = {true}
                 modules={[Navigation]}
             >
