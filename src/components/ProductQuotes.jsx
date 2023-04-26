@@ -19,7 +19,7 @@ export const ProductQuotes = ({quotes}) =>{
         <>
             <h1>Цитаты</h1>
             {quotes.map(quote =>{
-                return createQuoteBlock('Yeeh', 54)
+                return createQuoteBlock(quote, 54)
             })}
             <button>Ещё 3 цитаты</button>
         </>
