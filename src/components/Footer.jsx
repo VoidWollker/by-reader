@@ -6,7 +6,7 @@ export const Footer = () =>{
         "listStyleType": "none"
     }
     return(
-        <div className="d-flex flex-row footer">
+        <footer className="d-flex flex-row">
             <div className="d-flex flex-row blocks">
                 <nav className="d-flex flex-row block">
                     <ul className="d-flex flex-column " style={undottedUL}>
@@ -38,32 +38,50 @@ export const Footer = () =>{
                     <ul className="d-flex flex-column " style={undottedUL}>
                         <li className="heading-footer"><b>Жанры</b></li>
                         <div className="d-flex flex-row">
-                            <a className="genres-link"><li>Художественная литература</li></a>
-                            <a className="genres-link"><li>Саморазвитие</li></a>
-                        </div>
+                            
+                        <a className="genres-link"> <li>Художественная литература</li> </a>
+                            
+                        <a className="genres-link"> <li>Саморазвитие</li></a>
+                        
+                    </div>
                         <div className="d-flex flex-row">
-                            <a className="genres-link"><li>Нехудожественная литература</li></a>
-                            <a className="genres-link"><li>Научная литература</li></a>
-                            </div>
+                            
+                        <a className="genres-link"><li>Нехудожественная литература</li></a>
+                            
+                        <a className="genres-link"><li>Научная литература</li></a>
+                            
+                    </div>
                         <div className="d-flex flex-row">
-                            <a className="genres-link"><li>На иностранных языках</li></a>
-                            <a className="genres-link"><li>Детям и родителям</li></a>
-                            </div>
+                            
+                        <a className="genres-link"><li>На иностранных языках</li></a>
+                            
+                        <a className="genres-link"><li>Детям и родителям</li></a>
+                            
+                    </div>
                         <div className="d-flex flex-row">
-                            <a className="genres-link"><li>Бизнес-литература</li></a>
-                            <a className="genres-link"><li>Психология</li></a>
-                            </div>
+                            
+                        <a className="genres-link"><li>Бизнес-литература</li></a>
+                            
+                        <a className="genres-link"><li>Психология</li></a>
+                            
+                    </div>
                         <div className="d-flex flex-row">
-                            <a className="genres-link"><li>Искусство и культура</li></a>
-                            <a className="genres-link"><li>Комиксы</li></a>
-                            </div>
+                            
+                        <a className="genres-link"><li>Искусство и культура</li></a>
+                            
+                        <a className="genres-link"><li>Комиксы</li></a>
+                            
+                    </div>
                         <div className="d-flex flex-row">
-                            <a className="genres-link"><li>Эзотерика и спиритизм</li></a>
-                            <a className="genres-link"><li>Учебная литература</li></a>
-                        </div>
+                            
+                        <a className="genres-link"><li>Эзотерика и спиритизм</li></a>
+                            
+                        <a className="genres-link"><li>Учебная литература</li></a>
+                        
+                    </div>
                     </ul>
                 </nav>
             </div>
-        </div>
+        </footer>
     )
 }

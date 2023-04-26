@@ -1,9 +1,16 @@
 $bc-header-footer:#0F0D18;
 $bc-body:#F2F2EA;
-$color-primary: #0F0D18;
-$color-secondary: #F2F2EA;
 $color-link: #b3b3a5;
 $font-family: 'Roboto', sans-serif;
+
+$color-primary: #335B50;
+$color-secondary: #75B4A2;
+$color-tertiary: #0F0D18;
+$text-color-dark-primary: #0F0D18;
+/*$text-color-dark-secondary:*/
+$text-color-light-primary: #F2F2EA;
+$text-color-light-secondary: #B3B3A5;
+
 .btn-primary{
     --bs-btn-color: #fff !important;
     --bs-btn-bg: #335B50 !important;
@@ -19,4 +26,14 @@ $font-family: 'Roboto', sans-serif;
     --bs-btn-disabled-color: #fff !important;
     --bs-btn-disabled-bg: #0d6efd !important;
     --bs-btn-disabled-border-color: #0d6efd !important;
+}
+
+.bordered-primary-text{
+    border: solid $color-primary ;
+    color: $text-color-light-primary;
+}
+
+.bordered-tertiary-text{
+    border: solid $color-tertiary ;
+    color: $text-color-light-primary;
 }
