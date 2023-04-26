@@ -4,6 +4,7 @@ header{
     background-color: $color-tertiary;
     box-shadow: 0px 8px 8px rgba(0,0,0,0.25);
     width: 100%;
+    min-height: 70px;
     font-family: $font-family;
     font-weight: 500;
     font-size: 16px;
@@ -14,7 +15,6 @@ header{
     min-height: 100%;
     padding-top: 10px;
     padding-bottom: 10px;
-    padding-right: 5vw;
     padding-left: 3vw;
 }
 .log-in{
@@ -40,7 +40,7 @@ header{
 .center-elements{
     text-align: center;
     padding-right: 2vw;
-    margin-top: 1.2em;
+    margin-top: 0.6em;
 }
 p{
     margin: 0px !important;
@@ -48,7 +48,11 @@ p{
 a{
     color: $text-color-light-secondary !important;
     text-decoration: none !important;
-    font-size: calc(8px + 0.5vw);
+    font-size: calc(7px + 0.4vw) !important;
+}
+a {
+    margin-top: 0.5vw;
+    // font-size: calc(7px + 0.4vw) ;
 }
 a:visited {
     color: $text-color-light-secondary !important;
@@ -67,10 +71,8 @@ a:hover img{
 }
 .menu{
     padding: 0;
-    text-align: right;
     margin-left: 3vw;
     margin-bottom:2vw ;
-    margin-top: 0.5vw;
 }
 .menu a{
     padding-right: 1vw;
@@ -80,4 +82,8 @@ a:hover img{
 }
 .search-and-menu{
     margin-top: 1vw;
+    margin-left: 8%;
+}
+.w-min{
+    white-space: nowrap;
 }

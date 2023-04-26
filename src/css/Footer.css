@@ -54,9 +54,13 @@ a {
 }
 
 .block {
-  margin-right: 5vw;
+  margin-right: 2vw;
 }
 
 .blocks {
   margin: auto;
+}
+
+ul {
+  padding: 0 !important;
 }/*# sourceMappingURL=Footer.css.map */
