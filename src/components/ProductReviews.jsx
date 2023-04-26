@@ -1,4 +1,4 @@
-export const ProductReviews = (reviews) =>{
+export const ProductReviews = ({reviews}) =>{
     const createReview = (avatar, userName, date, rate, text) =>{
         return(
             <>

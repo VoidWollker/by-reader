@@ -6,11 +6,9 @@ export const ProductQuotes = ({quotes}) =>{
                 <p>{quote}</p>
                 <div className="d-flex flex-row">
                     <img src="" alt="" className="quote-like" />
-                    {rate > 0 ?
-                        +{rate} :
-                        rate < 0 ?
-                            -{rate}:
-                            {rate}}
+                    {rate > 0 ?  `+${rate}` :
+                    rate < 0 ? `-${rate}`:
+                    `${rate}`}
                     <img src="" alt="" className="quote-dislike" />
                 </div>
             </>
@@ -21,7 +19,7 @@ export const ProductQuotes = ({quotes}) =>{
         <>
             <h1>Цитаты</h1>
             {quotes.map(quote =>{
-                return createQuoteBlock('Yeeh', 54)
+                return createQuoteBlock(quote, 54)
             })}
             <button>Ещё 3 цитаты</button>
         </>

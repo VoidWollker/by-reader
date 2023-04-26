@@ -16,10 +16,13 @@ export const ProductDetials = ({title, format, author, recomendedAge, publisher,
                     <p>Издательство:</p>
                     <p>{publisher}</p>
                 </div>
-                <div className="d-flex flex-row">
-                    <p>Серия:</p>
-                    <p>{seria}</p>
-                </div>
+                {seria !== null ?
+                    <div className="d-flex flex-row">
+                        <p>Серия:</p>
+                        <p>{seria}</p>
+                    </div> :
+                    ''
+                }
                 <div className="d-flex flex-row">
                     <div className="d-flex-flex-column">
                         <div className="d-flex flex-row">
