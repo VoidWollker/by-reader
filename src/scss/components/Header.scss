@@ -2,12 +2,10 @@
 
 header{
     background-color: $color-tertiary;
-    box-shadow: 0px 8px 8px rgba(0,0,0,0.25);
     width: 100%;
     min-height: 70px;
     font-family: $font-family;
-    font-weight: 500;
-    font-size: 16px;
+    box-shadow: 0px 8px 8px rgba(0,0,0,0.25);
 }
 .logo{
     width: auto;
@@ -49,10 +47,6 @@ a{
     color: $text-color-light-secondary !important;
     text-decoration: none !important;
     font-size: calc(7px + 0.4vw) !important;
-}
-a {
-    margin-top: 0.5vw;
-    // font-size: calc(7px + 0.4vw) ;
 }
 a:visited {
     color: $text-color-light-secondary !important;
