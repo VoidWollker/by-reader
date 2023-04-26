@@ -6,11 +6,9 @@ export const ProductQuotes = ({quotes}) =>{
                 <p>{quote}</p>
                 <div className="d-flex flex-row">
                     <img src="" alt="" className="quote-like" />
-                    {rate > 0 ?
-                        +{rate} :
-                        rate < 0 ?
-                            -{rate}:
-                            {rate}}
+                    {rate > 0 ?  `+${rate}` :
+                    rate < 0 ? `-${rate}`:
+                    `${rate}`}
                     <img src="" alt="" className="quote-dislike" />
                 </div>
             </>
