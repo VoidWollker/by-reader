@@ -34,7 +34,7 @@ export const EnterOrRegister = () =>{
 
     return(
         <div className="d-flex justify-content-center">
-            {enterForm}
+            {registerForm}
         </div>
     )
 }
