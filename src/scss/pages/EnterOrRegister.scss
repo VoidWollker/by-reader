@@ -5,8 +5,9 @@ form{
     min-height: 30vh;
     max-width: 480px;
     max-height: 470px;
-    margin: 1vw;
+    margin: 5vw;
     background-color: #FDFDFD;
+    border-radius: 8px;
 }
 
 .text-button:hover{
@@ -15,4 +16,18 @@ form{
     --bs-btn-hover-color: #140f0f;
     --bs-btn-hover-bg: hsla(208, 7%, 46%, 0);
     --bs-btn-hover-border-color: #6c757d00;
+}
+h1{
+    font-family: $font-family;
+    font-size: calc(10px + 1vw) !important;
+    font-weight: 600 !important;
+}
+.btn-registration{
+    min-height: 45px !important;
+    height: 15% !important;
+}
+h4{
+    font-family: $font-family !important;
+    font-size: calc(10px + 0.5vw) !important;
+    font-weight: 500 !important;
 }
