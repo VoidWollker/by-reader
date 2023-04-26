@@ -39,28 +39,28 @@ export const Footer = () =>{
                         <li className="heading-footer"><b>Жанры</b></li>
                         <div className="d-flex flex-row">
                         <a className="genres-link"> <li>Художественная литература</li> </a>
-                        <a className="genres-link"> <li>Саморазвитие</li></a>
+                        <a > <li>Саморазвитие</li></a>
                         
                     </div>
                         <div className="d-flex flex-row">
                         <a className="genres-link"><li>Нехудожественная литература</li></a>
-                        <a className="genres-link"><li>Научная литература</li></a>
+                        <a ><li>Научная литература</li></a>
                     </div>
                         <div className="d-flex flex-row">
                         <a className="genres-link"><li>На иностранных языках</li></a>
-                        <a className="genres-link"><li>Детям и родителям</li></a>
+                        <a ><li>Детям и родителям</li></a>
                     </div>
                         <div className="d-flex flex-row">
                         <a className="genres-link"><li>Бизнес-литература</li></a>
-                        <a className="genres-link"><li>Психология</li></a>
+                        <a ><li>Психология</li></a>
                     </div>
                         <div className="d-flex flex-row">
                         <a className="genres-link"><li>Искусство и культура</li></a>
-                        <a className="genres-link"><li>Комиксы</li></a>
+                        <a ><li>Комиксы</li></a>
                     </div>
                         <div className="d-flex flex-row">
                         <a className="genres-link"><li>Эзотерика и спиритизм</li></a>
-                        <a className="genres-link"><li>Учебная литература</li></a>
+                        <a ><li>Учебная литература</li></a>
                     </div>
                     </ul>
                 </nav>

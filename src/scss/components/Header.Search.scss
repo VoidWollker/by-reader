@@ -1,7 +1,8 @@
 @import "../global/GlobalVariables";
 input{
-    width: 60vw;
-    height: 2.8em;
+    width: 55vw;
+    height: 33px;
+    min-height: 2.8vw;
     border-radius: 8px 0px 0px 8px;
     border: 0px;
     margin-top: 4px !important;
@@ -9,23 +10,28 @@ input{
     margin-left: 0.5vw !important;
 }
 .advanced-search{
-    width: 2.8em !important;
-    height: 2.8em !important;
-    margin-bottom: 50px;
+    min-width: 2.8vw !important;
+    min-height: 2.8vw !important;
+    height: 20px;
 }
 .img-advanced-search{
-    width: 70%;
+    min-width: 1.8vw;
+    min-height: 1.8vw;
+    height: 20px;
 }
 img:hover{
     filter: brightness(90%);
 }
 .search-btn{
-    width: 3em !important;
-    height: 2.8em !important;
+    min-width: 3vw !important;
+    min-height: 2.8vw !important;
+    height: 20px;
     border-radius: 0px 8px 8px 0px !important;
 }
 .img-search{
-    width: 70%;
+    min-width: 1.8vw;
+    min-height: 1.8vw;
+    height: 20px;
 }
 
 
