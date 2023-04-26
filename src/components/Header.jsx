@@ -11,7 +11,22 @@ export const Header = () =>{
         <div className="d-flex flex-row header">
             <a href=""><img src={require("../assets/icons/header-logo.png")} alt="Логотип сайта" className="logo" /></a>
             <div className="d-flex flex-row">
-                <Search />
+                <div className="d-flex flex-column search-and-menu">    
+                    <Search />
+                    <div className="d-flex flex-row position-relative">
+                        <nav>
+                            <ul className="d-flex flex-row menu position-absolute top-0 start-0" style={undottedUL}>
+                                <a className="d-flex flex-row"><img src={require("../assets/icons/header-popular.png")} alt="" className="mini-icons" /><li>Популярное</li></a>
+                                <a className="d-flex flex-row"><img src={require("../assets/icons/header-new.png")} alt="" className="mini-icons" /><li>Новинки</li></a>
+                                <a className="d-flex flex-row"><img src={require("../assets/icons/header-exclusive.png")} alt="" className="mini-icons" /><li>Эксклюзив от Почитателя</li></a>
+                                <a className="d-flex flex-row"><img src={require("../assets/icons/header-audiobook.png")} alt="" className="mini-icons" /><li>Аудиокниги</li></a>
+                                <a className="d-flex flex-row"><img src={require("../assets/icons/header-podcasts.png")} alt="" className="mini-icons" /><li>Подкасты</li></a>
+                                <a className="d-flex flex-row"><img src={require("../assets/icons/header-genres.png")} alt="" className="mini-icons" /><li>Жанры</li></a>
+                                <a className="d-flex flex-row"><img src={require("../assets/icons/header-subscription.png")} alt="" className="mini-icons" /><li>Подписки</li></a>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
                 <div className="d-flex flex-pow btn-header">
                     <div className=" d-flex flex-column center-elements">
                         <a href="">
@@ -30,18 +45,8 @@ export const Header = () =>{
                             <img src={require("../assets/icons/header-gift.png")} alt="Подарок" className="gift" />
                             <p>Подарок</p>
                         </a>
-                        </div>
+                    </div>
                 </div>
-            </div>
-            <div className="d-flex flex-row">
-                <nav>
-                    <ul className="d-flex flex-row" style={undottedUL}>
-                        { <a>/*<img src="" alt="" className="log-in" />*/<li>Новинки</li></a>}
-                        <a><li>Аудиокниги</li></a>
-                        <a><li>Подборки</li></a>
-                        <a><li>Подписки</li></a>
-                    </ul>
-                </nav>
             </div>
         </div>
     )

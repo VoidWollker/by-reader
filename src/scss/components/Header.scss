@@ -4,6 +4,9 @@
     background-color: $bc-header-footer;
     box-shadow: 0px 8px 8px rgba(0,0,0,0.25);
     width: 100%;
+    font-family: $font-family;
+    font-weight: 500;
+    font-size: 16px;
 }
 .logo{
     width: auto;
@@ -12,21 +15,22 @@
     padding-top: 10px;
     padding-bottom: 10px;
     padding-right: 5vw;
+    padding-left: 3vw;
 }
 .log-in{
     width: auto;
-    height: 2.5vw;
+    height: 2vw;
     min-height: 50%;
     filter: brightness(85%);
 }
 .book-shelf{
     width: auto;
-    height: 2.5vw;
+    height: 2vw;
     filter: brightness(85%);
 }
 .gift{
     width: auto;
-    height: 2vw;
+    height: 1.8vw;
     filter: brightness(85%);
     margin-bottom: 10px;
 }
@@ -36,8 +40,7 @@
 .center-elements{
     text-align: center;
     padding-right: 2vw;
-    margin-top: auto !important;
-    margin-bottom: auto !important;
+    margin-top: 1.2em;
 }
 p{
     margin: 0px !important;
@@ -45,7 +48,7 @@ p{
 a{
     color: $color-link !important;
     text-decoration: none !important;
-    font-size: calc(8px + 0.5vw)
+    font-size: calc(8px + 0.5vw);
 }
 a:visited {
     color: $color-link !important;
@@ -55,4 +58,26 @@ a:hover {
 }
 a:hover img{
     filter: brightness(100%);
+}
+.mini-icons{
+    width: calc(7px + 1vw);
+    height: calc(7px + 1vw);
+    padding-right: 0.3vw;
+    filter: brightness(85%);
+}
+.menu{
+    padding: 0;
+    text-align: right;
+    margin-left: 3vw;
+    margin-bottom:2vw ;
+    margin-top: 0.5vw;
+}
+.menu a{
+    padding-right: 1vw;
+}
+.menu a:hover img{
+    filter: brightness(100%);
+}
+.search-and-menu{
+    margin-top: 1vw;
 }
