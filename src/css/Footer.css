@@ -1,3 +1,4 @@
+/*$text-color-dark-secondary:*/
 .btn-primary {
   --bs-btn-color: #fff !important;
   --bs-btn-bg: #335B50 !important;
@@ -15,6 +16,16 @@
   --bs-btn-disabled-border-color: #0d6efd !important;
 }
 
+.bordered-primary-text {
+  border: solid #335B50;
+  color: #F2F2EA;
+}
+
+.bordered-tertiary-text {
+  border: solid #0F0D18;
+  color: #F2F2EA;
+}
+
 footer {
   background-color: #0F0D18 !important;
   width: 100%;
@@ -23,7 +34,7 @@ footer {
 }
 
 .heading-footer {
-  color: #F2F2EA;
+  color: #75B4A2;
   font-size: calc(9px + 0.5vw);
   margin-bottom: 0.5vw;
   min-width: 230px;

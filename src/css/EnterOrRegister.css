@@ -1,3 +1,4 @@
+/*$text-color-dark-secondary:*/
 .btn-primary {
   --bs-btn-color: #fff !important;
   --bs-btn-bg: #335B50 !important;
@@ -13,6 +14,16 @@
   --bs-btn-disabled-color: #fff !important;
   --bs-btn-disabled-bg: #0d6efd !important;
   --bs-btn-disabled-border-color: #0d6efd !important;
+}
+
+.bordered-primary-text {
+  border: solid #335B50;
+  color: #F2F2EA;
+}
+
+.bordered-tertiary-text {
+  border: solid #0F0D18;
+  color: #F2F2EA;
 }
 
 form {
