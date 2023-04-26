@@ -1,7 +1,7 @@
 @import "../global/GlobalVariables";
 
 header{
-    background-color: $bc-header-footer;
+    background-color: $color-tertiary;
     box-shadow: 0px 8px 8px rgba(0,0,0,0.25);
     width: 100%;
     font-family: $font-family;
@@ -46,15 +46,15 @@ p{
     margin: 0px !important;
 }
 a{
-    color: $color-link !important;
+    color: $text-color-light-secondary !important;
     text-decoration: none !important;
     font-size: calc(8px + 0.5vw);
 }
 a:visited {
-    color: $color-link !important;
+    color: $text-color-light-secondary !important;
 } 
 a:hover {
-    color: $color-secondary !important; /* Цвет ссылки при наведении */
+    color: $text-color-light-primary !important; /* Цвет ссылки при наведении */
 }
 a:hover img{
     filter: brightness(100%);

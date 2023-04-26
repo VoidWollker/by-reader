@@ -81,17 +81,17 @@ p {
 }
 
 a {
-  color: #b3b3a5 !important;
+  color: #B3B3A5 !important;
   text-decoration: none !important;
   font-size: calc(8px + 0.5vw);
 }
 
 a:visited {
-  color: #b3b3a5 !important;
+  color: #B3B3A5 !important;
 }
 
 a:hover {
-  color: #75B4A2 !important; /* Цвет ссылки при наведении */
+  color: #F2F2EA !important; /* Цвет ссылки при наведении */
 }
 
 a:hover img {

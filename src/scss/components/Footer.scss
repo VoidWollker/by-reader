@@ -1,12 +1,12 @@
 @import "../global/GlobalVariables";
 footer{
-    background-color: $bc-header-footer !important;
+    background-color: $color-tertiary !important;
     width: 100%;
     min-height: 25vw;
     font-family: $font-family;
 }
 .heading-footer{
-    color: $color-secondary;
+    color: $text-color-light-primary;
     font-size: calc(9px + 0.5vw);
     margin-bottom: 0.5vw;
     min-width: 230px;
