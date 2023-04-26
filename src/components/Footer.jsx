@@ -6,7 +6,7 @@ export const Footer = () =>{
         "listStyleType": "none"
     }
     return(
-        <div className="d-flex flex-row footer">
+        <footer className="d-flex flex-row">
             <nav className="d-flex flex-row ">
                 <ul className="d-flex flex-column " style={undottedUL}>
                     <li>Почитатель в соц. сетях</li>
@@ -36,14 +36,32 @@ export const Footer = () =>{
             <nav className="d-flex flex-row position-relative">
                 <ul className="d-flex flex-column " style={undottedUL}>
                     <li>Жанры</li>
-                    <div className="d-flex flex-row"><a className="d-flex flex-row"><li>Художественная литература</li></a><a className="d-flex flex-row"><li>Саморазвитие</li></a></div>
-                    <div className="d-flex flex-row"><a className="d-flex flex-row"><li>Нехудожественная литература</li></a><a className="d-flex flex-row"><li>Научная литература</li></a></div>
-                    <div className="d-flex flex-row"><a className="d-flex flex-row"><li>На иностранных языках</li></a><a className="d-flex flex-row"><li>Детям и родителям</li></a></div>
-                    <div className="d-flex flex-row"><a className="d-flex flex-row"><li>Бизнес-литература</li></a><a className="d-flex flex-row"><li>Психология</li></a></div>
-                    <div className="d-flex flex-row"><a className="d-flex flex-row"><li>Искусство и культура</li></a><a className="d-flex flex-row"><li>Комиксы</li></a></div>
-                    <div className="d-flex flex-row"><a className="d-flex flex-row"><li>Эзотерика и спиритизм</li></a><a className="d-flex flex-row"><li>Учебная литература</li></a></div>
+                    <div className="d-flex flex-row">
+                        <a className="d-flex flex-row"> <li>Художественная литература</li> </a>
+                        <a className="d-flex flex-row"> <li>Саморазвитие</li></a>
+                    </div>
+                    <div className="d-flex flex-row">
+                        <a className="d-flex flex-row"><li>Нехудожественная литература</li></a>
+                        <a className="d-flex flex-row"><li>Научная литература</li></a>
+                    </div>
+                    <div className="d-flex flex-row">
+                        <a className="d-flex flex-row"><li>На иностранных языках</li></a>
+                        <a className="d-flex flex-row"><li>Детям и родителям</li></a>
+                    </div>
+                    <div className="d-flex flex-row">
+                        <a className="d-flex flex-row"><li>Бизнес-литература</li></a>
+                        <a className="d-flex flex-row"><li>Психология</li></a>
+                    </div>
+                    <div className="d-flex flex-row">
+                        <a className="d-flex flex-row"><li>Искусство и культура</li></a>
+                        <a className="d-flex flex-row"><li>Комиксы</li></a>
+                    </div>
+                    <div className="d-flex flex-row">
+                        <a className="d-flex flex-row"><li>Эзотерика и спиритизм</li></a>
+                        <a className="d-flex flex-row"><li>Учебная литература</li></a>
+                    </div>
                 </ul>
             </nav>
-        </div>
+        </footer>
     )
 }

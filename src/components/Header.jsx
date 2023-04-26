@@ -8,7 +8,7 @@ export const Header = () =>{
     }
 
     return(
-        <div className="d-flex flex-row header">
+        <header className="d-flex flex-row">
             <a href=""><img src={require("../assets/icons/header-logo.png")} alt="Логотип сайта" className="logo" /></a>
             <div className="d-flex flex-row">
                 <div className="d-flex flex-column search-and-menu">    
@@ -48,6 +48,6 @@ export const Header = () =>{
                     </div>
                 </div>
             </div>
-        </div>
+        </header>
     )
 }
