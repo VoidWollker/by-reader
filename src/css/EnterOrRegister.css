@@ -75,6 +75,12 @@ h1 {
   height: 15% !important;
 }
 
+.btn-log-in {
+  font-family: "Roboto", sans-serif;
+  font-size: calc(10px + 0.3vw) !important;
+  font-weight: 400 !important;
+}
+
 h4 {
   font-family: "Roboto", sans-serif !important;
   font-size: calc(10px + 0.5vw) !important;

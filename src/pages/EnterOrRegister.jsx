@@ -29,7 +29,7 @@ export const EnterOrRegister = () =>{
             <input className="form-control form-control-lg my-2 ms-0" type="text" placeholder="Пароль"/>
             <input className="form-control form-control-lg my-2 ms-0" type="text" placeholder="Повтор пароля"/>
             <button className="btn btn-primary my-1 px-3 py-3 btn-registration"><h4>Зарегестрироваться</h4></button>
-            <button className="btn btn-outline-secondary border-0 text-button">Войти в профиль</button>
+            <button className="btn btn-outline-secondary border-0 text-button btn-log-in">Войти в профиль</button>
         </form>
 
     return(
