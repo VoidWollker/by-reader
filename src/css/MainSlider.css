@@ -47,17 +47,7 @@
   font-weight: bold;
 }
 
-form {
-  min-width: 30vw;
-  min-height: 30vh;
-  max-width: 480px;
-  max-height: 470px;
-  background-color: #FDFDFD;
-}
-
-.text-button:hover {
-  text-decoration: underline;
-  --bs-btn-hover-color: #140f0f;
-  --bs-btn-hover-bg: hsla(208, 7%, 46%, 0);
-  --bs-btn-hover-border-color: #6c757d00;
-}/*# sourceMappingURL=EnterOrRegister.css.map */
+.swiper {
+  --swiper-navigation-color: #F2F2EA;
+  --swiper-pagination-color: #F2F2EA;
+}/*# sourceMappingURL=MainSlider.css.map */

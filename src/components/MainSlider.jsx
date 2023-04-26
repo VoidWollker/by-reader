@@ -4,6 +4,8 @@ import "swiper/css";
 import "swiper/css/pagination"
 import "swiper/css/navigation";
 
+import "../css/MainSlider.css"
+
 export const  MainSlider = ({slides, style, className}) => {
 
     const createSlide = (slide, index) => {
