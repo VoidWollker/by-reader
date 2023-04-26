@@ -4,7 +4,7 @@ export const ProductCard = ({showType, title, author, image, price, fakePrice, f
     const normalStyle = {}
     const miniStyle = {width: '60%'}
     const squareStyle = {width: '100%', aspectRatio: 1}
-    const bigSquareStyle = {width: '150%', aspectRatio: 1}
+    const bigSquareStyle = {width: '120%', aspectRatio: 1}
 
     return(
         <div className={`d-flex flex-column ${className}`} style={{style}}>

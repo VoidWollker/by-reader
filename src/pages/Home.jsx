@@ -5,29 +5,87 @@ import { ProductCard } from "../components/ProductCard"
 
 export const Home = () =>{
     return(
-        <div>
+        <div className="d-flex flex-column">
             <MainSlider 
                 slides={["main-slider slide-1.png", "main-slider slide-2.png"]}
                 style={{
                     'maxHeight': 80 + 'vh'
                 }}
             />
-            <ProductSlider 
-                slides={[
-                    <ProductCard 
-                        showType={'normal'}
-                        title={'1984'}
-                        author={'Джордж Оруэл'}
-                        image={'Дизайн 10.png'}
-                        price={810}
-                        fakePrice={920}
-                        format={'Текст'}
-                        pageCount={170}
-                        rate={4.8}
-                        countRates={640}
-                    ></ProductCard>,
-                ]}
-            />
+            <div className="d-flex flex-column w-75" style={{marginLeft: '12.5vw', marginRight: '12.5vw'}}>
+                <h2>Популярное</h2>
+                <ProductSlider 
+                    slidesPerView={5}
+                    slides={[1,2,3,4,5,6,7,8].map(i =>{
+                        return <ProductCard 
+                            showType={'normal'}
+                            title={'1984'}
+                            author={'Джордж Оруэл'}
+                            image={'Дизайн 10.png'}
+                            price={810}
+                            fakePrice={920}
+                            format={'Текст'}
+                            pageCount={170}
+                            rate={4.8}
+                            countRates={640}
+                        ></ProductCard>
+                    })}
+                />
+                <h2>Новинки</h2>
+                <ProductSlider 
+                    slidesPerView={5}
+                    slides={[1,2,3,4,5,6,7,8].map(i =>{
+                        return <ProductCard 
+                            showType={'mini'}
+                            title={'1984'}
+                            author={'Джордж Оруэл'}
+                            image={'Дизайн 10.png'}
+                            price={810}
+                            fakePrice={920}
+                            format={'Текст'}
+                            pageCount={170}
+                            rate={4.8}
+                            countRates={640}
+                        ></ProductCard>
+                    })}
+                />
+                <h2>Аудиокниги</h2>
+                <ProductSlider 
+                    slidesPerView={5}
+                    slides={[1,2,3,4,5,6,7,8].map(i =>{
+                        return <ProductCard 
+                            showType={'square'}
+                            title={'1984'}
+                            author={'Джордж Оруэл'}
+                            image={'Дизайн 10.png'}
+                            price={810}
+                            fakePrice={920}
+                            format={'Текст'}
+                            pageCount={170}
+                            rate={4.8}
+                            countRates={640}
+                        ></ProductCard>
+                    })}
+                />
+                <h2>Подкасты</h2>
+                <ProductSlider 
+                    slidesPerView={4}
+                    slides={[1,2,3,4,5,6,7,8].map(i =>{
+                        return <ProductCard 
+                            showType={'bigSquare'}
+                            title={'1984'}
+                            author={'Джордж Оруэл'}
+                            image={'Дизайн 10.png'}
+                            price={810}
+                            fakePrice={920}
+                            format={'Текст'}
+                            pageCount={170}
+                            rate={4.8}
+                            countRates={640}
+                        ></ProductCard>
+                    })}
+                />
+            </div>
         </div>
     )
 }
