@@ -23,22 +23,22 @@ export const ProductCard = ({showType, title, author, image, price, fakePrice, f
                 <p className="product-price bordered-primary-text h4 rounded me-1 p-1"><b>{price} Р</b></p>
                 <p className="product-fake-price h4"><s>{fakePrice} Р</s></p>
             </div>
-            <p className="product-title m-1">{title}</p>
-            <p className="product-author m-1">{author}</p>
+            <p className="product-title mx-1 w-100">{title}</p>
+            <p className="product-author mx-1 w-100">{author}</p>
             {format === 'Текст' ?
-                <p className="product-page-count m-1">Страниц: {pageCount}</p> :
+                <p className="product-page-count mx-1 w-100">Страниц: {pageCount}</p> :
                 <div className="m-1">
-                    <p className="product-reader">Читает {reader}</p>
-                    <p className="product-length">Длительность: {length}</p>
+                    <p className="product-reader w-100">Читает {reader}</p>
+                    <p className="product-length w-100">Длительность: {length}</p>
                 </div>
             }
             <div className="d-flex flex-row align-items-center m-1">
                 <p className="product-format bordered-primary-text rounded me-1 px-1">{format}</p>
-                <img src={require('../assets/icons/product-star.png')} alt="" />
+                <img src={require('../assets/icons/product-star.png')} alt="" className="icon-rating"/>
                 <p className="product-rate me-1"><b>{rate}</b></p>
                 <p className="product-rates-count">{countRates}</p>
             </div>
-            <button className="btn btn-tertiary btn-sm w-50 m-1"><b>В корзину</b></button>
+            <button className="btn btn-tertiary btn-sm m-1 btn-to-cart w-100"><b>В корзину</b></button>
         </div>
     )
 }

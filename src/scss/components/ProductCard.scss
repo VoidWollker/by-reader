@@ -3,3 +3,28 @@
 .product-rate{
     color: $color-primary;
 }
+.btn{
+    --bs-btn-font-size: calc(12px + 10%) !important;
+}
+.btn-to-cart{
+    min-width: 85px;
+    max-width: 100px;
+}
+.bordered-primary-text{
+    font-size: calc(7px + 0.5vw);
+}
+.product-title{
+    font-size: calc(12px + 0.2vw);
+}
+p{
+    font-size: calc(10px + 0.2vw);
+}
+.icon-rating{
+    min-width: 10px;
+    max-width: 15px;
+    margin-right: 5px;
+}
+.product-price{
+    min-width: 51px;
+    font-size: calc(16px + 20%) !important;
+}
