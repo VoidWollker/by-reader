@@ -2,6 +2,7 @@ import React from "react"
 import { MainSlider } from "../components/MainSlider"
 import { ProductSlider } from "../components/ProductSlider"
 import { ProductCard } from "../components/ProductCard"
+import "../css/Home.css"
 
 export const Home = () =>{
     return(
@@ -13,7 +14,7 @@ export const Home = () =>{
                 }}
             />
             <div className="d-flex flex-column w-75" style={{marginLeft: '12.5vw', marginRight: '12.5vw'}}>
-                <h2>Популярное</h2>
+                <h2 className="my-4">Популярное</h2>
                 <ProductSlider 
                     slidesPerView={5}
                     slides={[1,2,3,4,5,6,7,8].map(i =>{
@@ -31,7 +32,7 @@ export const Home = () =>{
                         ></ProductCard>
                     })}
                 />
-                <h2>Новинки</h2>
+                <h2 className="my-4">Новинки</h2>
                 <ProductSlider 
                     slidesPerView={5}
                     slides={[1,2,3,4,5,6,7,8].map(i =>{
@@ -49,7 +50,7 @@ export const Home = () =>{
                         ></ProductCard>
                     })}
                 />
-                <h2>Аудиокниги</h2>
+                <h2 className="my-4">Аудиокниги</h2>
                 <ProductSlider 
                     slidesPerView={5}
                     slides={[1,2,3,4,5,6,7,8].map(i =>{
@@ -67,7 +68,7 @@ export const Home = () =>{
                         ></ProductCard>
                     })}
                 />
-                <h2>Подкасты</h2>
+                <h2 className="my-4">Подкасты</h2>
                 <ProductSlider 
                     slidesPerView={4}
                     slides={[1,2,3,4,5,6,7,8].map(i =>{

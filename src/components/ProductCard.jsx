@@ -8,7 +8,7 @@ export const ProductCard = ({showType, title, author, image, price, fakePrice, f
 
     return(
         <div className={`d-flex flex-column ${className}`} style={{style}}>
-            <img 
+            <img className="img-page-home"
                 src={require('../assets/books/' + image)} 
                 alt={'Book frontpage'}
                 re
@@ -19,26 +19,26 @@ export const ProductCard = ({showType, title, author, image, price, fakePrice, f
                         {}
                     }
             />
-            <div className="d-flex flex-row align-items-center m-1">
+            <div className="d-flex flex-row align-items-center m-1 mx-0">
                 <p className="product-price bordered-primary-text h4 rounded me-1 p-1"><b>{price} Р</b></p>
-                <p className="product-fake-price h4"><s>{fakePrice} Р</s></p>
+                <p className="product-fake-price mx-1 h4"><s>{fakePrice} Р</s></p>
             </div>
-            <p className="product-title mx-1 w-100">{title}</p>
-            <p className="product-author mx-1 w-100">{author}</p>
+            <p className="product-title w-100">{title}</p>
+            <p className="product-author w-100">{author}</p>
             {format === 'Текст' ?
-                <p className="product-page-count mx-1 w-100">Страниц: {pageCount}</p> :
+                <p className="product-page-count w-100">Страниц: {pageCount}</p> :
                 <div className="m-1">
                     <p className="product-reader w-100">Читает {reader}</p>
                     <p className="product-length w-100">Длительность: {length}</p>
                 </div>
             }
-            <div className="d-flex flex-row align-items-center m-1">
+            <div className="d-flex flex-row align-items-center m-1 mx-0">
                 <p className="product-format bordered-primary-text rounded me-1 px-1">{format}</p>
-                <img src={require('../assets/icons/product-star.png')} alt="" className="icon-rating"/>
+                <img src={require('../assets/icons/product-star.png')} alt="" className="icon-rating mx-1"/>
                 <p className="product-rate me-1"><b>{rate}</b></p>
                 <p className="product-rates-count">{countRates}</p>
             </div>
-            <button className="btn btn-tertiary btn-sm m-1 btn-to-cart w-100"><b>В корзину</b></button>
+            <button className="btn btn-tertiary btn-sm my-1 btn-to-cart w-100"><b>В корзину</b></button>
         </div>
     )
 }
