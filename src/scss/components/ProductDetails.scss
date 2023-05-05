@@ -1,0 +1,17 @@
+@import "../global/GlobalVariables";
+
+.product-title{
+    font-size: calc(8px + 0.5vw);
+}
+.produсе-feature{
+    font-size: calc(8px + 0.5vw);
+    font-weight: 500;
+    min-width: 35px;
+    width: 55px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    text-align: center;
+}
+.data-book{
+    font-size: calc(6px + 0.5vw);
+}
