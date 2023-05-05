@@ -1,26 +1,15 @@
-const { MongoClient } = require("mongodb");
-const Db = process.env.ATLAS_URI;
-const client = new MongoClient(Db, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
- 
-var _db;
- 
+require("dotenv").config({ path: "./config.env" });
+const mongoose = require('mongoose')
+
 module.exports = {
-  connectToServer: function (callback) {
-    client.connect(function (err, db) {
-      // Verify we got a good "db" object
-      if (db)
-      {
-        _db = db.db("Books");
-        console.log("Successfully connected to MongoDB."); 
-      }
-      return callback(err);
-         });
-  },
- 
-  getDb: function () {
-    return _db;
-  },
-};
+  connectToServer: function () {
+    // connect to a database
+    mongoose.connect(process.env.ATLAS_URI)
+    .then(() => {
+      console.log('Successfully connected to MongoDB.')
+})
+    .catch((error) => {
+      console.log(error)
+    })
+  }
+}
