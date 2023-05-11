@@ -15,6 +15,11 @@ export const Product = () =>{
                 rate={4.8}
                 ratesCount={466}
                 reviewCount={45}
+                price={460}
+                fakePrice={660}
+                volume={280}
+                genre={'Современные детективы'}
+                dateWriting={2022}
             />
             <ProductDescription description={'Best Book'}/>
             <ProductQuotes quotes={['Война — это мир, свобода — это рабство, незнание — сила.', `— Сколько я показываю пальцев, Уинстон?

@@ -6,12 +6,58 @@
 .produсе-feature{
     font-size: calc(8px + 0.5vw);
     font-weight: 500;
-    min-width: 35px;
-    width: 55px;
     border: 1px solid #000000;
     border-radius: 5px;
     text-align: center;
 }
+.product-format{
+    min-width: 15px;
+}
+.product-recomended-age{
+    min-width: 15px;
+}
 .data-book{
     font-size: calc(6px + 0.5vw);
+}
+.icon-product{
+    max-height: 18px !important;
+    margin-top: 3px;
+    margin-right: 5px;
+}
+.product-rate{
+    color: $color-primary;
+    font-size: calc(8px + 0.5vw);
+    text-align:center;
+}
+.product-rate-exactly{
+    font-size: calc(6px + 0.5vw);
+    min-width: 55px;
+}
+.product-review-exactly{
+    font-size: calc(6px + 0.5vw);
+}
+.product-review{
+    color: $color-primary;
+    font-size: calc(8px + 0.5vw);
+}
+.product-rating{
+    border-style: none solid none none;
+    border-width: 1px;
+}
+.btn-square{
+    width: 38px;
+    padding: 0 !important;
+}
+.det-info{
+    font-size: calc(8px + 0.5vw);
+}
+.detailed-information{
+    font-size: calc(6px + 0.5vw);
+}
+.product-fragment{
+    min-width: 100px;
+}
+.btn-buy b{
+    max-width: 100%;
+    min-width: 20px;
 }
