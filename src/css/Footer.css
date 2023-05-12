@@ -101,7 +101,7 @@ a {
 
 .block {
   flex: 1 0 25%;
-  min-width: 120px;
+  min-width: 100px;
   max-width: 100%;
   min-height: 70px;
   background: #000;
