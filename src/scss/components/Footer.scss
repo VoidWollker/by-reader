@@ -19,8 +19,7 @@ a{
     font-size: calc(8px + 0.5vw);
 }
 .blocks{
-    width: 100%;
-    background-color:#fff;
+    width: 80%;
     flex-wrap: wrap;
     justify-content: center;
 }
@@ -28,14 +27,18 @@ a{
 .footer-links{
     width: 70%;
     min-width: 90px;
-    padding-left: 20%;
-    // margin-top: 20%;
+    padding-left: 0;
 }
 .block{
     flex: 1 0 25%;
-    min-width: 120px;
+    max-width: 30%;
+    min-height: 60px;
+}
+.block1{
+    flex: 1 0 25%;
     max-width: 100%;
-    // border: #fff solid 1px;
-    min-height: 70px;
-    background: #000;
+    min-height: 200px;
+}
+.block nav{
+    min-width: 50px !important;
 }
