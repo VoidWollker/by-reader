@@ -68,7 +68,7 @@ ul {
   width: 70%;
 }
 
-li:hover {
+li.product-detials:hover {
   border-style: none none solid none;
   border-color: #335B50;
   border-width: 3px;

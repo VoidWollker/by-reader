@@ -36,13 +36,13 @@ export const Product = () =>{
                 dateWriting={book.dateWriting}
             />
             <ul className="nav nav-tabs my-4">
-                <li className="nav-item mx-2">
+                <li className="nav-item mx-2 product-detials">
                     <a className="link-active" href="#">Краткое описание</a>
                 </li>
-                <li className="nav-item mx-2">
+                <li className="nav-item mx-2 product-detials">
                     <a className="link-active" href="#">Известные цитаты</a>
                 </li>
-                <li className="nav-item mx-2">
+                <li className="nav-item mx-2 product-detials">
                     <a className="link-active" href="#">Отзывы</a>
                 </li>
             </ul>

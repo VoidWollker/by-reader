@@ -3,7 +3,7 @@
 ul{
     width: 70%;
 }
-li:hover{
+li.product-detials:hover{
     border-style: none none solid none;
     border-color: $color-primary;
     border-width: 3px;

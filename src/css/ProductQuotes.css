@@ -72,5 +72,16 @@
 .quotes {
   background-color: #fff;
   color: #0F0D18;
-  min-width: 20px !important;
+  width: 62%;
+  font-size: calc(6px + 0.5vw) !important;
+  font-weight: lighter;
+  min-width: 350px;
+}
+
+.icons-quotes {
+  min-width: 20px;
+  width: 2%;
+  position: relative;
+  top: calc(6px + 0.5vw);
+  left: calc(6px + 0.5vw);
 }/*# sourceMappingURL=ProductQuotes.css.map */
