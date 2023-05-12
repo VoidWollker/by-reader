@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import { ProductDetials } from "../components/ProductDetails"
 import { ProductDescription } from "../components/ProductDescription"
 import { ProductQuotes } from "../components/ProductQuotes"
@@ -5,22 +6,34 @@ import { ProductReviews }from "../components/ProductReviews"
 import "../css/Product.css"
 
 export const Product = () =>{
+    const [book, setBook] = useState({})
+
+    useEffect(() =>{
+        getBook()
+    })
+
+    const getBook = async () =>{
+        await fetch('http://localhost:5000/book/645774394671b0aa9042918d')
+        .then(res => res.json())
+        .then(res => setBook(res))
+    }
+
     return(
         <>
             <ProductDetials 
-                title={1984}
-                format={'Текст'}
-                author={'Джордж Оруэл'}
-                recomendedAge={18}
-                publisher={'АСТ'}
-                rate={4.8}
-                ratesCount={466}
-                reviewCount={45}
-                price={460}
-                fakePrice={660}
-                volume={280}
-                genre={'Современные детективы'}
-                dateWriting={2022}
+                title={book.title}
+                format={book.format}
+                author={book.author}
+                recomendedAge={book.recomendedAge}
+                publisher={book.publisher}
+                rate={book.rate}
+                ratesCount={book.ratesCount}
+                reviewCount={book.reviewCount}
+                price={book.price}
+                fakePrice={book.fakePrice}
+                pageCount={book.pageCount}
+                genre={book.genre}
+                dateWriting={book.dateWriting}
             />
             <ul className="nav nav-tabs my-4">
                 <li className="nav-item mx-2">

@@ -1,6 +1,6 @@
 import "../css/ProductCard.css"
 
-export const ProductCard = ({showType, title, author, image, price, fakePrice, format, reader, pageCount, length, rate, countRates, style, className}) => {
+export const ProductCard = ({showType, title, author, image, price, fakePrice, format, reader, pageCount, length, rate, ratesCount, style, className}) => {
     const normalStyle = {}
     const miniStyle = {width: '60%'}
     const squareStyle = {width: '100%', aspectRatio: 1}
@@ -36,7 +36,7 @@ export const ProductCard = ({showType, title, author, image, price, fakePrice, f
                 <p className="product-format bordered-primary-text rounded me-1 px-1">{format}</p>
                 <img src={require('../assets/icons/product-star.png')} alt="" className="icon-rating mx-1"/>
                 <p className="product-rate me-1"><b>{rate}</b></p>
-                <p className="product-rates-count">{countRates}</p>
+                <p className="product-rates-count">{ratesCount}</p>
             </div>
             <button className="btn btn-tertiary btn-sm my-1 btn-to-cart w-100"><b>В корзину</b></button>
         </div>

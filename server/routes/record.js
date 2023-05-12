@@ -1,11 +1,11 @@
-const express = require("express");
+const { Router } = require("express");
 const Book = require('../models/bookModel')
 const mongoose = require('mongoose')
  
 // recordRoutes is an instance of the express router.
 // We use it to define our routes.
 // The router will be added as a middleware and will take control of requests starting with path /record.
-const recordRoutes = express.Router();
+const recordRoutes = Router();
   
 // This section will help you get a list of all the records.
 recordRoutes.get('/all', async (req, res) => {
@@ -28,7 +28,7 @@ recordRoutes.post('/add', async (req, res) => {
  
 // This section will help you get a single record by id
 recordRoutes.get('/:id', async (req, res) => {
-  const { id } = req.params
+  const {id}  = req.params
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return res.status(404).json({error: 'No such book'})
