@@ -2,19 +2,15 @@
 footer{
     background-color: $color-tertiary !important;
     width: 100%;
-    min-height: 25vw;
     font-family: $font-family;
 }
 .heading-footer{
     color: $text-color-light-primary;
-    font-size: calc(9px + 0.5vw);
-    margin-bottom: 0.5vw;
-    min-width: 230px;
-    width: 5vw;
-    margin-top: 3vw;
+    font-size: calc(6px + 0.5vw);
+    min-width: 95px;
+    
 }
 .genres-link{
-    width: 5vw;
     min-width: 230px;
     line-height: 21px;
 }
@@ -22,12 +18,24 @@ a{
     margin-top: 0.5vw;
     font-size: calc(8px + 0.5vw);
 }
-.block{
-    margin-right: 2vw;
-}
 .blocks{
-    margin:auto;
+    width: 100%;
+    background-color:#fff;
+    flex-wrap: wrap;
+    justify-content: center;
 }
-ul{
-    padding: 0 !important;
+
+.footer-links{
+    width: 70%;
+    min-width: 90px;
+    padding-left: 20%;
+    // margin-top: 20%;
+}
+.block{
+    flex: 1 0 25%;
+    min-width: 120px;
+    max-width: 100%;
+    // border: #fff solid 1px;
+    min-height: 70px;
+    background: #000;
 }
