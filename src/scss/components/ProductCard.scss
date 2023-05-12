@@ -14,27 +14,27 @@
     font-size: calc(7px + 0.5vw);
 }
 .product-title{
-    font-size: calc(12px + 0.3vw);
+    font-size: calc(10px + 0.3vw) !important;
     min-width: 100px !important;
     max-width: 130px !important;
 }
 .product-author{
-    font-size: calc(12px + 0.2vw);
+    font-size: calc(8px + 0.3vw) !important;
     min-width: 100px !important;
     max-width: 130px !important;
 }
 .product-page-count {
-    font-size: calc(12px + 0.2vw);
+    font-size: calc(8px + 0.3vw) !important;
     min-width: 100px !important;
     max-width: 130px !important;
 }
 .product-reader{
-    font-size: calc(12px + 0.2vw);
+    font-size: calc(8px + 0.3vw) !important;
     min-width: 100px !important;
     max-width: 130px !important;
 }
 .product-length{
-    font-size: calc(12px + 0.2vw);
+    font-size: calc(8px + 0.3vw) !important;
     min-width: 100px !important;
     max-width: 130px !important;
 }
@@ -44,17 +44,17 @@
     margin-right: 5px;
 }
 .product-rate{
-    font-size: calc(12px + 0.2vw);
+    font-size: calc(8px + 0.3vw) !important;
     min-width: 18px !important;
     max-width: 50px !important;
 }
 .product-rates-count{
-    font-size: calc(12px + 0.2vw);
+    font-size: calc(8px + 0.3vw) !important;
     min-width: 50px !important;
     max-width: 60px !important;
 }
 .product-price{
-    min-width: 68px !important;
+    min-width: 55px !important;
     max-width: 100px !important;
     font-size: calc(12px + 0.4vw) !important;
     text-align: center;
@@ -71,6 +71,6 @@
     max-width: 320px;
 }
 .product-format{
-    min-width: 42px !important;
+    min-width: 35px !important;
     max-width: 50px !important;
 }
