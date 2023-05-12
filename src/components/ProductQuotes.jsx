@@ -7,7 +7,7 @@ export const ProductQuotes = ({quotes}) =>{
                 <img src={require("../assets/icons/product-quotes.png")} alt="" className="icons-quotes"/>
                 <div className="quotes">
                     <p className="py-2 px-3">{quote}</p>
-                    <div className="d-flex flex-row">fixed-bottomfixed-bottom
+                    <div className="d-flex flex-row">
                         <img src="" alt="" className="quote-like" />
                         {rate > 0 ?  `+${rate}` :
                         rate < 0 ? `-${rate}`:

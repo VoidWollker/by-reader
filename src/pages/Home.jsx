@@ -39,8 +39,8 @@ export const Home = () =>{
                             fakePrice={book.fakePrice}
                             format={book.format}
                             pageCount={book.pageCount}
-                            rate={4.8}
-                            countRates={640}
+                            rate={book.rate}
+                            ratesCount={book.ratesCount}
                         ></ProductCard>
                     })}
                 />
