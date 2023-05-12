@@ -11,11 +11,30 @@
     font-size: calc(6px + 0.5vw) !important;
     font-weight: lighter;
     min-width: 350px;
+    box-shadow: 4px 4px 15px rgba(242, 242, 234, 0.4);
 }
 .icons-quotes{
     min-width: 20px;
     width: 2%;
     position:relative ; 
-    top: calc(6px + 0.5vw); 
+    top: calc(8px + 0.5vw); 
     left: calc(6px + 0.5vw);
+}
+.quote-like{
+    min-width: 20px;
+    width: 3%;
+
+}
+.quote-dislike{
+    min-width: 20px;
+    width: 3%;
+
+}
+.btn-tertiary{
+    --bs-btn-bg: #75B4A2 !important;
+    --bs-btn-border-color: #75B4A2 !important;
+    --bs-btn-hover-border-color: #75B4A2 !important;
+    width: 15vw;
+    min-width: 120px;
+    max-width: 200px;
 }
