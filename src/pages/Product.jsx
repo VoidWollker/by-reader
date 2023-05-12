@@ -2,6 +2,7 @@ import { ProductDetials } from "../components/ProductDetails"
 import { ProductDescription } from "../components/ProductDescription"
 import { ProductQuotes } from "../components/ProductQuotes"
 import { ProductReviews }from "../components/ProductReviews"
+import "../css/Product.css"
 
 export const Product = () =>{
     return(
@@ -21,6 +22,17 @@ export const Product = () =>{
                 genre={'Современные детективы'}
                 dateWriting={2022}
             />
+            <ul className="nav nav-tabs my-4">
+                <li className="nav-item mx-2">
+                    <a className="link-active" href="#">Краткое описание</a>
+                </li>
+                <li className="nav-item mx-2">
+                    <a className="link-active" href="#">Известные цитаты</a>
+                </li>
+                <li className="nav-item mx-2">
+                    <a className="link-active" href="#">Отзывы</a>
+                </li>
+            </ul>
             <ProductDescription description={'Best Book'}/>
             <ProductQuotes quotes={['Война — это мир, свобода — это рабство, незнание — сила.', `— Сколько я показываю пальцев, Уинстон?
 — Четыре.

@@ -1,0 +1,17 @@
+
+@import "../global/GlobalVariables";
+ul{
+    width: 70%;
+}
+li:hover{
+    border-style: none none solid none;
+    border-color: $color-primary;
+    border-width: 3px;
+}
+a.link-active{
+    color: $color-tertiary !important;
+}
+a.link-active:hover{
+    color: $color-primary!important;
+    font-weight: 500;
+}

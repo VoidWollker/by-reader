@@ -1,0 +1,11 @@
+@import "../global/GlobalVariables";
+
+.product-quotes{
+    background-color: $color-tertiary;
+    color: $text-color-light-primary;
+}
+.quotes{
+    background-color: #fff;
+    color: $text-color-dark-primary;
+    min-width: 20px !important;
+}
