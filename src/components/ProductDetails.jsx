@@ -1,6 +1,6 @@
 import "../css/ProductDetails.css"
 
-export const ProductDetials = ({title, format, author, recomendedAge, publisher, seria, rate, ratesCount, reviewCount, price,fakePrice, volume, genre, dateWriting}) =>{
+export const ProductDetials = ({title, format, author, recomendedAge, publisher, seria, rate, ratesCount, reviewCount, price,fakePrice, pageCount, genre, dateWriting}) =>{
     return(
         <div className="d-flex flex-row">
             <div className="d-flex flex-column mt-5">
@@ -61,10 +61,10 @@ export const ProductDetials = ({title, format, author, recomendedAge, publisher,
                 <button className="btn btn-tertiary py-2 mb-3 btn-buy"><b>КУПИТЬ</b></button>
                 <div className="d-flex flex-column">
                     <p className="det-info mb-2"><b>Подробная информация</b></p>
-                    <p className="detailed-information mb-1">Объем: {volume}стр.</p>
+                    <p className="detailed-information mb-1">Объем: {pageCount}стр.</p>
                     <p className="detailed-information mb-1">Жанр: {genre}</p>
                     <p className="detailed-information mb-1">Ограничения по возрасту: {recomendedAge}+</p>
-                    <p className="detailed-information">Дата написания: 2022{dateWriting}</p>
+                    <p className="detailed-information">Дата написания: {dateWriting}</p>
                 </div>
             </div>
         </div>

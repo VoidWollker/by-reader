@@ -21,18 +21,18 @@ export const Product = () =>{
         <>
             <ProductDetials 
                 title={book.title}
-                format={'Текст'}
-                author={'Джордж Оруэл'}
-                recomendedAge={18}
-                publisher={'АСТ'}
-                rate={4.8}
-                ratesCount={466}
-                reviewCount={45}
-                price={460}
-                fakePrice={660}
-                volume={280}
-                genre={'Современные детективы'}
-                dateWriting={2022}
+                format={book.format}
+                author={book.author}
+                recomendedAge={book.recomendedAge}
+                publisher={book.publisher}
+                rate={book.rate}
+                ratesCount={book.ratesCount}
+                reviewCount={book.reviewCount}
+                price={book.price}
+                fakePrice={book.fakePrice}
+                pageCount={book.pageCount}
+                genre={book.genre}
+                dateWriting={book.dateWriting}
             />
             <ProductDescription description={'Best Book'}/>
             <ProductQuotes quotes={['Война — это мир, свобода — это рабство, незнание — сила.', `— Сколько я показываю пальцев, Уинстон?

@@ -35,10 +35,10 @@ export const Home = () =>{
                             title={book.title}
                             author={book.author}
                             image={'Дизайн 10.png'}
-                            price={810}
-                            fakePrice={920}
-                            format={'Текст'}
-                            pageCount={170}
+                            price={book.price}
+                            fakePrice={book.fakePrice}
+                            format={book.format}
+                            pageCount={book.pageCount}
                             rate={4.8}
                             countRates={640}
                         ></ProductCard>
