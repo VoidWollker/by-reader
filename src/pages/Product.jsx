@@ -1,13 +1,26 @@
+import { useState, useEffect } from 'react'
 import { ProductDetials } from "../components/ProductDetails"
 import { ProductDescription } from "../components/ProductDescription"
 import { ProductQuotes } from "../components/ProductQuotes"
 import { ProductReviews }from "../components/ProductReviews"
 
 export const Product = () =>{
+    const [book, setBook] = useState({})
+
+    useEffect(() =>{
+        getBook()
+    })
+
+    const getBook = async () =>{
+        await fetch('http://localhost:5000/book/645774394671b0aa9042918d')
+        .then(res => res.json())
+        .then(res => setBook(res))
+    }
+
     return(
         <>
             <ProductDetials 
-                title={1984}
+                title={book.title}
                 format={'Текст'}
                 author={'Джордж Оруэл'}
                 recomendedAge={18}

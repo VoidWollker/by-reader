@@ -28,7 +28,7 @@ recordRoutes.post('/add', async (req, res) => {
  
 // This section will help you get a single record by id
 recordRoutes.get('/:id', async (req, res) => {
-  const { id } = req.params
+  const id = req.params.id
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return res.status(404).json({error: 'No such book'})
