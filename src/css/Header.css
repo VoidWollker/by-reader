@@ -74,9 +74,9 @@ header {
 }
 
 .logo {
-  width: auto;
-  height: 7vw;
-  min-height: 100%;
+  width: 12vw;
+  min-width: 60px;
+  max-width: 120px;
   padding-top: 10px;
   padding-bottom: 10px;
   padding-left: 3vw;
@@ -107,7 +107,7 @@ header {
 }
 
 .center-elements {
-  text-align: center;
+  text-align: center !important;
   padding-right: 2vw;
   margin-top: 0.6em;
 }
@@ -157,9 +157,26 @@ a:hover img {
 
 .search-and-menu {
   margin-top: 1vw;
-  margin-left: 8%;
+  margin-left: 7vw;
 }
 
 .w-min {
   white-space: nowrap;
+}
+
+.flex-container {
+  width: 85%;
+}
+
+.flex-container a {
+  text-align: center;
+  line-height: 20px;
+}
+
+.position-relative nav {
+  min-height: 40px;
+}
+
+.bookshelf {
+  width: 99%;
 }/*# sourceMappingURL=Header.css.map */
