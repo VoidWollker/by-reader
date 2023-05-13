@@ -91,15 +91,19 @@ header {
 
 .book-shelf {
   width: auto;
+  min-width: 15px;
+  min-height: 15px;
   height: 2vw;
   filter: brightness(85%);
 }
 
 .gift {
   width: auto;
-  height: 1.8vw;
+  min-width: 12px;
+  min-height: 12px;
+  height: 2vw;
   filter: brightness(85%);
-  margin-bottom: 10px;
+  margin-bottom: 3px;
 }
 
 .btn-header {
