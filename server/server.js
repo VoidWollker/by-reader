@@ -3,6 +3,7 @@ require("dotenv").config({ path: "./config.env" });
 const express = require('express')
 const cors = require('cors');
 const routes = require('./routes/record')
+const userRoutes = require('./routes/users')
 const database = require('./db/conn');
 
 const app = express()
@@ -17,6 +18,7 @@ app.use((req, res, next) => {
 
 // routes
 app.use('/book', routes)
+app.use('/user', userRoutes)
 
 app.listen(process.env.PORT, () => {
   // perform a database connection when server starts

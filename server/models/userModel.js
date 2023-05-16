@@ -5,29 +5,29 @@ const Schema = mongoose.Schema
 const userFavSchema = new Schema({
     book: {
         type: mongoose.Types.ObjectId,
-        required: true
+        required: false
     }
-}, { timestamps: true })
+}, { timestamps: false })
 
 const userPurchasedSchema = new Schema({
     book: {
         type: mongoose.Types.ObjectId,
-        required: true
+        required: false
     }
 }, { timestamps: true })
 
 const userSchema = new Schema({
     name: {
         type: String,
-        required: true
+        required: false
     },
     lastname: {
         type: String,
-        required: true
+        required: false
     },
     username: {
         type: String,
-        required: true
+        required: false
     },
     email: {
         type: String,
@@ -41,5 +41,5 @@ const userSchema = new Schema({
     purchased: [userPurchasedSchema]
 }, { timestamps: true })
 
-module.exports = mongoose.model('User', userSchema)
+module.exports = mongoose.model('User', userSchema, 'users')
 
