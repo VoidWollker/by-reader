@@ -81,5 +81,5 @@ const bookSchema = new Schema({
     reviews: [reviewSchema]
 }, { timestamps: true })
 
-module.exports = model('Book', bookSchema)
+module.exports = mongoose.model('Book', bookSchema)
 

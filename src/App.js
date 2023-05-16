@@ -13,8 +13,8 @@ function App() {
       <Header />
       <div className="app-body">
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/enter" element={<EnterOrRegister />} />
+          <Route path='/' element={<Home />} />
+          <Route path='/enter' element={<EnterOrRegister />} />
           <Route path='/product' element={<Product />} />
         </Routes>
       </div>
