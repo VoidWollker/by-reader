@@ -23,12 +23,12 @@ export const ProductQuotes = ({quotes}) =>{
 
     return(
         <>
-            <div className="product-quotes mt-5">
+            <div className="product-quotes mt-5 pb-4">
                 <h1 className="pt-4">Цитаты</h1>
                 {quotes.map(quote =>{
                     return createQuoteBlock(quote, 54)
                 })}
-                <button className="btn btn-tertiary my-3">Ещё 3 цитаты</button>
+                <button className="btn btn-fivefold my-3">Ещё 3 цитаты</button>
             </div>
         </>
     )

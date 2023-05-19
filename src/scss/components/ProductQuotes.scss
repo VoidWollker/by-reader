@@ -5,7 +5,7 @@
     color: $text-color-light-primary;
 }
 .quotes{
-    background-color: #fff;
+    background-color: $color-quaternary;
     color: $text-color-dark-primary;
     width: 62%;
     font-size: calc(6px + 0.5vw) !important;
@@ -30,10 +30,7 @@
     width: 3%;
 
 }
-.btn-tertiary{
-    --bs-btn-bg: #75B4A2 !important;
-    --bs-btn-border-color: #75B4A2 !important;
-    --bs-btn-hover-border-color: #75B4A2 !important;
+.btn-fivefold{
     width: 15vw;
     min-width: 120px;
     max-width: 200px;

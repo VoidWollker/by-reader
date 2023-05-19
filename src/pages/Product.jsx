@@ -20,6 +20,7 @@ export const Product = () =>{
 
     return(
         <>
+        <div className='pb-4'>
             <ProductDetials 
                 title={book.title}
                 format={book.format}
@@ -51,6 +52,7 @@ export const Product = () =>{
 — Четыре.
 — А если партия говорит, что их не четыре, а пять, — тогда сколько?..`]}/>
             <ProductReviews reviews={['BEEEEST', 'It sad, but that is real']}/>
+            </div>
         </>
     )
 }
