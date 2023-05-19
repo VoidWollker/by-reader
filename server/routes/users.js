@@ -70,4 +70,51 @@ userRouter.post('/add', upload.single('avatar'), (req, res, next) => {
     });
 });
 
+// This section will help you get a user by id
+userRouter.get('/:id', async (req, res) => {
+  const {id}  = req.params
+
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(404).json({error: 'No such user'})
+  }
+
+  const user = await User.findById(id)
+
+  if (!user) {
+    return res.status(404).json({error: 'No such user'})
+  }
+
+  res.status(200).json(user)
+})
+
+// This section will help you get a user by username
+userRouter.get('/find', (req, res, next) => {
+  const username = req.body.username;
+  User.find({'username': username})
+    .select("name lastname username email avatar")
+    .exec()
+    .then(docs => {
+      const response = {
+        count: docs.length,
+        users: docs.map(doc => {
+          return {
+            name: doc.name,
+            lastname: doc.lastname,
+            username: doc.username,
+            email: doc.email,
+            avatar: doc.avatar,
+            _id: doc._id
+          };
+        })
+      };
+      res.status(200).json(response);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({
+        error: err
+      });
+    });
+});
+
 module.exports = userRouter;
