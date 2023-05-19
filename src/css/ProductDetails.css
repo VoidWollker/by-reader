@@ -124,12 +124,12 @@
 }
 
 .product-review-exactly {
-  font-size: calc(6px + 0.5vw);
+  font-size: calc(6px + 0.5vw) !important;
 }
 
 .product-review {
   color: #335B50;
-  font-size: calc(8px + 0.5vw);
+  font-size: calc(8px + 0.3vw) !important;
 }
 
 .product-rating {
@@ -157,4 +157,10 @@
 .btn-buy b {
   max-width: 100%;
   min-width: 20px;
+}
+
+.foto-book {
+  min-width: 200px;
+  max-width: 280px;
+  width: 20vw;
 }/*# sourceMappingURL=ProductDetails.css.map */

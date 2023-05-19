@@ -34,11 +34,11 @@
     min-width: 55px;
 }
 .product-review-exactly{
-    font-size: calc(6px + 0.5vw);
+    font-size: calc(6px + 0.5vw) !important;
 }
 .product-review{
     color: $color-primary;
-    font-size: calc(8px + 0.5vw);
+    font-size: calc(8px + 0.3vw) !important;
 }
 .product-rating{
     border-style: none solid none none;
@@ -61,3 +61,11 @@
     max-width: 100%;
     min-width: 20px;
 }
+.foto-book{
+    min-width: 200px;
+    max-width: 280px;
+    width: 20vw; 
+}
+// .productDetails{
+//     margin-left: 20%;
+// }

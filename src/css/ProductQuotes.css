@@ -89,19 +89,19 @@
 .quotes {
   background-color: #fff;
   color: #0F0D18;
-  width: 62%;
+  width: 100%;
   font-size: calc(6px + 0.5vw) !important;
   font-weight: lighter;
-  min-width: 350px;
+  min-width: 250px;
   box-shadow: 4px 4px 15px rgba(242, 242, 234, 0.4);
 }
 
 .icons-quotes {
-  min-width: 20px;
-  width: 2%;
+  min-width: 25px;
+  width: 3%;
   position: relative;
-  top: calc(8px + 0.5vw);
-  left: calc(6px + 0.5vw);
+  top: calc(8.5px + 0.4vw);
+  left: calc(8.5px + 0.5vw);
 }
 
 .quote-like {
@@ -114,8 +114,10 @@
   width: 3%;
 }
 
-.btn-fivefold {
+.btn-quote {
   width: 15vw;
   min-width: 120px;
   max-width: 200px;
+  margin: 0 auto;
+  display: block !important;
 }/*# sourceMappingURL=ProductQuotes.css.map */
