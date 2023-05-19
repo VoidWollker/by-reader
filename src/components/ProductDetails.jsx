@@ -2,9 +2,9 @@ import "../css/ProductDetails.css"
 
 export const ProductDetials = ({title, format, author, recomendedAge, publisher, seria, rate, ratesCount, reviewCount, price,fakePrice, pageCount, genre, dateWriting}) =>{
     return(
-        <div className="d-flex flex-row">
+        <div className="d-flex flex-row flex-wrap justify-content-center">
             <div className="d-flex flex-column mt-5">
-                <img src={require("../assets/books/Дизайн 10.png")} alt="" />
+                <img src={require("../assets/books/Дизайн 10.png")} alt="" className="foto-book"/>
             </div>
             <div className="d-flex flex-column ms-5 mt-5">
                 <div className="d-flex flex-row mb-2">

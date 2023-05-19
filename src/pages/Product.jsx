@@ -20,7 +20,7 @@ export const Product = () =>{
 
     return(
         <>
-        <div className='pb-4'>
+        <div className='pb-4 '>
             <ProductDetials 
                 title={book.title}
                 format={book.format}
@@ -36,7 +36,7 @@ export const Product = () =>{
                 genre={book.genre}
                 dateWriting={book.dateWriting}
             />
-            <ul className="nav nav-tabs my-4">
+            <ul className="nav nav-tabs my-4 w-75 mx-auto">
                 <li className="nav-item mx-2 product-detials">
                     <a className="link-active" href="#">Краткое описание</a>
                 </li>

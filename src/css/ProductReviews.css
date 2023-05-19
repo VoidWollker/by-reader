@@ -83,10 +83,10 @@
 
 .reviews-box {
   background-color: #fff;
-  width: 62%;
+  width: 100%;
   font-size: calc(6px + 0.5vw) !important;
   font-weight: lighter;
-  min-width: 350px;
+  min-width: 200px;
   box-shadow: 1px 1px 15px 3px rgba(0, 0, 0, 0.25);
   border-radius: 6px;
 }
@@ -108,28 +108,33 @@
   width: 15vw;
   min-width: 120px;
   max-width: 200px;
+  margin: 0 auto;
+  display: block !important;
 }
 
 .avatar {
   width: 4vw;
-  min-width: 30px;
-  max-width: 40px;
+  height: 4vw;
+  min-width: 35px;
+  min-height: 35px;
+  max-width: 45px;
+  max-height: 45px;
 }
 
 .review-add {
   background-color: #fff;
-  width: 62%;
+  width: 100%;
   font-size: calc(6px + 0.5vw) !important;
   font-weight: lighter;
-  min-width: 350px;
+  min-width: 200px;
   box-shadow: 1px 1px 15px 3px rgba(0, 0, 0, 0.25);
   border-radius: 6px;
 }
 
 .add-review {
   background-color: #F2F2EA;
-  max-width: 60% !important;
-  min-width: 45% !important;
+  max-width: 75% !important;
+  min-width: 60% !important;
   height: 35px !important;
   min-height: 20% !important;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -137,10 +142,9 @@
 }
 
 .btn-addReview {
-  width: 15vw;
-  min-width: 65px;
+  width: 10vw;
+  min-width: 100px;
   max-width: 200px;
-  font-size: calc(6px + 0.5vw) !important;
 }
 
 ::-moz-placeholder {
