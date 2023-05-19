@@ -32,8 +32,8 @@ export const ProductCard = ({showType, title, author, image, price, fakePrice, f
                     <p className="product-length w-100">Длительность: {length}</p>
                 </div>
             }
-            <div className="d-flex flex-row align-items-center m-1 mx-0">
-                <p className="product-format bordered-primary-text rounded me-1 px-1">{format}</p>
+            <div className="d-flex flex-row align-items-center m-1 mx-0 product-format">
+                <p className="bordered-primary-text rounded me-1 px-1">{format}</p>
                 <img src={require('../assets/icons/product-star.png')} alt="" className="icon-rating mx-1"/>
                 <p className="product-rate me-1"><b>{rate}</b></p>
                 <p className="product-rates-count">{ratesCount}</p>
