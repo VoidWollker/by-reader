@@ -3,8 +3,8 @@ import { Header }  from "./components/Header"
 import { Home } from "./pages/Home";
 import { Footer }  from "./components/Footer"
 import { EnterOrRegister } from './pages/EnterOrRegister'
-import { Product} from "./pages/Product"
-import { Profile} from "./pages/Profile"
+import { Product } from "./pages/Product"
+import { Profile } from "./pages/Profile"
 
 import "./css/App.css"
 import { UserProvider } from './Context/UserContext';
