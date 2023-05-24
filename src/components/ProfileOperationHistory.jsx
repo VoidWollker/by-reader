@@ -1,3 +1,5 @@
+import "../css/ProfileOperationHistory.css"
+
 export const ProfileOperationHistory = () =>{
     const createCheck = (id, date, status, products, sum) =>{
         return(
@@ -21,6 +23,14 @@ export const ProfileOperationHistory = () =>{
     }
 
     return(
-        <p className="h2">История операций</p>
+        <div>
+            <p className="h2 ms-5 mb-3">История операций</p>
+            <div className="profileOperationHistory-empty">
+                <img src={require("../assets/icons/profileOperationHistory-empty.png")} className="icon-empty"/>
+                <p className="h3 mb-1">Здесь будет отображаться история покупок</p>
+                <p className="comment-p mx-auto">Здесь будут храниться книги, которые вы купили на нашем сайте</p>
+                <button className="btn btn-primary btn-add-books mt-3">Выбрать книги</button>
+            </div>
+        </div>
     )
 }

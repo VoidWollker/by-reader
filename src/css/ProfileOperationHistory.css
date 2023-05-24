@@ -1,0 +1,40 @@
+.h2 {
+  font-size: calc(10px + 0.8vw) !important;
+}
+
+.h3 {
+  font-size: calc(8px + 0.6vw) !important;
+  min-width: 230px;
+}
+
+.comment-p {
+  max-width: 323px;
+  text-align: center;
+  font-size: calc(8px + 0.4vw) !important;
+}
+
+.icon-empty {
+  min-width: 20px !important;
+  width: 5vw;
+  max-width: 50px !important;
+  margin: 0 auto !important;
+  display: block !important;
+}
+
+.btn-add-books {
+  max-height: 55px;
+  min-width: 100px !important;
+  width: 60% !important;
+  max-width: 280px !important;
+  font-size: calc(8px + 0.5vw) !important;
+  padding-left: 2vw !important;
+  padding-right: 2vw !important;
+  padding-bottom: 1vw !important;
+  padding-top: 0.6vw !important;
+  margin: 0 auto !important;
+  display: block !important;
+}
+
+.profileOperationHistory-empty {
+  margin-left: 8vw !important;
+}/*# sourceMappingURL=ProfileOperationHistory.css.map */

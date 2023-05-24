@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import { useAuth } from "../Context/UserContext"
 import { useNavigate } from "react-router"
 import { ProfileAbout } from "../components/ProfileAbout"
+import { ProfileOperationHistory } from "../components/ProfileOperationHistory"
 import "../css/Profile.css"
 
 export const Profile = ({selectedIndex}) =>{
@@ -36,6 +37,7 @@ export const Profile = ({selectedIndex}) =>{
                 </ul>
             </div>
             {/* <ProfileAbout/> */}
+            <ProfileOperationHistory/>
         </div>
     )
 }
