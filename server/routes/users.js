@@ -36,8 +36,34 @@ module.exports = upload;
 // The router will be added as a middleware and will take control of requests starting with path /record.
 const userRouter = Router();
 
+userRouter.post('/add', (req, res) => {
+  const user = new User({
+    _id: new mongoose.Types.ObjectId(),
+    email: req.body.email,
+    password: req.body.password,
+  });
+  user
+    .save()
+    .then(result => {
+      console.log(result);
+      res.status(200).json({
+        message: "Created successfully",
+        createdUser: {
+            email: result.email,
+            _id: result._id
+        }
+      });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(400).json({
+        error: err
+      });
+    });
+});
+
 // This section will help you add a user
-userRouter.post('/add', upload.single('avatar'), (req, res, next) => {
+userRouter.post('/update', upload.single('avatar'), (req, res, next) => {
   const user = new User({
     _id: new mongoose.Types.ObjectId(),
     name: req.body.name,

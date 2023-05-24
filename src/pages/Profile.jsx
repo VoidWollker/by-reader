@@ -1,7 +1,17 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import { useAuth } from "../Context/UserContext"
+import { useNavigate } from "react-router"
 
-const Profile = () =>{
+export const Profile = () =>{
     const [selectedProfileListItem, setSelectedProfileListItem] = useState(0)
+    const {user} = useAuth()
+    const navigate = useNavigate()
+
+    useEffect(() =>{
+        if (!user){
+            navigate('/enter')
+        }
+    }, [user, navigate])
 
     const selectProfileListItem = (index) =>{
         const items = document.getElementsByClassName('profile-list-item')

@@ -1,10 +1,10 @@
 import { useState } from "react"
 import "../css/EnterOrRegister.css"
-import { useUser } from "../Context/UserContext"
+import { useAuth } from "../Context/UserContext"
 import { useNavigate } from "react-router"
 
 export const EnterOrRegister = () =>{
-    const {user, signIn, logIn} = useUser()
+    const {user, signIn, logIn} = useAuth()
     const [formData, setFormData] = useState({})
     const naviagate = useNavigate()
 

@@ -4,7 +4,7 @@ const { createContext, useState, useContext } = require("react");
 
 const UserContext = createContext()
 
-export const useUser = () => useContext(UserContext)
+export const useAuth = () => useContext(UserContext)
 
 export const UserProvider = ({children}) =>{
     const [user, setUser] = useState(getObjectCookie('user') === undefined ? null : getObjectCookie('user'))
@@ -22,8 +22,9 @@ export const UserProvider = ({children}) =>{
             }
         })
             .then(res => res.json())
-            .then(userData => {
-                console.log(userData);
+            .then(resultData => {
+                console.log(resultData.message);
+                const userData = resultData.createdUser
                 setObjectCookie('user', {id: userData._id, email: userData.email}, {expires: new Date(2030, 1)})
             })
             .catch(error => {
