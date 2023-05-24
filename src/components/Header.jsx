@@ -1,6 +1,7 @@
 import React from "react";
 import Search from "./Header.Search";
 import "../css/Header.css"
+import { redirect } from "react-router";
 
 export const Header = () =>{
     const undottedUL = {
@@ -16,13 +17,13 @@ export const Header = () =>{
                     <div className="d-flex flex-row position-relative">
                         <nav>
                             <ul className="d-flex flex-row  menu position-absolute top-0 start-0 flex-container flex-wrap" style={undottedUL}>
-                                <a className="d-flex flex-row "><img src={require("../assets/icons/header-popular.png")} alt="" className="mini-icons" /><li>Популярное</li></a>
-                                <a className="d-flex flex-row "><img src={require("../assets/icons/header-new.png")} alt="" className="mini-icons" /><li>Новинки</li></a>
-                                <a className="d-flex flex-row w-min " ><img src={require("../assets/icons/header-exclusive.png")} alt="" className="mini-icons" /><li>Эксклюзив от Почитателя</li></a>
-                                <a className="d-flex flex-row "><img src={require("../assets/icons/header-audiobook.png")} alt="" className="mini-icons" /><li>Аудиокниги</li></a>
-                                <a className="d-flex flex-row "><img src={require("../assets/icons/header-podcasts.png")} alt="" className="mini-icons" /><li>Подкасты</li></a>
-                                <a className="d-flex flex-row "><img src={require("../assets/icons/header-genres.png")} alt="" className="mini-icons" /><li>Жанры</li></a>
-                                <a className="d-flex flex-row " ><img src={require("../assets/icons/header-subscription.png")} alt="" className="mini-icons" /><li>Подписки</li></a>
+                                <a className="d-flex flex-row"><img src={require("../assets/icons/header-popular.png")} alt="" className="mini-icons" /><li>Популярное</li></a>
+                                <a className="d-flex flex-row"><img src={require("../assets/icons/header-new.png")} alt="" className="mini-icons" /><li>Новинки</li></a>
+                                <a className="d-flex flex-row w-min"><img src={require("../assets/icons/header-exclusive.png")} alt="" className="mini-icons" /><li>Эксклюзив от Почитателя</li></a>
+                                <a className="d-flex flex-row"><img src={require("../assets/icons/header-audiobook.png")} alt="" className="mini-icons" /><li>Аудиокниги</li></a>
+                                <a className="d-flex flex-row"><img src={require("../assets/icons/header-podcasts.png")} alt="" className="mini-icons" /><li>Подкасты</li></a>
+                                <a className="d-flex flex-row"><img src={require("../assets/icons/header-genres.png")} alt="" className="mini-icons" /><li>Жанры</li></a>
+                                <a className="d-flex flex-row" ><img src={require("../assets/icons/header-subscription.png")} alt="" className="mini-icons" /><li>Подписки</li></a>
                             </ul>
                         </nav>
                     </div>
