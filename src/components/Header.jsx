@@ -10,7 +10,7 @@ export const Header = () =>{
 
     return(
         <header className="d-flex flex-row ">
-            <a href=""><img src={require("../assets/icons/header-logo.png")} alt="Логотип сайта" className="logo mb-3" /></a>
+            <a href="/"><img src={require("../assets/icons/header-logo.png")} alt="Логотип сайта" className="logo mb-3" /></a>
             <div className="d-flex flex-row flex-wrap justify-content-center">
                 <div className="d-flex flex-column search-and-menu">    
                     <Search />
@@ -36,7 +36,7 @@ export const Header = () =>{
                         </a>
                     </div>
                     <div className="d-flex flex-column center-elements">
-                        <a href="">
+                        <a href="/profile/bookShelf">
                             <img src={require("../assets/icons/header-bookshelf.png")} alt="Книжная полка" className="book-shelf" />
                             <p className="bookshelf">Книжная полка</p>
                         </a>

@@ -1,6 +1,6 @@
 import "../css/ProductCard.css"
 
-export const ProductCard = ({showType, title, author, image, price, fakePrice, format, reader, pageCount, length, rate, ratesCount, style, className}) => {
+export const ProductCard = ({showType, id, title, author, image, price, fakePrice, format, reader, pageCount, length, rate, ratesCount, style, className}) => {
     const normalStyle = {}
     const miniStyle = {width: '60%'}
     const squareStyle = {width: '100%', aspectRatio: 1}
@@ -8,17 +8,19 @@ export const ProductCard = ({showType, title, author, image, price, fakePrice, f
 
     return(
         <div className={`d-flex flex-column ${className}`} style={{style}}>
-            <img className="img-page-home"
-                src={require('../assets/books/' + image)} 
-                alt={'Book frontpage'}
-                re
-                style={showType === 'normal' ? normalStyle :
-                        showType === 'mini' ? miniStyle :
-                        showType === 'square' ? squareStyle : 
-                        showType === 'bigSquare' ? bigSquareStyle :
-                        {}
-                    }
-            />
+            <a href={`/product/?id=${id}`}>
+                <img className="img-page-home"
+                    src={require('../assets/books/' + image)} 
+                    alt={'Book frontpage'}
+                    re
+                    style={showType === 'normal' ? normalStyle :
+                            showType === 'mini' ? miniStyle :
+                            showType === 'square' ? squareStyle : 
+                            showType === 'bigSquare' ? bigSquareStyle :
+                            {}
+                        }
+                /> 
+            </a>
             <div className="d-flex flex-row align-items-center m-1 mx-0">
                 <p className="product-price bordered-primary-text h4 rounded me-1 p-1"><b>{price} Р</b></p>
                 <p className="product-fake-price mx-1 h4"><s>{fakePrice} Р</s></p>

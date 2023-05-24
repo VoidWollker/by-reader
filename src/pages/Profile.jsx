@@ -2,8 +2,8 @@ import { useState, useEffect } from "react"
 import { useAuth } from "../Context/UserContext"
 import { useNavigate } from "react-router"
 
-export const Profile = () =>{
-    const [selectedProfileListItem, setSelectedProfileListItem] = useState(0)
+export const Profile = ({selectedIndex}) =>{
+    const [selectedProfileListItem, setSelectedProfileListItem] = useState(selectedIndex)
     const {user} = useAuth()
     const navigate = useNavigate()
 

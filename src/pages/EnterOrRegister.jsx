@@ -6,14 +6,14 @@ import { useNavigate } from "react-router"
 export const EnterOrRegister = () =>{
     const {user, signIn, logIn} = useAuth()
     const [formData, setFormData] = useState({})
-    const naviagate = useNavigate()
+    const navigate = useNavigate()
 
     const registerUser = async (e) =>{
         e.preventDefault()
         await signIn(formData)
             .then(res => {
                 console.log('Its redirect');
-                naviagate('/')
+                navigate('/')
             })
             .catch(error => console.log('SignIN error'))
     }

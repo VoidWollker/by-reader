@@ -32,6 +32,7 @@ export const Home = () =>{
                     slides={books.map(book =>{
                         return <ProductCard 
                             showType={'normal'}
+                            id={book._id}
                             title={book.title}
                             author={book.author}
                             image={'Дизайн 10.png'}

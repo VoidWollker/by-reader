@@ -20,7 +20,8 @@ function App() {
               <Route path='/' element={<Home />} />
               <Route path='/enter' element={<EnterOrRegister />} />
               <Route path='/product' element={<Product />} />
-              <Route path='/profile' element={<Profile />} />
+              <Route path='/profile' element={<Profile selectedIndex={0}/>} />
+              <Route path='/profile/bookShelf' element={<Profile selectedIndex={4}/>} />
             </Routes>
           </div>
           <Footer />

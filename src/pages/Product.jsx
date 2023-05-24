@@ -4,20 +4,21 @@ import { ProductDescription } from "../components/ProductDescription"
 import { ProductQuotes } from "../components/ProductQuotes"
 import { ProductReviews }from "../components/ProductReviews"
 import "../css/Product.css"
+import { useSearchParams } from 'react-router-dom'
 
 export const Product = () =>{
     const [book, setBook] = useState({})
+    const [pathParams] = useSearchParams()
 
     useEffect(() =>{
-        getBook()
-    })
+        getBook(pathParams.get('id'))
+    }, [pathParams])
 
-    const getBook = async () =>{
-        await fetch('http://localhost:5000/book/645774394671b0aa9042918d')
-        .then(res => res.json())
-        .then(res => setBook(res))
-    }
-
+    const getBook = async (id) =>
+        await fetch(`http://localhost:5000/book/${id}`)
+            .then(res => res.json())
+            .then(res => setBook(res))
+        
     return(
         <>
         <div className='pb-4 '>
@@ -38,20 +39,20 @@ export const Product = () =>{
             />
             <ul className="nav nav-tabs my-4 w-75 mx-auto">
                 <li className="nav-item mx-2 product-detials">
-                    <a className="link-active" href="#">Краткое описание</a>
+                    <a className="link-active" href="#product-description">Краткое описание</a>
                 </li>
                 <li className="nav-item mx-2 product-detials">
-                    <a className="link-active" href="#">Известные цитаты</a>
+                    <a className="link-active" href="#product-quotes">Известные цитаты</a>
                 </li>
                 <li className="nav-item mx-2 product-detials">
-                    <a className="link-active" href="#">Отзывы</a>
+                    <a className="link-active" href="#product-reviews">Отзывы</a>
                 </li>
             </ul>
-            <ProductDescription description={'Best Book'}/>
+            <ProductDescription description={'Best Book'} elementID={'product-description'} />
             <ProductQuotes quotes={['Война — это мир, свобода — это рабство, незнание — сила.', `— Сколько я показываю пальцев, Уинстон?
 — Четыре.
-— А если партия говорит, что их не четыре, а пять, — тогда сколько?..`]}/>
-            <ProductReviews reviews={['BEEEEST', 'It sad, but that is real']}/>
+— А если партия говорит, что их не четыре, а пять, — тогда сколько?..`]} elementID={'product-quotes'}/>
+            <ProductReviews reviews={['BEEEEST', 'It sad, but that is real']} elementID={'product-reviews'}/>
             </div>
         </>
     )
