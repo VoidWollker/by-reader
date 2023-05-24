@@ -103,12 +103,11 @@
 }
 
 .data-book {
-  font-size: calc(6px + 0.5vw);
+  font-size: calc(6px + 0.4vw);
 }
 
 .icon-product {
   max-height: 18px !important;
-  margin-top: 3px;
   margin-right: 5px;
 }
 
@@ -147,7 +146,7 @@
 }
 
 .detailed-information {
-  font-size: calc(6px + 0.5vw);
+  font-size: calc(6px + 0.4vw);
 }
 
 .product-fragment {
