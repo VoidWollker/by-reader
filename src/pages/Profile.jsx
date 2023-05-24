@@ -23,9 +23,9 @@ export const Profile = ({selectedIndex}) =>{
     }
 
     return(
-        <>
-        <div className="d-flex flex-row w-75 mx-auto">
+        <div className="d-flex flex-row w-75 mx-auto py-4">
             <div className="d-flex flex-row ">
+
                 <ul className="list-unstyled">
                     <li className="profile-list-item profile-list-item-selected" id="profile-list-item-0"><img src={require("../assets/icons/profile-about.png")} alt="" className="me-2"/>Обо мне</li>
                     <li className="profile-list-item" id="profile-list-item-1"><img src={require("../assets/icons/profile-subscribtions.png")} alt="" className="me-2"/>Рассылка и подписки</li>
@@ -35,8 +35,7 @@ export const Profile = ({selectedIndex}) =>{
                     <li className="profile-list-item" id="profile-list-item-5"><img src={require("../assets/icons/profile-exit.png")} alt="" className="me-2"/>Выход</li>
                 </ul>
             </div>
-            <ProfileAbout/>
+            {/* <ProfileAbout/> */}
         </div>
-        </>
     )
 }

@@ -19,7 +19,6 @@ export const ProfileAbout = () =>{
     }
 
     return(
-        <>
             <div className="d-flex flex-column profile-p ms-4">
                 <p className="h2">Обо мне</p>
                 <div className="d-flex flex-row my-3">
@@ -72,6 +71,5 @@ export const ProfileAbout = () =>{
                 <p className="h3 mt-4">Социальные сети</p>
                 <p className="my-2">Подключайте социальные сети для лёгкого входа на сайт Почитатель</p>
             </div>
-        </>
     )
 }
