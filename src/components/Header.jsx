@@ -16,7 +16,7 @@ export const Header = () =>{
                     <Search />
                     <div className="d-flex flex-row position-relative">
                         <nav>
-                            <ul className="d-flex flex-row  menu position-absolute top-0 start-0 flex-container flex-wrap" style={undottedUL}>
+                            <ul className="d-flex flex-row  menu position-absolute top-0 start-0 flex-container flex-wrap justify-content-center" style={undottedUL}>
                                 <a className="d-flex flex-row"><img src={require("../assets/icons/header-popular.png")} alt="" className="mini-icons" /><li>Популярное</li></a>
                                 <a className="d-flex flex-row"><img src={require("../assets/icons/header-new.png")} alt="" className="mini-icons" /><li>Новинки</li></a>
                                 <a className="d-flex flex-row w-min"><img src={require("../assets/icons/header-exclusive.png")} alt="" className="mini-icons" /><li>Эксклюзив от Почитателя</li></a>

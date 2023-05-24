@@ -1,21 +1,120 @@
 const { Router } = require("express");
 const User = require('../models/userModel')
+const mongoose = require('mongoose')
+const multer = require('multer');
+
+const storage = multer.diskStorage({
+    destination: function(req, file, cb) {
+      cb(null, './uploads/');
+    },
+    filename: function(req, file, cb) {
+      cb(null, file.originalname);
+    }
+  });
+  
+  const fileFilter = (req, file, cb) => {
+    // reject a file
+    if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {
+      cb(null, true);
+    } else {
+      cb(null, false);
+    }
+  };
+  
+  const upload = multer({
+    storage: storage,
+    limits: {
+      fileSize: 1024 * 1024 * 5
+    },
+    fileFilter: fileFilter
+  });
+
+module.exports = upload;
  
 // recordRoutes is an instance of the express router.
 // We use it to define our routes.
 // The router will be added as a middleware and will take control of requests starting with path /record.
 const userRouter = Router();
-  
-// This section will help you add a book
-userRouter.post('/add', async (req, res) => {
-  const {email, password} = req.body
-  
-  try {
-    const user = await User.create({email, password})
-    res.status(200).json(user)
-  } catch (error) {
-    res.status(400).json({error: error.message})
+
+// This section will help you add a user
+userRouter.post('/add', upload.single('avatar'), (req, res, next) => {
+  const user = new User({
+    _id: new mongoose.Types.ObjectId(),
+    name: req.body.name,
+    lastname: req.body.lastname,
+    username: req.body.username,
+    email: req.body.email,
+    password: req.body.password,
+    avatar: req.file.path 
+  });
+  user
+    .save()
+    .then(result => {
+      console.log(result);
+      res.status(200).json({
+        message: "Created successfully",
+        createdUser: {
+            name: result.name,
+            lastname: result.lastname,
+            username: result.username,
+            email: result.email,
+            _id: result._id
+        }
+      });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(400).json({
+        error: err
+      });
+    });
+});
+
+// This section will help you get a user by id
+userRouter.get('/:id', async (req, res) => {
+  const {id}  = req.params
+
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(404).json({error: 'No such user'})
   }
+
+  const user = await User.findById(id)
+
+  if (!user) {
+    return res.status(404).json({error: 'No such user'})
+  }
+
+  res.status(200).json(user)
 })
+
+// This section will help you get a user by username
+userRouter.get('/find', (req, res, next) => {
+  const username = req.body.username;
+  User.find({'username': username})
+    .select("name lastname username email avatar")
+    .exec()
+    .then(docs => {
+      const response = {
+        count: docs.length,
+        users: docs.map(doc => {
+          return {
+            name: doc.name,
+            lastname: doc.lastname,
+            username: doc.username,
+            email: doc.email,
+            avatar: doc.avatar,
+            _id: doc._id
+          };
+        })
+      };
+      res.status(200).json(response);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({
+        error: err
+      });
+    });
+});
 
 module.exports = userRouter;

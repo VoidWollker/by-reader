@@ -20,6 +20,7 @@ export const Product = () =>{
 
     return(
         <>
+        <div className='pb-4 '>
             <ProductDetials 
                 title={book.title}
                 format={book.format}
@@ -35,7 +36,7 @@ export const Product = () =>{
                 genre={book.genre}
                 dateWriting={book.dateWriting}
             />
-            <ul className="nav nav-tabs my-4">
+            <ul className="nav nav-tabs my-4 w-75 mx-auto">
                 <li className="nav-item mx-2 product-detials">
                     <a className="link-active" href="#">Краткое описание</a>
                 </li>
@@ -51,6 +52,7 @@ export const Product = () =>{
 — Четыре.
 — А если партия говорит, что их не четыре, а пять, — тогда сколько?..`]}/>
             <ProductReviews reviews={['BEEEEST', 'It sad, but that is real']}/>
+            </div>
         </>
     )
 }

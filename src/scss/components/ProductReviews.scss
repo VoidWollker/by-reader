@@ -1,0 +1,62 @@
+@import "../global/GlobalVariables";
+
+.reviews-box{
+    background-color: $color-quaternary;
+    width: 100%;
+    font-size: calc(6px + 0.5vw) !important;
+    font-weight: lighter;
+    min-width: 200px;
+    box-shadow: 1px 1px 15px 3px rgba(0, 0, 0, 0.25);
+    border-radius: 6px;
+}
+.reviews-data{
+    background-color: $bc-primary;
+    border-radius: 6px 6px 0px 0px;
+}
+.review-userName{
+    font-weight: 500;
+}
+.review-date{
+    font-size: calc(6px + 0.3vw) !important;
+}
+.btn-reviews{
+    width: 15vw;
+    min-width: 120px;
+    max-width: 200px;
+    margin: 0 auto;
+    display: block !important;
+}
+.avatar{
+    width: 4vw;
+    height: 4vw;
+    min-width: 35px;
+    min-height: 35px;
+    max-width: 45px;
+    max-height: 45px;
+}
+.review-add{
+    background-color: $color-quaternary;
+    width: 100%;
+    font-size: calc(6px + 0.5vw) !important;
+    font-weight: lighter;
+    min-width: 200px;
+    box-shadow: 1px 1px 15px 3px rgba(0, 0, 0, 0.25);
+    border-radius: 6px;
+}
+.add-review{
+    background-color: $bc-primary;
+    max-width: 75% !important;
+    min-width: 60% !important;
+    height: 35px !important;
+    min-height: 20% !important;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 6px;
+}
+.btn-addReview{
+    width: 10vw;
+    min-width: 100px;
+    max-width: 200px;
+}
+::placeholder {
+    font-size: calc(10px + 0.3vw) !important;
+  }

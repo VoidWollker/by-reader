@@ -6,7 +6,7 @@
   --bs-btn-border-color: #335B50 !important;
   --bs-btn-hover-color: #fff !important;
   --bs-btn-hover-bg: #295045 !important;
-  --bs-btn-hover-border-color: #0F0D18 !important;
+  --bs-btn-hover-border-color: #295045 !important;
   --bs-btn-focus-shadow-rgb: 49, 132, 253 !important;
   --bs-btn-active-color: #fff !important;
   --bs-btn-active-bg: #335B50 !important;
@@ -51,6 +51,23 @@
   --bs-btn-disabled-border-color: #0d6efd !important;
 }
 
+.btn-fivefold {
+  --bs-btn-color: #fff !important;
+  --bs-btn-bg: #75B4A2 !important;
+  --bs-btn-border-color: #75B4A2 !important;
+  --bs-btn-hover-color: #fff !important;
+  --bs-btn-hover-bg: #2b273f !important;
+  --bs-btn-hover-border-color: #75B4A2 !important;
+  --bs-btn-focus-shadow-rgb: 49, 132, 253 !important;
+  --bs-btn-active-color: #fff !important;
+  --bs-btn-active-bg: #0F0D18 !important;
+  --bs-btn-active-border-color: #0F0D18 !important;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125) !important;
+  --bs-btn-disabled-color: #fff !important;
+  --bs-btn-disabled-bg: #0d6efd !important;
+  --bs-btn-disabled-border-color: #0d6efd !important;
+}
+
 .bordered-primary-text {
   border: solid #335B50;
   background-color: #335B50;
@@ -86,12 +103,11 @@
 }
 
 .data-book {
-  font-size: calc(6px + 0.5vw);
+  font-size: calc(6px + 0.4vw);
 }
 
 .icon-product {
   max-height: 18px !important;
-  margin-top: 3px;
   margin-right: 5px;
 }
 
@@ -107,12 +123,12 @@
 }
 
 .product-review-exactly {
-  font-size: calc(6px + 0.5vw);
+  font-size: calc(6px + 0.5vw) !important;
 }
 
 .product-review {
   color: #335B50;
-  font-size: calc(8px + 0.5vw);
+  font-size: calc(8px + 0.3vw) !important;
 }
 
 .product-rating {
@@ -130,7 +146,7 @@
 }
 
 .detailed-information {
-  font-size: calc(6px + 0.5vw);
+  font-size: calc(6px + 0.4vw);
 }
 
 .product-fragment {
@@ -140,4 +156,10 @@
 .btn-buy b {
   max-width: 100%;
   min-width: 20px;
+}
+
+.foto-book {
+  min-width: 200px;
+  max-width: 280px;
+  width: 20vw;
 }/*# sourceMappingURL=ProductDetails.css.map */
