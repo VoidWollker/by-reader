@@ -4,6 +4,7 @@ import { Home } from "./pages/Home";
 import { Footer }  from "./components/Footer"
 import { EnterOrRegister } from './pages/EnterOrRegister'
 import { Product} from "./pages/Product"
+import { Profile} from "./pages/Profile"
 
 import "./css/App.css"
 import { AuthProvider } from 'react-auth-kit';
@@ -22,6 +23,7 @@ function App() {
             <Route path='/' element={<Home />} />
             <Route path='/enter' element={<EnterOrRegister />} />
             <Route path='/product' element={<Product />} />
+            <Route path='/profile' element={<Profile />} />
           </Routes>
         </div>
         <Footer />
