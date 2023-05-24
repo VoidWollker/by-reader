@@ -43,4 +43,68 @@ productRoutes.get('/:id', async (req, res) => {
   res.status(200).json(book)
 })
 
+productRoutes.get('/find/bytitle', async (req, res, next) => {
+  const title = req.body.title
+
+  const book = await Book.find({'title': title})
+
+  if (book == '') {
+    return res.status(404).json({error: 'No such book'})
+  }
+
+  res.status(200).json(book)
+})
+
+// This section will help you get a single record by author
+productRoutes.get('/find/byauthor', async (req, res, next) => {
+  const author = req.body.author
+
+  const book = await Book.find({'author': author})
+
+  if (book == '') {
+    return res.status(404).json({error: 'No such book'})
+  }
+
+  res.status(200).json(book)
+})
+
+// This section will help you get a single record by genre
+productRoutes.get('/find/byagenre', async (req, res, next) => {
+  const genre = req.body.genre
+
+  const book = await Book.find({'genre': genre})
+
+  if (book == '') {
+    return res.status(404).json({error: 'No such book'})
+  }
+
+  res.status(200).json(book)
+})
+
+// This section will help you get a single record by publisher
+productRoutes.get('/find/bypublisher', async (req, res, next) => {
+  const publisher = req.body.publisher
+
+  const book = await Book.find({'publisher': publisher})
+
+  if (book == '') {
+    return res.status(404).json({error: 'No such book'})
+  }
+
+  res.status(200).json(book)
+})
+
+// This section will help you get a single record by seria
+productRoutes.get('/find/byseria', async (req, res, next) => {
+  const seria = req.body.seria
+
+  const book = await Book.find({'seria': seria})
+
+  if (book == '') {
+    return res.status(404).json({error: 'No such book'})
+  }
+
+  res.status(200).json(book)
+})
+
 module.exports = productRoutes;

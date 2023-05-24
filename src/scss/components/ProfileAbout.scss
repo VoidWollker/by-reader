@@ -1,0 +1,64 @@
+@import "../global/GlobalVariables";
+
+.h2{
+    font-size: calc(10px + 0.8vw);
+}
+.profile-input input{
+    width: 11vw;
+    min-width: 135px;
+    border-radius: 8px;
+    padding-left: 1vw;
+    height: 33px;
+    min-height: 2.8vw;
+    border: 0px;
+    margin-top: 4px !important;
+    margin-bottom: 4px !important;
+}
+.profile-p{
+    font-size: calc(8px + 0.4vw);
+    font-weight: 300;
+    width: 60%;
+}
+.profile-checkbox input{
+    min-width: 15px !important;
+    width: 2vw !important;
+    max-width: 20px !important;
+    height: 2vw;
+    max-height: 20px;
+    min-height: 10px ;
+}
+.profile-checkbox label{
+    font-size: calc(7px + 0.5vw) !important;
+    font-weight: 400;
+}
+.profile-checkbox b{
+    color: $color-primary;
+}
+.btn-profile-save{
+    max-width: 40% !important;
+    width: 50vw;
+    min-width: 150px !important;
+    font-weight: 600 !important;
+    font-size: calc(7px + 0.6vw) !important;
+    padding-top: 0.6vw !important;
+    padding-bottom: 0.6vw !important;
+    min-height: 30px !important;
+    padding-left: 2vw !important;
+    padding-right: 2vw !important;
+}
+.profile-text-limiter{
+    max-width: 575px !important;
+}
+.btns-changes{
+    max-height: 54px;
+    font-size: calc(8px + 0.4vw) !important;
+    padding-left: 2vw !important;
+    padding-right: 2vw !important;
+}
+.profile-avatar{
+    min-width: 35px;
+    width: 5vw;
+}
+.h3{
+    font-size: calc(10px + 0.5vw) !important;
+}
