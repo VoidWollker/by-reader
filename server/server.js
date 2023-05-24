@@ -2,7 +2,7 @@ require("dotenv").config({ path: "./config.env" });
 
 const express = require('express')
 const cors = require('cors');
-const routes = require('./routes/record')
+const productRoutes = require('./routes/products')
 const userRoutes = require('./routes/users')
 const database = require('./db/conn');
 
@@ -18,7 +18,7 @@ app.use((req, res, next) => {
 })
 
 // routes
-app.use('/book', routes)
+app.use('/book', productRoutes)
 app.use('/user', userRoutes)
 
 app.listen(process.env.PORT, () => {
