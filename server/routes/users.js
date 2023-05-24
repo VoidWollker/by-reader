@@ -36,8 +36,34 @@ module.exports = upload;
 // The router will be added as a middleware and will take control of requests starting with path /record.
 const userRouter = Router();
 
+userRouter.post('/add', (req, res) => {
+  const user = new User({
+    _id: new mongoose.Types.ObjectId(),
+    email: req.body.email,
+    password: req.body.password,
+  });
+  user
+    .save()
+    .then(result => {
+      console.log(result);
+      res.status(200).json({
+        message: "Created successfully",
+        createdUser: {
+            email: result.email,
+            _id: result._id
+        }
+      });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(400).json({
+        error: err
+      });
+    });
+});
+
 // This section will help you add a user
-userRouter.post('/add', upload.single('avatar'), (req, res, next) => {
+userRouter.post('/update', upload.single('avatar'), (req, res, next) => {
   const user = new User({
     _id: new mongoose.Types.ObjectId(),
     name: req.body.name,
@@ -88,33 +114,16 @@ userRouter.get('/:id', async (req, res) => {
 })
 
 // This section will help you get a user by username
-userRouter.get('/find', (req, res, next) => {
-  const username = req.body.username;
-  User.find({'username': username})
-    .select("name lastname username email avatar")
-    .exec()
-    .then(docs => {
-      const response = {
-        count: docs.length,
-        users: docs.map(doc => {
-          return {
-            name: doc.name,
-            lastname: doc.lastname,
-            username: doc.username,
-            email: doc.email,
-            avatar: doc.avatar,
-            _id: doc._id
-          };
-        })
-      };
-      res.status(200).json(response);
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json({
-        error: err
-      });
-    });
-});
+userRouter.get('/find/username', async (req, res, next) => {
+  const username = req.body.username
+
+  const user = await User.find({'username': username})
+
+  if (user == '') {
+    return res.status(404).json({error: 'No such user'})
+  }
+
+  res.status(200).json(user)
+})
 
 module.exports = userRouter;

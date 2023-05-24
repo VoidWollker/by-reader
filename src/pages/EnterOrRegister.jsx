@@ -1,21 +1,21 @@
 import { useState } from "react"
 import "../css/EnterOrRegister.css"
+import { useAuth } from "../Context/UserContext"
+import { useNavigate } from "react-router"
 
 export const EnterOrRegister = () =>{
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
+    const {user, signIn, logIn} = useAuth()
+    const [formData, setFormData] = useState({})
+    const naviagate = useNavigate()
 
-    const registerUser = async () =>{
-        await fetch('http://localhost:5000/user/add', {
-            method: 'POST',
-            body: JSON.stringify({
-                email: email,
-                password: password
-            }),
-            headers: {
-                "Content-type": "application/json; charset=UTF-8"
-            }
-        })
+    const registerUser = async (e) =>{
+        e.preventDefault()
+        await signIn(formData)
+            .then(res => {
+                console.log('Its redirect');
+                naviagate('/')
+            })
+            .catch(error => console.log('SignIN error'))
     }
 
     const enterForm = 
@@ -42,16 +42,18 @@ export const EnterOrRegister = () =>{
     const registerForm = 
         <form className="d-flex flex-column px-5 py-1">
             <h1 className="d-flex justify-content-center mt-3">Регистрация</h1>
-            <input className="form-control form-control-lg my-2 ms-0" type="text" placeholder="Логин" onChange={(e) => setEmail(e.target.value)}/>
-            <input className="form-control form-control-lg my-2 ms-0" type="text" placeholder="Пароль" onChange={(e) => setPassword(e.target.value)}/>
+            <input className="form-control form-control-lg my-2 ms-0" type="text" placeholder="Логин" onChange={(e) => setFormData(prevState => {return {...prevState, email: e.target.value}})}/>
+            <input className="form-control form-control-lg my-2 ms-0" type="text" placeholder="Пароль" onChange={(e) => setFormData(prevState => {return {...prevState, password: e.target.value}})}/>
             <input className="form-control form-control-lg my-2 ms-0" type="text" placeholder="Повтор пароля"/>
-            <button className="btn btn-primary my-1 px-3 py-3 btn-registration" onClick={registerUser}><h4>Зарегестрироваться</h4></button>
+            <button className="btn btn-primary my-1 px-3 py-3 btn-registration" onClick={(e) => registerUser(e)}><h4>Зарегистрироваться</h4></button>
             <button className="btn btn-outline-secondary border-0 text-button btn-log-in">Войти в профиль</button>
         </form>
 
     return(
         <div className="d-flex justify-content-center">
-            {registerForm}
+            {user === null ?
+                registerForm :
+                enterForm}
         </div>
     )
 }

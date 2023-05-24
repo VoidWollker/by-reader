@@ -1,6 +1,7 @@
 import React from "react";
 import Search from "./Header.Search";
 import "../css/Header.css"
+import { redirect } from "react-router";
 
 export const Header = () =>{
     const undottedUL = {
@@ -16,20 +17,20 @@ export const Header = () =>{
                     <div className="d-flex flex-row position-relative">
                         <nav>
                             <ul className="d-flex flex-row  menu position-absolute top-0 start-0 flex-container flex-wrap justify-content-center" style={undottedUL}>
-                                <a className="d-flex flex-row "><img src={require("../assets/icons/header-popular.png")} alt="" className="mini-icons" /><li>Популярное</li></a>
-                                <a className="d-flex flex-row "><img src={require("../assets/icons/header-new.png")} alt="" className="mini-icons" /><li>Новинки</li></a>
-                                <a className="d-flex flex-row w-min " ><img src={require("../assets/icons/header-exclusive.png")} alt="" className="mini-icons" /><li>Эксклюзив от Почитателя</li></a>
-                                <a className="d-flex flex-row "><img src={require("../assets/icons/header-audiobook.png")} alt="" className="mini-icons" /><li>Аудиокниги</li></a>
-                                <a className="d-flex flex-row "><img src={require("../assets/icons/header-podcasts.png")} alt="" className="mini-icons" /><li>Подкасты</li></a>
-                                <a className="d-flex flex-row "><img src={require("../assets/icons/header-genres.png")} alt="" className="mini-icons" /><li>Жанры</li></a>
-                                <a className="d-flex flex-row " ><img src={require("../assets/icons/header-subscription.png")} alt="" className="mini-icons" /><li>Подписки</li></a>
+                                <li className="d-flex flex-row"><img src={require("../assets/icons/header-popular.png")} alt="" className="mini-icons" /><a href="">Популярное</a></li>
+                                <li className="d-flex flex-row"><img src={require("../assets/icons/header-new.png")} alt="" className="mini-icons" /><a href="">Новинки</a></li>
+                                <li className="d-flex flex-row w-min"><img src={require("../assets/icons/header-exclusive.png")} alt="" className="mini-icons" /><a href="">Эксклюзив от Почитателя</a></li>
+                                <li className="d-flex flex-row"><img src={require("../assets/icons/header-audiobook.png")} alt="" className="mini-icons" /><a href="">Аудиокниги</a></li>
+                                <li className="d-flex flex-row"><img src={require("../assets/icons/header-podcasts.png")} alt="" className="mini-icons" /><a href="">Подкасты</a></li>
+                                <li className="d-flex flex-row"><img src={require("../assets/icons/header-genres.png")} alt="" className="mini-icons" /><a href="">Жанры</a></li>
+                                <li className="d-flex flex-row" ><img src={require("../assets/icons/header-subscription.png")} alt="" className="mini-icons" /><a href="">Подписки</a></li>
                             </ul>
                         </nav>
                     </div>
                 </div>
                 <div className="d-flex flex-pow btn-header">
                     <div className=" d-flex flex-column center-elements">
-                        <a href="">
+                        <a href="/profile">
                             <img src={require("../assets/icons/header-entry.png")} alt="Вход" className="log-in" />
                             <p>Вход</p>
                         </a>
