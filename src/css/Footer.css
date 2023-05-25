@@ -114,6 +114,7 @@ a {
   width: 80%;
   margin-left: 20vw;
   margin-right: 10vw;
+  margin-top: 130px;
 }
 
 .blocks nav {
@@ -127,8 +128,12 @@ a {
 
 .footer-p {
   padding-right: 3vw;
+  max-height: 320px;
+  height: 20vw;
 }
 
 .footer-ps {
   padding-left: 3vw;
+  min-height: 220px !important;
+  height: 18vw;
 }/*# sourceMappingURL=Footer.css.map */

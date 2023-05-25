@@ -8,7 +8,7 @@ export const Footer = () =>{
     return(
         <footer className="d-flex flex-row ">
             <div className="d-flex flex-row blocks flex-wrap ">
-                <nav className="d-flex flex-row mt-5 footer-p">
+                <nav className="d-flex flex-row footer-p">
                     <ul className="d-flex flex-column footer-links" style={undottedUL}>
                         <li className="heading-footer"><b>Почитатель в соц. сетях</b></li>
                         <a href=""className=""><li>ВКонтакте</li></a>
@@ -17,7 +17,7 @@ export const Footer = () =>{
                         <a href=""className=""><li>YouTube</li></a>
                     </ul>
                 </nav>
-                <nav className="d-flex flex-row mt-5 footer-p">
+                <nav className="d-flex flex-row footer-p">
                     <ul className="d-flex flex-column footer-links" style={undottedUL}>
                         <li className="heading-footer"><b>Навигация по сайту</b></li>
                         <a href=""className=""><li>Вход и регистрация</li></a>
@@ -25,7 +25,7 @@ export const Footer = () =>{
                         <a href=""className=""><li>Подарок</li></a>
                     </ul>
                 </nav>
-                <nav className="d-flex flex-row mt-5">
+                <nav className="d-flex flex-row mb-4 ">
                     <ul className="d-flex flex-column footer-links" style={undottedUL}>
                         <li className="heading-footer"><b>Моя книжная полка</b></li>
                         <a href=""className=""><li>Купленные</li></a>
@@ -34,7 +34,7 @@ export const Footer = () =>{
                         <a href=""className=""><li>Корзина</li></a>
                     </ul>
                 </nav>
-                <nav className="d-flex flex-row my-5 footer-ps">
+                <nav className="d-flex flex-row  footer-ps mb-5">
                     <ul className="" style={undottedUL}>
                         <li className="heading-footer"><b>Жанры</b></li>
                         <div className="d-flex flex-row ">

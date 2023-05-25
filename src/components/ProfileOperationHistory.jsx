@@ -28,8 +28,8 @@ export const ProfileOperationHistory = () =>{
             <div className="profileOperationHistory-empty">
                 <img src={require("../assets/icons/profileOperationHistory-empty.png")} className="icon-empty"/>
                 <p className="h3 text-center mb-1">Здесь будет отображаться история покупок</p>
-                <p className="comment-p mx-auto">Здесь будут храниться книги, которые вы купили на нашем сайте</p>
-                <button className="btn btn-primary btn-add-books mt-3">Выбрать книги</button>
+                <p className="comment-p mx-auto mb-3">Здесь будут храниться книги, которые вы купили на нашем сайте</p>
+                <button className="btn btn-primary btn-add-books">Выбрать книги</button>
             </div>
         </div>
     )

@@ -96,4 +96,9 @@
 .profile-list-item {
   font-weight: 400;
   padding-bottom: 10px;
+}
+
+.profile-list-item-selected button {
+  color: #335B50 !important;
+  font-weight: 600;
 }/*# sourceMappingURL=Profile.css.map */

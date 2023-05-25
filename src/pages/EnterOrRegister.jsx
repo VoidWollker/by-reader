@@ -20,7 +20,7 @@ export const EnterOrRegister = () =>{
 
     const enterForm = 
         <form className="d-flex flex-column px-5 py-1">
-            <h1 className="d-flex justify-content-center">Войти в профиль</h1>
+            <h1 className="d-flex justify-content-center mt-3">Войти в профиль</h1>
             <input className="form-control form-control-lg my-2" type="text" placeholder="Логин"/>
             <input className="form-control form-control-lg my-2" type="text" placeholder="Пароль"/>
             <div className="d-flex flex-row justify-content-between">
@@ -30,7 +30,7 @@ export const EnterOrRegister = () =>{
                 </div>
                 <button className="btn btn-outline-secondary border-0 text-button">Забыли пароль?</button>
             </div>
-            <button className="btn btn-primary px-3 py-3"><h4>Войти</h4></button>
+            <button className="btn btn-primary px-3 pt-3"><h4>Войти</h4></button>
             <button className="btn btn-outline-secondary border-0 text-button">Зарегистрироваться</button>
             <hr />
             <p className="d-flex justify-content-center">Другие способы входа</p>
