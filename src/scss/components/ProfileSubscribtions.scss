@@ -1,4 +1,4 @@
-
+@import "../global/GlobalVariables";
 
 .h2{
     font-size: calc(10px + 0.8vw) !important;
@@ -19,3 +19,63 @@
 .text-p{
     margin-left: 5vw;
 }
+
+.switch {
+    position: relative;
+    display: inline-block;
+    min-width: 25px;
+    width: 3vw;
+    min-height: 18px;
+    height: 1.7vw;
+  }
+  
+  .switch input {display:none;}
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 1.25vw;
+    min-height: 10px;
+    min-width: 10px;
+    width: 1.25vw;
+    left: 4px;
+    bottom: 4px;
+    background-color: $bc-secondary;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: $color-primary;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px $color-primary;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(1.2vw);
+    -ms-transform: translateX(1.2vw);
+    transform: translateX(1.2vw);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }

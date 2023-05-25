@@ -8,7 +8,7 @@ export const ProfileSubscribtions = () =>{
             <p className="h3 mb-2">Полезная информация от магазина по эл.почте</p>
             <div className="d-flex flex-row">
                 <p className="h5 me-3">Вы будете получать эл.письма с информацией о бонусах, акциях и новых поступлениях магазина.</p>
-                <input type="checkbox" name="" id="" />
+                <label class="switch"><input type="checkbox" name="" id=""/><span class="slider"></span></label>
             </div>
             <p className="h2 mt-4">Подписки</p>
         </div>
