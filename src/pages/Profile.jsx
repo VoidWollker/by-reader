@@ -9,7 +9,7 @@ import "../css/Profile.css"
 
 export const Profile = ({selectedIndex}) =>{
     const [selectedProfileListItem, setSelectedProfileListItem] = useState(selectedIndex)
-    const {user} = useAuth()
+    const {user, logOut} = useAuth()
     const navigate = useNavigate()
 
     useEffect(() =>{
@@ -18,11 +18,17 @@ export const Profile = ({selectedIndex}) =>{
         }
     }, [user, navigate])
 
+    useEffect(() => {
+        const items = document.getElementsByClassName('profile-list-item')
+        console.log(items[selectedProfileListItem]);
+        items[selectedProfileListItem].classList.add('profile-list-item-selected')
+    }, [selectedProfileListItem])
+
     const selectProfileListItem = (index) =>{
         const items = document.getElementsByClassName('profile-list-item')
+        console.log(items[selectedProfileListItem]);
         items[selectedProfileListItem].classList.remove('profile-list-item-selected')
         setSelectedProfileListItem(index)
-        items[selectedProfileListItem].classList.add('profile-list-item-selected')
     }
 
     return(
@@ -30,17 +36,41 @@ export const Profile = ({selectedIndex}) =>{
             <div className="d-flex flex-row ">
 
                 <ul className="list-unstyled">
-                    <li className="profile-list-item profile-list-item-selected" id="profile-list-item-0"><img src={require("../assets/icons/profile-about.png")} alt="" className="me-2"/>Обо мне</li>
-                    <li className="profile-list-item" id="profile-list-item-1"><img src={require("../assets/icons/profile-subscribtions.png")} alt="" className="me-2"/>Рассылка и подписки</li>
-                    <li className="profile-list-item" id="profile-list-item-2"><img src={require("../assets/icons/profile-operatio-history.png")} alt="" className="me-2"/>История операций</li>
-                    <li className="profile-list-item" id="profile-list-item-3"><img src={require("../assets/icons/profile-bookshelf.png")} alt="" className="me-2"/>Книжная полка</li>
-                    <li className="profile-list-item pb-5" id="profile-list-item-4"><img src={require("../assets/icons/profile-support-service.png")} alt="" className="me-2"/>Служба поддержки</li>
-                    <li className="profile-list-item" id="profile-list-item-5"><img src={require("../assets/icons/profile-exit.png")} alt="" className="me-2"/>Выход</li>
+                    <li className="profile-list-item profile-list-item-selected" id="profile-list-item-0">
+                        <img src={require("../assets/icons/profile-about.png")} alt="" className="me-2"/>
+                        <button className="border-0" onClick={() => selectProfileListItem(0)}>Обо мне</button>
+                    </li>
+                    <li className="profile-list-item" id="profile-list-item-1">
+                        <img src={require("../assets/icons/profile-subscribtions.png")} alt="" className="me-2"/>
+                        <button className="border-0" onClick={() => selectProfileListItem(1)}>Рассылка и подписки</button>
+                    </li>
+                    <li className="profile-list-item" id="profile-list-item-2">
+                        <img src={require("../assets/icons/profile-operatio-history.png")} alt="" className="me-2"/>
+                        <button className="border-0" onClick={() => selectProfileListItem(2)}>История операций</button>
+                    </li>
+                    <li className="profile-list-item" id="profile-list-item-3">
+                        <img src={require("../assets/icons/profile-bookshelf.png")} alt="" className="me-2"/>
+                        <button className="border-0" onClick={() => selectProfileListItem(3)}>Книжная полка</button>
+                    </li>
+                    <li className="profile-list-item pb-5" id="profile-list-item-4">
+                        <img src={require("../assets/icons/profile-support-service.png")} alt="" className="me-2"/>
+                        <button className="border-0">Служба поддержки</button>
+                    </li>
+                    <li className="profile-list-item" id="profile-list-item-5">
+                        <img src={require("../assets/icons/profile-exit.png")} alt="" className="me-2"/>
+                        <button className="border-0" onClick={logOut}>Выход</button>
+                    </li>
                 </ul>
             </div>
-            {/* <ProfileAbout/> */}
-            {/* <ProfileOperationHistory/> */}
-            <ProfileSubscribtions/>
+
+            {selectedProfileListItem === 0 ?
+                <ProfileAbout/> :
+            selectedProfileListItem === 1 ?
+                <ProfileSubscribtions/> :
+            selectedProfileListItem === 2 ?
+                <ProfileOperationHistory/> :
+            ''
+            }
 
         </div>
     )
