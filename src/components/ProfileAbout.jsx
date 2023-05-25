@@ -19,7 +19,7 @@ export const ProfileAbout = () =>{
     }
 
     return(
-            <div className="d-flex flex-column profile-p ms-4">
+            <div className="d-flex flex-column profile-p ms-5">
                 <p className="h2">Обо мне</p>
                 <div className="d-flex flex-row my-3">
                     <img src={require("../assets/icons/profile-avatar.png")} alt="" className="profile-avatar me-3 "/>

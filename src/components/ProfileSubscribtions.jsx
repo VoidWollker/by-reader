@@ -2,7 +2,7 @@ import "../css/ProfileSubscribtions.css"
 
 export const ProfileSubscribtions = () =>{
     return(
-        <div className="text-p">
+        <div className="text-p ms-5">
             <p className="h2">Рассылка</p>
             <p className="h5 my-3">Здесь вы можете включать и отключать рассылку, когда угодно </p>
             <p className="h3 mb-2">Полезная информация от магазина по эл.почте</p>
