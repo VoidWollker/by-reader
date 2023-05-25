@@ -1,11 +1,11 @@
-
+@import "../global/GlobalVariables";
 
 .h2{
     font-size: calc(10px + 0.8vw) !important;
 }
 .h3{
     font-size: calc(8px + 0.6vw) !important;
-    min-width: 230px;
+    min-width: 20px !important;
 }
 .comment-p{
     max-width: 323px;
@@ -34,4 +34,31 @@
 }
 .profileOperationHistory-empty{
     margin-left: 8vw !important;
+}
+.ProfileOperationHistory-order{
+    background-color: #fff;
+    width: 100%;
+    min-width: 222px !important;
+    box-shadow: 1px 1px 15px 3px rgba(0, 0, 0, 0.25);
+    border-radius: 6px;
+}
+.ProfileOperationHistory-order-data{
+    border-radius: 6px 6px 0 0;
+    background-color: $bc-primary;
+}
+.fotoBook-order{
+    min-width: 30px;
+    width: 2.8vw;
+}
+.order-id-data{
+    min-width: 150px !important;
+    width: 31vw;
+}
+.text-right{
+    text-align: right;
+    min-width: 50px !important;
+    width: 20px !important;
+}
+.price-order{
+    width: 31vw !important;
 }

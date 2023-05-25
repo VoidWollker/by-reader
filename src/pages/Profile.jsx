@@ -39,8 +39,8 @@ export const Profile = ({selectedIndex}) =>{
                 </ul>
             </div>
             {/* <ProfileAbout/> */}
-            {/* <ProfileOperationHistory/> */}
-            <ProfileSubscribtions/>
+            <ProfileOperationHistory/>
+            {/* <ProfileSubscribtions/> */}
 
         </div>
     )
