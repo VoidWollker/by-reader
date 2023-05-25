@@ -24,7 +24,7 @@
     position: relative;
     display: inline-block;
     min-width: 25px;
-    width: 3vw;
+    width: 2.9vw;
     min-height: 18px;
     height: 1.7vw;
   }
@@ -38,7 +38,9 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #ccc;
+    background-color: $bc-secondary;
+    border: 3px solid;
+    border-radius: 6px !important;
     -webkit-transition: .4s;
     transition: .4s;
   }
@@ -46,18 +48,19 @@
   .slider:before {
     position: absolute;
     content: "";
-    height: 1.25vw;
-    min-height: 10px;
-    min-width: 10px;
-    width: 1.25vw;
-    left: 4px;
-    bottom: 4px;
-    background-color: $bc-secondary;
+    height: 1.4vw;
+    min-height: 13px;
+    min-width: 13px;
+    width: 1.4vw;
+    left: 0;
+    bottom: 0;
+    border-radius:2px !important;
+    background-color: $color-tertiary;
     -webkit-transition: .4s;
     transition: .4s;
   }
   
-  input:checked + .slider {
+  input:checked + .slider:before {
     background-color: $color-primary;
   }
   
