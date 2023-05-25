@@ -114,10 +114,16 @@ userRouter.get('/:id', async (req, res) => {
 })
 
 // This section will help you get a user by username
-userRouter.get('/find/username', async (req, res, next) => {
+userRouter.get('/find/username', async (req, res) => {
   const username = req.body.username
+  const regex = new RegExp(username, 'i');
 
-  const user = await User.find({'username': username})
+  const book = await Book.find(
+    {
+        "$or":[
+            {username: {$regex: regex}}
+        ]
+    })
 
   if (user == '') {
     return res.status(404).json({error: 'No such user'})

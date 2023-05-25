@@ -43,10 +43,16 @@ productRoutes.get('/:id', async (req, res) => {
   res.status(200).json(book)
 })
 
-productRoutes.get('/find/bytitle', async (req, res, next) => {
+productRoutes.get('/find/bytitle', async (req, res) => {
   const title = req.body.title
+  const regex = new RegExp(title, 'i');
 
-  const book = await Book.find({'title': title})
+  const book = await Book.find(
+    {
+        "$or":[
+            {title: {$regex: regex}}
+        ]
+    })
 
   if (book == '') {
     return res.status(404).json({error: 'No such book'})
@@ -56,10 +62,16 @@ productRoutes.get('/find/bytitle', async (req, res, next) => {
 })
 
 // This section will help you get a single record by author
-productRoutes.get('/find/byauthor', async (req, res, next) => {
+productRoutes.get('/find/byauthor', async (req, res) => {
   const author = req.body.author
+  const regex = new RegExp(author, 'i');
 
-  const book = await Book.find({'author': author})
+  const book = await Book.find(
+    {
+        "$or":[
+            {author: {$regex: regex}}
+        ]
+    })
 
   if (book == '') {
     return res.status(404).json({error: 'No such book'})
@@ -69,10 +81,16 @@ productRoutes.get('/find/byauthor', async (req, res, next) => {
 })
 
 // This section will help you get a single record by genre
-productRoutes.get('/find/byagenre', async (req, res, next) => {
+productRoutes.get('/find/bygenre', async (req, res) => {
   const genre = req.body.genre
+  const regex = new RegExp(genre, 'i');
 
-  const book = await Book.find({'genre': genre})
+  const book = await Book.find(
+    {
+        "$or":[
+            {genre: {$regex: regex}}
+        ]
+    })
 
   if (book == '') {
     return res.status(404).json({error: 'No such book'})
@@ -82,10 +100,16 @@ productRoutes.get('/find/byagenre', async (req, res, next) => {
 })
 
 // This section will help you get a single record by publisher
-productRoutes.get('/find/bypublisher', async (req, res, next) => {
+productRoutes.get('/find/bypublisher', async (req, res) => {
   const publisher = req.body.publisher
+  const regex = new RegExp(publisher, 'i');
 
-  const book = await Book.find({'publisher': publisher})
+  const book = await Book.find(
+    {
+        "$or":[
+            {publisher: {$regex: regex}}
+        ]
+    })
 
   if (book == '') {
     return res.status(404).json({error: 'No such book'})
@@ -95,10 +119,16 @@ productRoutes.get('/find/bypublisher', async (req, res, next) => {
 })
 
 // This section will help you get a single record by seria
-productRoutes.get('/find/byseria', async (req, res, next) => {
+productRoutes.get('/find/byseria', async (req, res) => {
   const seria = req.body.seria
+  const regex = new RegExp(seria, 'i');
 
-  const book = await Book.find({'seria': seria})
+  const book = await Book.find(
+    {
+        "$or":[
+            {seria: {$regex: regex}}
+        ]
+    })
 
   if (book == '') {
     return res.status(404).json({error: 'No such book'})
