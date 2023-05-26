@@ -101,7 +101,7 @@
 .product-title {
   font-size: calc(10px + 0.3vw) !important;
   min-width: 100px !important;
-  max-width: 130px !important;
+  max-width: 300px !important;
 }
 
 .product-author {
@@ -169,4 +169,8 @@
 .product-format {
   min-width: 3em !important;
   text-align: center;
+}
+
+.product-card {
+  width: 150px;
 }/*# sourceMappingURL=ProductCard.css.map */

@@ -7,7 +7,7 @@ export const ProductCard = ({showType, id, title, author, image, price, fakePric
     const bigSquareStyle = {width: '120%', aspectRatio: 1}
 
     return(
-        <div className={`d-flex flex-column ${className}`} style={{style}}>
+        <div className={`d-flex flex-column product-card ${className}`} style={{style}}>
             <a href={`/product/?id=${id}`}>
                 <img className="img-page-home"
                     src={require('../assets/books/' + image)} 
