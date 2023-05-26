@@ -162,15 +162,11 @@
 }
 
 .img-page-home {
-  min-width: 50px;
-  max-width: 320px;
+  min-width: 25px !important;
+  max-width: 320px !important;
 }
 
 .product-format {
   min-width: 3em !important;
   text-align: center;
-}
-
-.product-card {
-  width: 150px;
 }/*# sourceMappingURL=ProductCard.css.map */
