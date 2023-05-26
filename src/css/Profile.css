@@ -101,4 +101,10 @@
 .profile-list-item-selected button {
   color: #335B50 !important;
   font-weight: 600;
+  border-width: 0px 0px 3px 0px !important;
+  border-style: solid !important;
+}
+
+.profile-list-item-selected img {
+  filter: blur() !important;
 }/*# sourceMappingURL=Profile.css.map */
