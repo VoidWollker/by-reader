@@ -1,4 +1,4 @@
-import { getObjectCookie, setObjectCookie } from "../Function/Cookies";
+import { deleteCookie, getObjectCookie, setObjectCookie } from "../function/Cookies";
 
 const { createContext, useState, useContext } = require("react");
 
@@ -10,7 +10,7 @@ export const UserProvider = ({children}) =>{
     const [user, setUser] = useState(getObjectCookie('user') === undefined ? null : getObjectCookie('user'))
 
 
-    const signIn = async ({email, password}) =>{
+    const signUp = async ({email, password}) =>{
         return await fetch('http://localhost:5000/user/add', {
             method: 'POST',
             body: JSON.stringify({
@@ -23,8 +23,8 @@ export const UserProvider = ({children}) =>{
         })
             .then(res => res.json())
             .then(resultData => {
-                console.log(resultData.message);
                 const userData = resultData.createdUser
+                setUser({id: userData._id, email: userData.email})
                 setObjectCookie('user', {id: userData._id, email: userData.email}, {expires: new Date(2030, 1)})
             })
             .catch(error => {
@@ -38,13 +38,14 @@ export const UserProvider = ({children}) =>{
     }
 
     const logOut = () =>{
+        deleteCookie('user')
         setUser(null)
     }
 
     return(
         <UserContext.Provider value={{
             user,
-            signIn,
+            signUp,
             logIn,
             logOut
         }}>

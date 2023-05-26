@@ -1,22 +1,37 @@
 import { useState } from "react"
 import "../css/EnterOrRegister.css"
-import { useAuth } from "../Context/UserContext"
+import { useAuth } from "../context/UserContext"
 import { useNavigate } from "react-router"
 
 export const EnterOrRegister = () =>{
-    const {user, signIn, logIn} = useAuth()
-    const [formData, setFormData] = useState({})
+    const {signUp, logIn} = useAuth()
+    const [formData, setFormData] = useState({email: '', password: '', doubledPassword: ''})
+    const [formSelecter, setFormSelecter] = useState(0)
+    const [errorMessage, setErrorMessage] = useState(null)
     const navigate = useNavigate()
 
     const registerUser = async (e) =>{
         e.preventDefault()
-        await signIn(formData)
-            .then(res => {
-                console.log('Its redirect');
+        if (!inputsFilled()){
+            console.log('Не все поля заполнены');
+            setErrorMessage('Не все поля заполнены')
+            return
+        }
+
+        if (!checkDoubledPasword()){
+            setErrorMessage('Пароли не совпадают')
+            return
+        }
+
+        await signUp(formData)
+            .then(() => {
                 navigate('/')
             })
-            .catch(error => console.log('SignIN error'))
+            .catch(error => console.log(`SignUp error - ${error.message}`))
     }
+
+    const inputsFilled = () => formData.email && formData.password && formData.doubledPassword
+    const checkDoubledPasword = () => formData.password === formData.doubledPassword
 
     const enterForm = 
         <form className="d-flex flex-column px-5 py-1">
@@ -31,7 +46,11 @@ export const EnterOrRegister = () =>{
                 <button className="btn btn-outline-secondary border-0 text-button">Забыли пароль?</button>
             </div>
             <button className="btn btn-primary px-3 pt-3"><h4>Войти</h4></button>
-            <button className="btn btn-outline-secondary border-0 text-button">Зарегистрироваться</button>
+            <button className="btn btn-outline-secondary border-0 text-button" 
+                onClick={(e) => {
+                    e.preventDefault()
+                    setFormSelecter(1)
+                }}>Зарегистрироваться</button>
             <hr />
             <p className="d-flex justify-content-center">Другие способы входа</p>
             <div className="alter-enter d-flex flex-row justify-content-around">
@@ -42,18 +61,26 @@ export const EnterOrRegister = () =>{
     const registerForm = 
         <form className="d-flex flex-column px-5 py-1">
             <h1 className="d-flex justify-content-center mt-3">Регистрация</h1>
-            <input className="form-control form-control-lg my-2 ms-0" type="text" placeholder="Логин" onChange={(e) => setFormData(prevState => {return {...prevState, email: e.target.value}})}/>
-            <input className="form-control form-control-lg my-2 ms-0" type="text" placeholder="Пароль" onChange={(e) => setFormData(prevState => {return {...prevState, password: e.target.value}})}/>
-            <input className="form-control form-control-lg my-2 ms-0" type="text" placeholder="Повтор пароля"/>
+            <input className="form-control form-control-lg my-2 ms-0" type="text" placeholder="Логин" 
+                onChange={(e) => setFormData(prevState => {return {...prevState, email: e.target.value}})}/>
+            <input className="form-control form-control-lg my-2 ms-0" type="password" placeholder="Пароль" 
+                onChange={(e) => setFormData(prevState => {return {...prevState, password: e.target.value}})}/>
+            <input className="form-control form-control-lg my-2 ms-0" type="password" placeholder="Повтор пароля"
+                onChange={(e) => setFormData(prevState => {return {...prevState, doubledPassword: e.target.value}})}/>
+            {errorMessage !== null ? <p className="alert alert-danger my-2 ms-0">{errorMessage}</p> : null}
             <button className="btn btn-primary my-1 px-3 py-3 btn-registration" onClick={(e) => registerUser(e)}><h4>Зарегистрироваться</h4></button>
-            <button className="btn btn-outline-secondary border-0 text-button btn-log-in">Войти в профиль</button>
+            <button className="btn btn-outline-secondary border-0 text-button btn-log-in" 
+                onClick={(e) => {
+                    e.preventDefault() 
+                    setFormSelecter(0)
+                }}>Войти в профиль</button>
         </form>
 
     return(
         <div className="d-flex justify-content-center">
-            {user === null ?
-                registerForm :
-                enterForm}
+            {formSelecter === 0 ?
+                enterForm :
+                registerForm}
         </div>
     )
 }

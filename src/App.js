@@ -7,7 +7,7 @@ import { Product } from "./pages/Product"
 import { Profile } from "./pages/Profile"
 
 import "./css/App.css"
-import { UserProvider } from './Context/UserContext';
+import { UserProvider } from './context/UserContext';
 
 function App() {
 
