@@ -5,6 +5,7 @@ import { Footer }  from "./components/Footer"
 import { EnterOrRegister } from './pages/EnterOrRegister'
 import { Product } from "./pages/Product"
 import { Profile } from "./pages/Profile"
+import { BookShelf } from "./pages/BookShelf"
 
 import "./css/App.css"
 import { UserProvider } from './context/UserContext';
@@ -22,6 +23,7 @@ function App() {
               <Route path='/product' element={<Product />} />
               <Route path='/profile' element={<Profile selectedIndex={0}/>} />
               <Route path='/profile/bookShelf' element={<Profile selectedIndex={4}/>} />
+              <Route path='/BookShelf' element={<BookShelf />} />
             </Routes>
           </div>
           <Footer />

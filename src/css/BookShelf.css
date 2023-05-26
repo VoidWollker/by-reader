@@ -81,92 +81,23 @@
   font-weight: bold;
 }
 
-.product-rate {
+.bookshelf-category img {
+  min-width: 15px !important;
+  min-height: 15px !important;
+  height: 1.5vw !important;
+  width: 1.5vw !important;
+  max-width: 20px;
+  max-height: 20px;
+}
+
+.bookshelf-category {
+  border: 0;
+}
+
+.bookshelf-category-selected {
+  border-width: 0px 0px 5px 0px;
+  border-style: solid;
+  border-color: #335B50;
   color: #335B50;
-}
-
-.btn {
-  --bs-btn-font-size: calc(12px + 10%) !important;
-}
-
-.btn-to-cart {
-  min-width: 90px !important;
-  max-width: 100px !important;
-}
-
-.bordered-primary-text {
-  font-size: calc(7px + 0.5vw);
-}
-
-.product-title {
-  font-size: calc(10px + 0.3vw) !important;
-  min-width: 100px !important;
-  max-width: 300px !important;
-}
-
-.product-author {
-  font-size: calc(8px + 0.3vw) !important;
-  min-width: 100px !important;
-  max-width: 130px !important;
-}
-
-.product-page-count {
-  font-size: calc(8px + 0.3vw) !important;
-  min-width: 100px !important;
-  max-width: 130px !important;
-}
-
-.product-reader {
-  font-size: calc(8px + 0.3vw) !important;
-  min-width: 100px !important;
-  max-width: 130px !important;
-}
-
-.product-length {
-  font-size: calc(8px + 0.3vw) !important;
-  min-width: 100px !important;
-  max-width: 130px !important;
-}
-
-.icon-rating {
-  min-width: 10px;
-  max-width: 15px;
-  margin-right: 5px;
-}
-
-.product-rate {
-  font-size: calc(8px + 0.3vw) !important;
-  min-width: 18px !important;
-  max-width: 50px !important;
-}
-
-.product-rates-count {
-  font-size: calc(8px + 0.3vw) !important;
-  min-width: 50px !important;
-  max-width: 60px !important;
-}
-
-.product-price {
-  min-width: 55px !important;
-  max-width: 100px !important;
-  font-size: calc(12px + 0.4vw) !important;
-  text-align: center;
-  margin-left: 0 !important;
-}
-
-.product-fake-price {
-  min-width: 50px !important;
-  max-width: 100px !important;
-  font-size: calc(12px + 0.4vw) !important;
-  margin-left: 0 !important;
-}
-
-.img-page-home {
-  min-width: 25px !important;
-  max-width: 320px !important;
-}
-
-.product-format {
-  min-width: 3em !important;
-  text-align: center;
-}/*# sourceMappingURL=ProductCard.css.map */
+  font-weight: 500;
+}/*# sourceMappingURL=BookShelf.css.map */

@@ -1,13 +1,13 @@
 import "../css/ProductCard.css"
 
 export const ProductCard = ({showType, id, title, author, image, price, fakePrice, format, reader, pageCount, length, rate, ratesCount, style, className}) => {
-    const normalStyle = {}
+    const normalStyle = {width: '100%'}
     const miniStyle = {width: '60%'}
     const squareStyle = {width: '100%', aspectRatio: 1}
     const bigSquareStyle = {width: '120%', aspectRatio: 1}
 
     return(
-        <div className={`d-flex flex-column product-card ${className}`} style={{style}}>
+        <div className={`d-flex flex-column ${className}`} style={{style}}>
             <a href={`/product/?id=${id}`}>
                 <img className="img-page-home"
                     src={require('../assets/books/' + image)} 
@@ -25,7 +25,7 @@ export const ProductCard = ({showType, id, title, author, image, price, fakePric
                 <p className="product-price bordered-primary-text h4 rounded me-1 p-1"><b>{price} Р</b></p>
                 <p className="product-fake-price mx-1 h4"><s>{fakePrice} Р</s></p>
             </div>
-            <p className="product-title w-100">{title}</p>
+            <p className="product-title">{title}</p>
             <p className="product-author w-100">{author}</p>
             {format === 'Текст' ?
                 <p className="product-page-count w-100">Страниц: {pageCount}</p> :
