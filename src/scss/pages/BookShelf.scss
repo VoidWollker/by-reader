@@ -1,0 +1,21 @@
+@import "../global/GlobalVariables";
+
+.bookshelf-category img{
+    min-width: 15px !important;
+    min-height: 15px !important;
+    height: 1.5vw !important;
+    width: 1.5vw !important;
+    max-width: 20px;
+    max-height: 20px;
+}
+.bookshelf-category{
+    border: 0;
+
+}
+.bookshelf-category-selected{
+    border-width: 0px 0px 5px 0px;
+    border-style: solid;
+    border-color:  $color-primary;
+    color: $color-primary;
+    font-weight: 500;
+}
