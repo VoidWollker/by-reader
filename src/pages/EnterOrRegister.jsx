@@ -20,6 +20,7 @@ export const EnterOrRegister = () =>{
 
         if (!checkDoubledPasword()){
             setErrorMessage('Пароли не совпадают')
+            clearPasswordInputs()
             return
         }
 
@@ -33,11 +34,21 @@ export const EnterOrRegister = () =>{
     const inputsFilled = () => formData.email && formData.password && formData.doubledPassword
     const checkDoubledPasword = () => formData.password === formData.doubledPassword
 
+    const clearAllInputs = () =>{
+        document.querySelectorAll('input.form-control').forEach(emailInput => emailInput.value = '')
+        clearPasswordInputs()
+    }
+
+    const clearPasswordInputs = () => {
+        document.querySelectorAll('input[type=password]')
+            .forEach(passInput => passInput.value = '')
+    }
+
     const enterForm = 
         <form className="d-flex flex-column px-5 py-1">
             <h1 className="d-flex justify-content-center mt-3">Войти в профиль</h1>
-            <input className="form-control form-control-lg my-2" type="text" placeholder="Логин"/>
-            <input className="form-control form-control-lg my-2" type="text" placeholder="Пароль"/>
+            <input className="form-control form-control-lg my-2" type="text" placeholder="E-mail"/>
+            <input className="form-control form-control-lg my-2" type="password" placeholder="Пароль"/>
             <div className="d-flex flex-row justify-content-between">
                 <div className="flex-row">
                     <input className="m-1" type="checkbox" name="remember-me" id="" />
@@ -50,6 +61,7 @@ export const EnterOrRegister = () =>{
                 onClick={(e) => {
                     e.preventDefault()
                     setFormSelecter(1)
+                    clearAllInputs()
                 }}>Зарегистрироваться</button>
             <hr />
             <p className="d-flex justify-content-center">Другие способы входа</p>
@@ -61,9 +73,9 @@ export const EnterOrRegister = () =>{
     const registerForm = 
         <form className="d-flex flex-column px-5 py-1">
             <h1 className="d-flex justify-content-center mt-3">Регистрация</h1>
-            <input className="form-control form-control-lg my-2 ms-0" type="text" placeholder="Логин" 
+            <input className="form-control form-control-lg my-2 ms-0" type="text" placeholder="E-mail" 
                 onChange={(e) => setFormData(prevState => {return {...prevState, email: e.target.value}})}/>
-            <input className="form-control form-control-lg my-2 ms-0" type="password" placeholder="Пароль" 
+            <input className="form-control form-control-lg my-2 ms-0" type="password" placeholder="Пароль"
                 onChange={(e) => setFormData(prevState => {return {...prevState, password: e.target.value}})}/>
             <input className="form-control form-control-lg my-2 ms-0" type="password" placeholder="Повтор пароля"
                 onChange={(e) => setFormData(prevState => {return {...prevState, doubledPassword: e.target.value}})}/>
@@ -73,6 +85,7 @@ export const EnterOrRegister = () =>{
                 onClick={(e) => {
                     e.preventDefault() 
                     setFormSelecter(0)
+                    clearAllInputs()
                 }}>Войти в профиль</button>
         </form>
 
