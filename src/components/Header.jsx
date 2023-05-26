@@ -1,9 +1,11 @@
 import React from "react";
 import Search from "./Header.Search";
 import "../css/Header.css"
-import { redirect } from "react-router";
+import { useAuth } from '../context/UserContext'
 
 export const Header = () =>{
+    const { user } = useAuth()      
+
     const undottedUL = {
         "listStyleType": "none"
     }
@@ -31,8 +33,17 @@ export const Header = () =>{
                 <div className="d-flex flex-pow btn-header">
                     <div className=" d-flex flex-column center-elements">
                         <a href="/profile">
-                            <img src={require("../assets/icons/header-entry.png")} alt="Вход" className="log-in" />
-                            <p>Вход</p>
+                            {user !== null ?
+                                <>
+                                    <img src={require("../assets/icons/icon-profile.png")} alt="Вход" className="log-in" />
+                                    <p>Профиль</p>
+                                </> :
+                                <>
+                                    <img src={require("../assets/icons/header-entry.png")} alt="Вход" className="log-in" />
+                                    <p>Вход</p>
+                                </>
+                                
+                            }
                         </a>
                     </div>
                     <div className="d-flex flex-column center-elements">

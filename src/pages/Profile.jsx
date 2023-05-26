@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { useAuth } from "../Context/UserContext"
+import { useAuth } from "../context/UserContext"
 import { useNavigate } from "react-router"
 import { ProfileAbout } from "../components/ProfileAbout"
 import { ProfileOperationHistory } from "../components/ProfileOperationHistory"
@@ -20,13 +20,11 @@ export const Profile = ({selectedIndex}) =>{
 
     useEffect(() => {
         const items = document.getElementsByClassName('profile-list-item')
-        console.log(items[selectedProfileListItem]);
         items[selectedProfileListItem].classList.add('profile-list-item-selected')
     }, [selectedProfileListItem])
 
     const selectProfileListItem = (index) =>{
         const items = document.getElementsByClassName('profile-list-item')
-        console.log(items[selectedProfileListItem]);
         items[selectedProfileListItem].classList.remove('profile-list-item-selected')
         setSelectedProfileListItem(index)
     }
