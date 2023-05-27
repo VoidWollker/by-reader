@@ -18,6 +18,12 @@ export const EnterOrRegister = () =>{
             return
         }
 
+        if (!checkEmail()){
+            setErrorMessage('Некорректный Email')
+            clearEmailInputs()
+            return
+        }
+
         if (!checkDoubledPasword()){
             setErrorMessage('Пароли не совпадают')
             clearPasswordInputs()
@@ -28,18 +34,28 @@ export const EnterOrRegister = () =>{
             .then(() => {
                 navigate('/')
             })
-            .catch(error => console.log(`SignUp error - ${error.message}`))
+            .catch(error => {
+                if (error.code === 11000){
+                    setErrorMessage('E-mail уже используется')
+                }
+            })
     }
 
     const inputsFilled = () => formData.email && formData.password && formData.doubledPassword
     const checkDoubledPasword = () => formData.password === formData.doubledPassword
+    const checkEmail = () => (/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(formData.email))
 
     const clearAllInputs = () =>{
-        document.querySelectorAll('input.form-control').forEach(emailInput => emailInput.value = '')
+        clearEmailInputs()
         clearPasswordInputs()
     }
 
-    const clearPasswordInputs = () => {
+    const clearEmailInputs = () =>{
+        document.querySelectorAll('input[placeholder=E-mail]')
+            .forEach(passInput => passInput.value = '')
+    }
+
+    const clearPasswordInputs = () =>{
         document.querySelectorAll('input[type=password]')
             .forEach(passInput => passInput.value = '')
     }

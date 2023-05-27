@@ -23,12 +23,12 @@ export const UserProvider = ({children}) =>{
         })
             .then(res => res.json())
             .then(resultData => {
+                if (resultData.error) {return Promise.reject(resultData.error)}
                 const userData = resultData.createdUser
                 setUser({id: userData._id, email: userData.email})
                 setObjectCookie('user', {id: userData._id, email: userData.email}, {expires: new Date(2030, 1)})
             })
             .catch(error => {
-                console.log(error.message)
                 return Promise.reject(error)
             })
     }

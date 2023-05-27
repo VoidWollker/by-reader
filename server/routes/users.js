@@ -55,11 +55,10 @@ userRouter.post('/add', (req, res) => {
       });
     })
     .catch(err => {
-      console.log(err);
       res.status(400).json({
         error: err
       });
-    });
+  });
 });
 
 // This section will help you add a user
@@ -118,7 +117,7 @@ userRouter.get('/find/username', async (req, res) => {
   const username = req.body.username
   const regex = new RegExp(username, 'i');
 
-  const book = await Book.find(
+  const user = await User.find(
     {
         "$or":[
             {username: {$regex: regex}}
