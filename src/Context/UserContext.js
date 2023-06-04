@@ -33,8 +33,22 @@ export const UserProvider = ({children}) =>{
             })
     }
 
-    const logIn = ({email, password}) => {
-        
+    const logIn = async ({email, password}) => {
+        await fetch(`http://localhost:5000/user/getByEmail/${email}`)
+            .then(res =>{
+                return res.json()
+            })
+            .then(userData =>{
+                if (userData.password === password){
+                    setUser({_id: userData._id, email: userData.email})
+                    setObjectCookie('user', {id: userData._id, email: userData.email}, {expires: new Date(2030, 1)})
+                } else{
+                    return Promise.reject({message: 'Неверный пароль'})
+                }
+            })
+            .catch(() =>{
+                return Promise.reject({message: 'Неверный e-mail'})
+            })
     }
 
     const logOut = () =>{

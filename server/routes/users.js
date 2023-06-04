@@ -96,20 +96,32 @@ userRouter.post('/update', upload.single('avatar'), (req, res, next) => {
 });
 
 // This section will help you get a user by id
-userRouter.get('/:id', async (req, res) => {
+userRouter.get('/getByID/:id', async (req, res) => {
   const {id}  = req.params
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
-    return res.status(404).json({error: 'No such user'})
+    return res.status(404).json({message: 'No such user'})
   }
 
   const user = await User.findById(id)
 
   if (!user) {
-    return res.status(404).json({error: 'No such user'})
+    return res.status(404).json({message: 'No such user'})
   }
 
   res.status(200).json(user)
+})
+
+userRouter.get('/getByEmail/:email', async (req, res) => {
+  const {email}  = req.params
+
+  const user = await User.findOne({email})
+
+  if (!user) {
+    return res.status(404).json({message: 'No such user'})
+  }
+
+  return res.status(200).json(user)
 })
 
 // This section will help you get a user by username
@@ -124,11 +136,12 @@ userRouter.get('/find/username', async (req, res) => {
         ]
     })
 
-  if (user == '') {
+  if (user === '') {
     return res.status(404).json({error: 'No such user'})
   }
 
   res.status(200).json(user)
 })
+
 
 module.exports = userRouter;
