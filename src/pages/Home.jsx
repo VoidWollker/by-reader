@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import { MainSlider } from "../components/MainSlider"
 import { ProductSlider } from "../components/ProductSlider"
 import { ProductCard } from "../components/ProductCard"
+import { Subscriptions } from "../components/Subscriptions"
 import "../css/Home.css"
 
 export const Home = () =>{
@@ -99,6 +100,8 @@ export const Home = () =>{
                         ></ProductCard>
                     })}
                 />
+                <h2 className="my-4">Подписки от Почитателя</h2>
+                <Subscriptions/>
             </div>
         </div>
     )
