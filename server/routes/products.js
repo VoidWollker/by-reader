@@ -54,7 +54,7 @@ productRoutes.get('/find/bytitle', async (req, res) => {
         ]
     })
 
-  if (book == '') {
+  if (book === '') {
     return res.status(404).json({error: 'No such book'})
   }
 
@@ -73,7 +73,7 @@ productRoutes.get('/find/byauthor', async (req, res) => {
         ]
     })
 
-  if (book == '') {
+  if (book === '') {
     return res.status(404).json({error: 'No such book'})
   }
 
@@ -92,7 +92,7 @@ productRoutes.get('/find/bygenre', async (req, res) => {
         ]
     })
 
-  if (book == '') {
+  if (book === '') {
     return res.status(404).json({error: 'No such book'})
   }
 
@@ -111,7 +111,7 @@ productRoutes.get('/find/bypublisher', async (req, res) => {
         ]
     })
 
-  if (book == '') {
+  if (book === '') {
     return res.status(404).json({error: 'No such book'})
   }
 
@@ -130,7 +130,7 @@ productRoutes.get('/find/byseria', async (req, res) => {
         ]
     })
 
-  if (book == '') {
+  if (book === '') {
     return res.status(404).json({error: 'No such book'})
   }
 
