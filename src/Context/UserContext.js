@@ -35,9 +35,7 @@ export const UserProvider = ({children}) =>{
 
     const logIn = async ({email, password}) => {
         await fetch(`http://localhost:5000/user/getByEmail/${email}`)
-            .then(res =>{
-                return res.json()
-            })
+            .then(res => res.json())
             .then(userData =>{
                 if (userData.password === password){
                     console.log(userData);
@@ -57,12 +55,39 @@ export const UserProvider = ({children}) =>{
         setUser(null)
     }
 
+    const changeData = async (data) =>{
+        await updateUserData(data)
+            .then(() => refreshUserCookie(data._id))
+    }
+
+    const updateUserData = async (data) =>{
+        await fetch('http://localhost:5000/user/update', {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {
+                "Content-type": "application/json; charset=UTF-8"
+            }
+        })
+    }
+
+    const refreshUserCookie = async (id) =>{
+        await fetch(`http://localhost:5000/user/getByID/${id}`)
+            .then(res => res.json())
+            .then(userData =>{
+                console.log(userData);
+                setUser(userData)
+                setObjectCookie('user', userData, {expires: new Date(2030, 1)})
+            })
+            .catch(err => console.log(err))
+    }
+
     return(
         <UserContext.Provider value={{
             user,
             signUp,
             logIn,
-            logOut
+            logOut,
+            changeData
         }}>
             {children}
         </UserContext.Provider>

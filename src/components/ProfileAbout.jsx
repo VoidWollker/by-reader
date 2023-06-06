@@ -4,7 +4,7 @@ import { useAuth } from '../context/UserContext'
 import "../css/ProfileAbout.css"
 
 export const ProfileAbout = () =>{
-    const { user } = useAuth()
+    const { user, changeData } = useAuth()
     const [userData, setUserData] = useState(user)
 
     const validations = {
@@ -14,6 +14,15 @@ export const ProfileAbout = () =>{
         username: /^[A-Za-zА-Яа-я]+\w*/,
         email: /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/,
         phone: /^[\d+]*\d*$/
+    }
+
+    const changePersonData = async () =>{
+        await changeData({
+            _id: userData._id,
+            name: userData.name,
+            lastname: userData.lastname,
+            patronymic: userData.patronymic
+        })
     }
 
     const createSocialLink = (title, image, status) =>{
@@ -75,7 +84,7 @@ export const ProfileAbout = () =>{
                         <p className="ps-1">Пользователи Почитателя увидят ваше фото и имя<br/>Личные данные защищены <b>политикой конфиденциальности</b></p>
                     </div>
                 </div>
-                <button className="btn btn-primary btn-profile-save my-3">Сохранить изменения</button>
+                <button onClick={changePersonData} className="btn btn-primary btn-profile-save my-3">Сохранить изменения</button>
 
                 <p className="h2 mt-4">Информация для входа</p>
                 <p className="profile-text-limiter my-2">Электронная почта, номер телефона и социальные сети нужны для входа на сайт и восстановления пароля.</p>
