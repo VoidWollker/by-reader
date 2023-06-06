@@ -81,7 +81,6 @@ export const BookShelf = ({selectedIndex}) =>{
             ''
             }
 
-
         </div>
     )
 }

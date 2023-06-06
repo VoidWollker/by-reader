@@ -95,9 +95,12 @@
 }
 
 .bookshelf-category-selected {
-  border-width: 0px 0px 5px 0px;
+  border-width: 0px 0px 3px 0px;
   border-style: solid;
-  border-color: #335B50;
-  color: #335B50;
-  font-weight: 500;
+  border-color: #335B50 !important;
+}
+
+.bookshelf-category-selected p {
+  color: #335B50 !important;
+  font-weight: 600 !important;
 }/*# sourceMappingURL=BookShelf.css.map */
