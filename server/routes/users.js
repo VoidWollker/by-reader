@@ -61,8 +61,22 @@ userRouter.post('/add', (req, res) => {
   });
 });
 
+userRouter.post('/update', async (req, res) =>{
+  const userData = req.body
+
+  const user = await User.findById(userData._id)
+
+  Object.keys(userData).forEach(key =>{
+    user[key] = userData[key]
+  })
+
+  user.save()
+    .then(result => res.status(200).json(result))
+    .catch(err => res.status(400).json(err))
+})
+
 // This section will help you add a user
-userRouter.post('/update', upload.single('avatar'), (req, res, next) => {
+userRouter.post('/create', upload.single('avatar'), (req, res, next) => {
   const user = new User({
     _id: new mongoose.Types.ObjectId(),
     name: req.body.name,

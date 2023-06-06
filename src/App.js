@@ -22,8 +22,7 @@ function App() {
               <Route path='/enter' element={<EnterOrRegister />} />
               <Route path='/product' element={<Product />} />
               <Route path='/profile' element={<Profile selectedIndex={0}/>} />
-              <Route path='/profile/bookShelf' element={<Profile selectedIndex={4}/>} />
-              <Route path='/BookShelf' element={<BookShelf selectedIndex={0}/>} />
+              <Route path='/profile/bookShelf' element={<BookShelf selectedIndex={0}/>} />
             </Routes>
           </div>
           <Footer />

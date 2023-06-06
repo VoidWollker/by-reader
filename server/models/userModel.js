@@ -2,19 +2,27 @@ const mongoose = require('mongoose')
 
 const Schema = mongoose.Schema
 
+const userViewedSchema = new Schema({
+    product: {
+        type: mongoose.Types.ObjectId,
+        required: false
+    }
+}, { timestamps: false})
+
 const userFavSchema = new Schema({
-    book: {
+    product: {
         type: mongoose.Types.ObjectId,
         required: false
     }
 }, { timestamps: false })
 
 const userPurchasedSchema = new Schema({
-    book: {
+    product: {
         type: mongoose.Types.ObjectId,
         required: false
     }
 }, { timestamps: true })
+
 
 const userSchema = new Schema({
     name: {
@@ -23,6 +31,14 @@ const userSchema = new Schema({
     },
     lastname: {
         type: String,
+        required: false
+    },
+    patronymic: {
+        type: String,
+        required: false
+    },
+    birthDate: {
+        type: Date,
         required: false
     },
     username: {
@@ -38,10 +54,15 @@ const userSchema = new Schema({
         unique: true,
         required: true
     },
+    phone: {
+        type: String,
+        required: false
+    },
     password: {
         type: String,
         required: true
     },
+    viewed: [userViewedSchema],
     favourite: [userFavSchema],
     purchased: [userPurchasedSchema]
 }, { timestamps: true })
