@@ -25,6 +25,14 @@ const userSchema = new Schema({
         type: String,
         required: false
     },
+    patronymic: {
+        type: String,
+        required: false
+    },
+    birthDate: {
+        type: Date,
+        required: false
+    },
     username: {
         type: String,
         required: false
@@ -37,6 +45,10 @@ const userSchema = new Schema({
         type: String,
         unique: true,
         required: true
+    },
+    phone: {
+        type: String,
+        required: false
     },
     password: {
         type: String,

@@ -25,8 +25,8 @@ export const UserProvider = ({children}) =>{
             .then(resultData => {
                 if (resultData.error) {return Promise.reject(resultData.error)}
                 const userData = resultData.createdUser
-                setUser({id: userData._id, email: userData.email})
-                setObjectCookie('user', {id: userData._id, email: userData.email}, {expires: new Date(2030, 1)})
+                setUser(userData)
+                setObjectCookie('user', userData, {expires: new Date(2030, 1)})
             })
             .catch(error => {
                 return Promise.reject(error)
@@ -40,8 +40,9 @@ export const UserProvider = ({children}) =>{
             })
             .then(userData =>{
                 if (userData.password === password){
-                    setUser({_id: userData._id, email: userData.email})
-                    setObjectCookie('user', {id: userData._id, email: userData.email}, {expires: new Date(2030, 1)})
+                    console.log(userData);
+                    setUser(userData)
+                    setObjectCookie('user', userData, {expires: new Date(2030, 1)})
                 } else{
                     return Promise.reject({message: 'Неверный пароль'})
                 }
