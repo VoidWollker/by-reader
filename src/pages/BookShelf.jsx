@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react"
-import { ClientEmpty }from "../components/ClientEmpty"
+import { ClientEmpty } from "../components/ClientEmpty"
 import "../css/BookShelf.css"
+import { useAuth } from "../context/UserContext"
 
 export const BookShelf = ({selectedIndex}) =>{
+    const {user} = useAuth()
     const [selectedCategory, setSelectedCategory] = useState(selectedIndex)
 
     useEffect(() => {
@@ -49,39 +51,31 @@ export const BookShelf = ({selectedIndex}) =>{
                 </li>
             </ul>
 
-
-
-
-
-
             {selectedCategory === 0 ?
                 <ClientEmpty
-                icon={require("../assets/icons/profileOperationHistory-empty.png")}
-                title={'Здесь будут ваши купленные книги'}
-                description={'Здесь будут храниться книги, которые вы купили на нашем сайте'}            
-            /> :
+                    icon={require("../assets/icons/profileOperationHistory-empty.png")}
+                    title={'Здесь будут ваши купленные книги'}
+                    description={'Здесь будут храниться книги, которые вы купили на нашем сайте'}            
+                /> :
             selectedCategory === 1 ?
                 <ClientEmpty
-                icon={require("../assets/icons/bookshelf-viewed-big.png")}
-                title={'Здесь будут ваши просмотренные книги'}
-                description={'Здесь будут храниться книги, которые вы просматриваете на нашем сайте'}            
-            /> :
+                    icon={require("../assets/icons/bookshelf-viewed-big.png")}
+                    title={'Здесь будут ваши просмотренные книги'}
+                    description={'Здесь будут храниться книги, которые вы просматриваете на нашем сайте'}            
+                /> :
             selectedCategory === 2 ?
                 <ClientEmpty
-                icon={require("../assets/icons/bookshelf-liked-big.png")}
-                title={'Здесь будут ваши понравившиеся книги'}
-                description={'Чтобы отложить книгу для будущей покупки, нажмите «Отложить» рядом с ней'}            
-            /> :
+                    icon={require("../assets/icons/bookshelf-liked-big.png")}
+                    title={'Здесь будут ваши понравившиеся книги'}
+                    description={'Чтобы отложить книгу для будущей покупки, нажмите «Отложить» рядом с ней'}            
+                /> :
             selectedCategory === 3 ?
                 <ClientEmpty
-                icon={require("../assets/icons/bookshelf-basket-big.png")}
-                title={'Добавьте сюда книги для покупки'}
-                description={'Чтобы добавить книги в корзину, нажмите на кнопку «В корзину» у понравившихся книги'}            
-            /> :
-            ''
-            }
-
-
+                    icon={require("../assets/icons/bookshelf-basket-big.png")}
+                    title={'Добавьте сюда книги для покупки'}
+                    description={'Чтобы добавить книги в корзину, нажмите на кнопку «В корзину» у понравившихся книги'}            
+                /> :
+            ''}
         </div>
     )
 }

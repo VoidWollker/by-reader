@@ -2,19 +2,27 @@ const mongoose = require('mongoose')
 
 const Schema = mongoose.Schema
 
+const userViewedSchema = new Schema({
+    product: {
+        type: mongoose.Types.ObjectId,
+        required: false
+    }
+}, { timestamps: false})
+
 const userFavSchema = new Schema({
-    book: {
+    product: {
         type: mongoose.Types.ObjectId,
         required: false
     }
 }, { timestamps: false })
 
 const userPurchasedSchema = new Schema({
-    book: {
+    product: {
         type: mongoose.Types.ObjectId,
         required: false
     }
 }, { timestamps: true })
+
 
 const userSchema = new Schema({
     name: {
@@ -54,6 +62,7 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
+    viewed: [userViewedSchema],
     favourite: [userFavSchema],
     purchased: [userPurchasedSchema]
 }, { timestamps: true })
