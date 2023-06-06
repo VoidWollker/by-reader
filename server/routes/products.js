@@ -1,6 +1,7 @@
 const { Router } = require("express");
 const Book = require('../models/bookModel')
 const mongoose = require('mongoose')
+const Fuse = require('fuse.js')
  
 // productRoutes is an instance of the express router.
 // We use it to define our routes.
@@ -43,98 +44,46 @@ productRoutes.get('/:id', async (req, res) => {
   res.status(200).json(book)
 })
 
-productRoutes.get('/find/bytitle', async (req, res) => {
-  const title = req.body.title
-  const regex = new RegExp(title, 'i');
+// This section will help you get records by title, author, genre, etc.
+productRoutes.get('/find/by', async (req, res) => {
 
-  const book = await Book.find(
-    {
-        "$or":[
-            {title: {$regex: regex}}
-        ]
-    })
+  const data = req.body
 
-  if (book === '') {
-    return res.status(404).json({error: 'No such book'})
+  try {
+    const books = await Book.find()
+
+    const options = {
+      keys: [
+        'title',
+        'author',
+        'genre',
+        'format',
+        'seria',
+        'publisher',
+        'price',
+        'recommendedAge'
+      ]
+    }
+
+    const fuse = new Fuse(books, options)
+
+    const result = fuse.search(data)
+
+    const filteredBooks = result
+      .filter((item) => 
+        // (item.item.genre === data.genre || !data.genre) &&
+        // (item.item.format === data.format || !data.format) &&
+        // (item.item.seria === data.seria || !data.seria) &&
+        // (item.item.publisher === data.publisher || !data.publisher) &&
+        (data.price === undefined || item.item.price.toString() === data.price) &&
+        (data.recommendedAge === undefined || item.item.recommendedAge.toString() === data.recommendedAge)
+      )
+      .map((item) => item.item)
+
+    res.status(200).json(filteredBooks)
+  } catch (error) {
+    res.status(404).json({ error: 'No such book' })
   }
-
-  res.status(200).json(book)
-})
-
-// This section will help you get a single record by author
-productRoutes.get('/find/byauthor', async (req, res) => {
-  const author = req.body.author
-  const regex = new RegExp(author, 'i');
-
-  const book = await Book.find(
-    {
-        "$or":[
-            {author: {$regex: regex}}
-        ]
-    })
-
-  if (book === '') {
-    return res.status(404).json({error: 'No such book'})
-  }
-
-  res.status(200).json(book)
-})
-
-// This section will help you get a single record by genre
-productRoutes.get('/find/bygenre', async (req, res) => {
-  const genre = req.body.genre
-  const regex = new RegExp(genre, 'i');
-
-  const book = await Book.find(
-    {
-        "$or":[
-            {genre: {$regex: regex}}
-        ]
-    })
-
-  if (book === '') {
-    return res.status(404).json({error: 'No such book'})
-  }
-
-  res.status(200).json(book)
-})
-
-// This section will help you get a single record by publisher
-productRoutes.get('/find/bypublisher', async (req, res) => {
-  const publisher = req.body.publisher
-  const regex = new RegExp(publisher, 'i');
-
-  const book = await Book.find(
-    {
-        "$or":[
-            {publisher: {$regex: regex}}
-        ]
-    })
-
-  if (book === '') {
-    return res.status(404).json({error: 'No such book'})
-  }
-
-  res.status(200).json(book)
-})
-
-// This section will help you get a single record by seria
-productRoutes.get('/find/byseria', async (req, res) => {
-  const seria = req.body.seria
-  const regex = new RegExp(seria, 'i');
-
-  const book = await Book.find(
-    {
-        "$or":[
-            {seria: {$regex: regex}}
-        ]
-    })
-
-  if (book === '') {
-    return res.status(404).json({error: 'No such book'})
-  }
-
-  res.status(200).json(book)
 })
 
 module.exports = productRoutes;
