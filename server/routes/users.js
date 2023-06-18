@@ -66,13 +66,18 @@ userRouter.post('/update', async (req, res) =>{
 
   const user = await User.findById(userData._id)
 
-  Object.keys(userData).forEach(key =>{
-    user[key] = userData[key]
-  })
+  if (user){
+    Object.keys(userData).forEach(key =>{
+      user[key] = userData[key]
+    })
 
-  user.save()
-    .then(result => res.status(200).json(result))
-    .catch(err => res.status(400).json(err))
+    user.save()
+      .then(result => res.status(200).json(result))
+      .catch(err => res.status(400).json(err))
+  }
+  else{
+    res.status(400).json({errorMessage: 'Пользователель не найден'})
+  }
 })
 
 // This section will help you add a user

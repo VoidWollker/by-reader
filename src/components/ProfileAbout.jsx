@@ -4,8 +4,9 @@ import { useAuth } from '../context/UserContext'
 import "../css/ProfileAbout.css"
 
 export const ProfileAbout = () =>{
-    const { user, changeData } = useAuth()
+    const { user, changeUserData } = useAuth()
     const [userData, setUserData] = useState(user)
+    const [sendDataStatus, setSendDataStatus] = useState({})
 
     const validations = {
         name: /^[A-Za-zА-Яа-я-_']*$/,
@@ -16,13 +17,65 @@ export const ProfileAbout = () =>{
         phone: /^[\d+]*\d*$/
     }
 
+    const createErrorComponent = (status,message) =>
+        <>
+            {status ?
+                <p className="alert alert-success my-2 ms-0">{message}</p> :
+                <p className="alert alert-danger my-2 ms-0">{message}</p> 
+            }
+        </> 
+
     const changePersonData = async () =>{
-        await changeData({
+        await changeUserData({
             _id: userData._id,
             name: userData.name,
             lastname: userData.lastname,
-            patronymic: userData.patronymic
+            patronymic: userData.patronymic,
+            birthDate: userData.birthDate,
+            username: userData.username
         })
+        .then(() => setSendDataStatus({...sendDataStatus, personalData: {status: true, message: 'Данные обновлены'}}))
+        .catch(() => setSendDataStatus({...sendDataStatus, personalData: {status: false, message: 'Ошибка отправки, повторите позже'}}))
+    }
+
+    const changePhone = async () => {
+        const phoneRegex = /\d{11}/
+        if (phoneRegex.test(userData.phone)){
+            await changeUserData({_id: userData._id, phone: userData.phone.match(phoneRegex)[0]})
+                .then(() => setSendDataStatus({...sendDataStatus, phone: {status: true, message: 'Данные обновлены'}}))
+                .catch(() => setSendDataStatus({...sendDataStatus, phone: 'Ошибка отправки, повторите позже'}))
+        }
+        else{
+            setSendDataStatus({...sendDataStatus, phone: 'Номер не корректен'})
+        }
+    }
+
+    const changeEmail = async () =>{
+        await changeUserData({
+            _id: userData._id,
+            email: userData.email
+        })
+        .then(() => setSendDataStatus({...sendDataStatus, email: {status: true, message: 'Данные обновлены'}}))
+        .catch(() => setSendDataStatus({...sendDataStatus, email: 'Ошибка отправки, повторите позже'}))
+    }
+
+    const changePassword = async () =>{
+        if (userData.currentPassword === userData.password){
+            if (userData.newPassword === userData.doubledPassword){
+                await changeUserData({
+                    _id: userData._id,
+                    password: userData.newPassword
+                })
+                .then(() => setSendDataStatus({...sendDataStatus, password: {status: true, message: 'Данные обновлены'}}))
+                .catch(() => setSendDataStatus({...sendDataStatus, password: 'Ошибка отправки, повторите позже'}))
+            }
+            else{
+                setSendDataStatus({...sendDataStatus, password: 'Пароли не совпадают'})
+            }
+        }
+        else{
+            setSendDataStatus({...sendDataStatus, password: 'Текущий пароль введен неверно'})
+        }
     }
 
     const createSocialLink = (title, image, status) =>{
@@ -66,7 +119,8 @@ export const ProfileAbout = () =>{
                         }/>
                 </div>
                 <div className="d-flex flex-row profile-input flex-wrap">
-                    <input type="date" placeholder="Дата рождения" mask className="me-3" value={userData.birthDate}
+                    <input type="date" placeholder="Дата рождения" className="me-3" 
+                        value={userData.birthDate ? userData.birthDate.slice(0, 10) : null}
                         onChange={e => setUserData({...userData, birthDate: e.target.value})}/>
                     <div className="d-flex flex-column">
                         <input type="text" placeholder="Псевдоним" className="profile-anonymous" value={userData.username}
@@ -84,32 +138,60 @@ export const ProfileAbout = () =>{
                         <p className="ps-1">Пользователи Почитателя увидят ваше фото и имя<br/>Личные данные защищены <b>политикой конфиденциальности</b></p>
                     </div>
                 </div>
-                <button onClick={changePersonData} className="btn btn-primary btn-profile-save my-3">Сохранить изменения</button>
+                <div className="d-flex flex-row">
+                    <button onClick={changePersonData} className="btn btn-primary btn-profile-save my-3">Сохранить изменения</button>
+                    {sendDataStatus.personalData !== undefined ?
+                        createErrorComponent(sendDataStatus.personalData.status, sendDataStatus.personalData.message):
+                        ''
+                    }
+                </div>
 
                 <p className="h2 mt-4">Информация для входа</p>
                 <p className="profile-text-limiter my-2">Электронная почта, номер телефона и социальные сети нужны для входа на сайт и восстановления пароля.</p>
                 <div className="d-flex flex-row profile-input flex-wrap">
-                    <input type="email" placeholder="Email"/>
-                    <button className="btn btn-quaternary btns-changes mt-1 ms-3">Изменить эл. почту</button>
+                    <input type="email" placeholder="Email" value={userData.email}
+                        onChange={e => validations.email.test(e.target.value) ?
+                            setUserData({...userData, email: e.target.value}) :
+                            e.target.value = userData.email
+                    }/>
+                    <button className="btn btn-quaternary btns-changes mt-1 ms-3" onClick={changeEmail}>Изменить эл. почту</button>
+                    {sendDataStatus.email !== undefined ?
+                        createErrorComponent(sendDataStatus.email.status, sendDataStatus.phone.message):
+                        ''
+                    }
                 </div>
                 <p>Для восстановления доступа и писем</p>
                 <div className="d-flex flex-row profile-input flex-wrap">
-                    <input type="tel" placeholder="+7" value={userData.phone}
+                    <input type="text" placeholder="+7" value={userData.phone}
                         onChange={e => validations.phone.test(e.target.value) ?
                             setUserData({...userData, phone: e.target.value}) :
                             e.target.value = userData.phone
                     }/>
-                    <button className="btn btn-quaternary btns-changes mt-1 ms-3">Добавить телефон</button>
+                    <button onClick={changePhone} className="btn btn-quaternary btns-changes mt-1 ms-3">Добавить телефон</button>
+                    {sendDataStatus.phone !== undefined ?
+                        createErrorComponent(sendDataStatus.phone.status, sendDataStatus.phone.message):
+                        ''
+                    }
                 </div>
                 <div className="profile-input">
                     <p className="mb-3">Для входа и сообщений</p>
                     <div className="d-flex flex-row flex-wrap">
                         <div className="d-flex flex-column profile-input">
-                            <input type="password" placeholder="Введите текущий пароль"/>
-                            <input type="password" placeholder="Новый пароль"/>
-                            <input type="password" placeholder="Повторите пароль"/>
+                            <input type="password" placeholder="Введите текущий пароль"
+                                onChange={e => setUserData({...userData, currentPassword: e.target.value})}
+                            />
+                            <input type="password" placeholder="Новый пароль"onChange={e => setUserData({...userData, newPassword: e.target.value})}
+                            />
+                            <input type="password" placeholder="Повторите пароль"onChange={e => setUserData({...userData, doubledPassword: e.target.value})}
+                            />
                         </div>
-                        <button className="btn btn-quaternary btns-changes ms-3 my-auto py-2">Изменить пароль</button>
+                        <div className="d-flex flex-column">
+                            <button className="btn btn-quaternary btns-changes ms-3 my-auto py-2" onClick={changePassword}>Изменить пароль</button>
+                            {sendDataStatus.password !== undefined ?
+                                createErrorComponent(sendDataStatus.password.status, sendDataStatus.password.message):
+                                ''
+                            }
+                        </div>
                     </div>
                 </div>
                 <p className="h3 mt-4">Социальные сети</p>

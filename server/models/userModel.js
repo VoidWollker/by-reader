@@ -3,10 +3,6 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const userViewedSchema = new Schema({
-    product: {
-        type: mongoose.Types.ObjectId,
-        required: false
-    }
 }, { timestamps: false})
 
 const userFavSchema = new Schema({
