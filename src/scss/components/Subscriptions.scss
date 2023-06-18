@@ -1,0 +1,20 @@
+@import "../global/GlobalVariables";
+
+.subscription button{
+    margin: 0 auto;
+    display: block;
+    font-weight: 500;
+}
+.btn-subscription{
+    padding-left: 2vw  !important;
+    padding-right: 2vw !important;
+    padding-top: 0.6vw  !important;
+    padding-bottom: 0.6vw !important;
+    font-size: calc(7px + 0.5vw) !important;
+}
+.subscription-second {
+    margin-top: 8vw;
+}
+.subscription-third{
+    margin-top: 16vw;
+}

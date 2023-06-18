@@ -1,0 +1,24 @@
+@import "../global/GlobalVariables";
+
+.subscription{
+    min-width: 180px;
+    width: 25%;
+    height: 50%;
+    border-radius: 25px;
+}
+.image-subscription{
+    min-width: 100px !important;
+    width: 15vw;
+    max-width: 220px;
+    margin: 0 auto;
+    display: block;
+}
+.p{
+    font-size: calc(8px + 0.5vw) !important;
+}
+.icon-subscription{
+    max-width: 50px;
+    max-height: 50px;
+    width: 8vw;
+    height: 8vw;
+}
