@@ -5,8 +5,10 @@ import { ProductQuotes } from "../components/ProductQuotes"
 import { ProductReviews }from "../components/ProductReviews"
 import "../css/Product.css"
 import { useSearchParams } from 'react-router-dom'
+import { useAuth } from '../context/UserContext'
 
 export const Product = () =>{
+    const {user, changeUserData} = useAuth()
     const [book, setBook] = useState({})
     const [pathParams] = useSearchParams()
 
@@ -17,7 +19,10 @@ export const Product = () =>{
     const getBook = async (id) =>
         await fetch(`http://localhost:5000/book/${id}`)
             .then(res => res.json())
-            .then(res => setBook(res))
+            .then(res => {
+                setBook(res)
+                changeUserData({viewed: [...new Set([...user.viewed, {_id:id}].map(item => item._id))].map(item => item = {'_id': item})})
+            })
         
     return(
         <>

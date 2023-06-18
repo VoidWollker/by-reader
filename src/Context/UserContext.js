@@ -55,26 +55,25 @@ export const UserProvider = ({children}) =>{
         setUser(null)
     }
 
-    const changeData = async (data) =>{
+    const changeUserData = async (data) =>{
         await updateUserData(data)
-            .then(() => refreshUserCookie(data._id))
+            .then(() => refreshUserCookie())
     }
 
     const updateUserData = async (data) =>{
         await fetch('http://localhost:5000/user/update', {
             method: 'POST',
-            body: JSON.stringify(data),
+            body: JSON.stringify({...data, _id:user._id}),
             headers: {
                 "Content-type": "application/json; charset=UTF-8"
             }
         })
     }
 
-    const refreshUserCookie = async (id) =>{
-        await fetch(`http://localhost:5000/user/getByID/${id}`)
+    const refreshUserCookie = async () =>{
+        await fetch(`http://localhost:5000/user/getByID/${user._id}`)
             .then(res => res.json())
             .then(userData =>{
-                console.log(userData);
                 setUser(userData)
                 setObjectCookie('user', userData, {expires: new Date(2030, 1)})
             })
@@ -87,7 +86,7 @@ export const UserProvider = ({children}) =>{
             signUp,
             logIn,
             logOut,
-            changeData
+            changeUserData
         }}>
             {children}
         </UserContext.Provider>
