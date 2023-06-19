@@ -1,0 +1,52 @@
+@import "../global/GlobalVariables";
+
+
+.input-SearchResult{
+    min-width: 50px !important;
+    max-width: 180px !important;
+    width: 30vw !important;
+    height: 2.5vw !important;
+    min-height: 30px !important;
+    max-height: 80px !important;
+}
+.label-format{
+    font-size: calc(7px + 0.4vw) !important;
+}
+.form_radio{
+    margin-bottom: 5px;
+}
+input[type='radio'] {
+    position: relative;
+    height: 22px;
+    width: 22px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+  }
+  
+  input[type='radio']::before {
+    content: '';
+    position: absolute;
+    top: 45%;
+    left: 60%;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 2px solid $color-primary;
+  }
+  
+  input[type='radio']:checked::after {
+    content: '';
+    position: absolute;
+    top: 45%;
+    left: 60%;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: $color-primary;
+    transform: translate(-50%, -50%);
+    visibility: visible;
+  }
