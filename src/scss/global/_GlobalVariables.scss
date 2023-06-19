@@ -91,3 +91,17 @@ $text-color-light-secondary: #B3B3A5;
     color: $text-color-light-primary;
     font-weight: bold;
 }
+.success{
+    max-height: 50px;
+    height: 5vw;
+    min-height: 25px;
+    padding-top: 1vw !important;
+    margin-top: 10px !important;
+}
+.danger{
+    max-height: 50px;
+    height: 5vw;
+    min-height: 25px;
+    padding-top: 1vw !important;
+
+}

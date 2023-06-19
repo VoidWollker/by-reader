@@ -81,6 +81,21 @@
   font-weight: bold;
 }
 
+.success {
+  max-height: 50px;
+  height: 5vw;
+  min-height: 25px;
+  padding-top: 1vw !important;
+  margin-top: 10px !important;
+}
+
+.danger {
+  max-height: 50px;
+  height: 5vw;
+  min-height: 25px;
+  padding-top: 1vw !important;
+}
+
 .swiper {
   --swiper-navigation-color: #335B50;
 }/*# sourceMappingURL=ProductSlider.css.map */

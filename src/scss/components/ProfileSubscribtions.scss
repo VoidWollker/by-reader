@@ -20,7 +20,7 @@
 .switch {
     position: relative;
     display: inline-block;
-    min-width: 25px;
+    min-width: 27px;
     width: 2.9vw;
     min-height: 18px;
     height: 1.7vw;
@@ -46,10 +46,12 @@
     position: absolute;
     content: "";
     height: 1.4vw;
-    min-height: 13px;
-    min-width: 13px;
+    min-height: 15px;
+    min-width: 15px;
     width: 1.4vw;
     left: 0;
+    right: 0;
+    top: 1;
     bottom: 0;
     border-radius:2px !important;
     background-color: $color-tertiary;

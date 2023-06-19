@@ -50,7 +50,9 @@
     max-width: 575px !important;
 }
 .btns-changes{
-    max-height: 54px;
+    max-height: 45px;
+    height: 4vw;
+    min-height: 30px;
     font-size: calc(8px + 0.4vw) !important;
     padding-left: 2vw !important;
     padding-right: 2vw !important;
@@ -62,3 +64,9 @@
 .h3{
     font-size: calc(10px + 0.5vw) !important;
 }
+.btn-file{
+    min-width: 98px !important;
+    width: 20vw !important;
+    max-width: 300px;
+}
+

@@ -81,6 +81,21 @@
   font-weight: bold;
 }
 
+.success {
+  max-height: 50px;
+  height: 5vw;
+  min-height: 25px;
+  padding-top: 1vw !important;
+  margin-top: 10px !important;
+}
+
+.danger {
+  max-height: 50px;
+  height: 5vw;
+  min-height: 25px;
+  padding-top: 1vw !important;
+}
+
 .h2 {
   font-size: calc(10px + 0.8vw) !important;
 }
@@ -104,7 +119,7 @@
 .switch {
   position: relative;
   display: inline-block;
-  min-width: 25px;
+  min-width: 27px;
   width: 2.9vw;
   min-height: 18px;
   height: 1.7vw;
@@ -131,10 +146,12 @@
   position: absolute;
   content: "";
   height: 1.4vw;
-  min-height: 13px;
-  min-width: 13px;
+  min-height: 15px;
+  min-width: 15px;
   width: 1.4vw;
   left: 0;
+  right: 0;
+  top: 1;
   bottom: 0;
   border-radius: 2px !important;
   background-color: #0F0D18;

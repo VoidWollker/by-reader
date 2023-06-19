@@ -81,6 +81,21 @@
   font-weight: bold;
 }
 
+.success {
+  max-height: 50px;
+  height: 5vw;
+  min-height: 25px;
+  padding-top: 1vw !important;
+  margin-top: 10px !important;
+}
+
+.danger {
+  max-height: 50px;
+  height: 5vw;
+  min-height: 25px;
+  padding-top: 1vw !important;
+}
+
 .h2 {
   font-size: calc(10px + 0.8vw);
 }
@@ -139,7 +154,9 @@
 }
 
 .btns-changes {
-  max-height: 54px;
+  max-height: 45px;
+  height: 4vw;
+  min-height: 30px;
   font-size: calc(8px + 0.4vw) !important;
   padding-left: 2vw !important;
   padding-right: 2vw !important;
@@ -152,4 +169,10 @@
 
 .h3 {
   font-size: calc(10px + 0.5vw) !important;
+}
+
+.btn-file {
+  min-width: 98px !important;
+  width: 20vw !important;
+  max-width: 300px;
 }/*# sourceMappingURL=ProfileAbout.css.map */
