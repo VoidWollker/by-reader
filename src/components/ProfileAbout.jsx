@@ -20,8 +20,8 @@ export const ProfileAbout = () =>{
     const createErrorComponent = (status,message) =>
         <>
             {status ?
-                <p className="alert alert-success  my-2 ms-2">{message}</p> :
-                <p className="alert alert-danger my-2 ms-2">{message}</p> 
+                <p className="alert alert-success  success ms-2">{message}</p> :
+                <p className="alert alert-danger  danger my-2 ms-2">{message}</p> 
             }
         </> 
 
@@ -95,11 +95,11 @@ export const ProfileAbout = () =>{
     }
 
     return(
-            <div className="d-flex flex-column profile-p ms-3">
+            <div className="d-flex flex-column profile-p">
                 <p className="h2">Обо мне</p>
-                <div className="d-flex flex-row my-3">
+                <div className="d-flex flex-row my-3 ">
                     <img src={require("../assets/icons/profile-avatar.png")} alt="" className="profile-avatar me-3 "/>
-                    <input type="file" className="btn btn-quaternary btns-changes my-auto py-2"/>
+                    <input type="file" className="btn btn-quaternary btns-changes btn-file my-auto py-2"/>
                 </div>
                 <div className="d-flex flex-row profile-input flex-wrap">
                     <input type="text" placeholder="Фамилия" className="me-3" value={userData.lastname}
@@ -138,7 +138,7 @@ export const ProfileAbout = () =>{
                         <p className="ps-1">Пользователи Почитателя увидят ваше фото и имя<br/>Личные данные защищены <b>политикой конфиденциальности</b></p>
                     </div>
                 </div>
-                <div className="d-flex flex-row">
+                <div className="d-flex flex-row  flex-wrap">
                     <button onClick={changePersonData} className="btn btn-primary btn-profile-save my-3">Сохранить изменения</button>
                     {sendDataStatus.personalData !== undefined ?
                         createErrorComponent(sendDataStatus.personalData.status, sendDataStatus.personalData.message):

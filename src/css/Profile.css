@@ -81,6 +81,21 @@
   font-weight: bold;
 }
 
+.success {
+  max-height: 50px;
+  height: 5vw;
+  min-height: 25px;
+  padding-top: 1vw !important;
+  margin-top: 10px !important;
+}
+
+.danger {
+  max-height: 50px;
+  height: 5vw;
+  min-height: 25px;
+  padding-top: 1vw !important;
+}
+
 .list-unstyled {
   font-size: calc(7px + 0.4vw) !important;
   min-width: 170px;
