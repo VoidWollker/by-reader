@@ -1,10 +1,10 @@
 import "../css/ProductCard.css"
 
 export const ProductCard = ({showType, id, title, author, image, price, fakePrice, format, reader, pageCount, length, rate, ratesCount, style, className}) => {
-    const normalStyle = {width: '100%'}
-    const miniStyle = {width: '60%'}
+    const normalStyle = {width: '65%'}
+    const miniStyle = {width: '50%'}
     const squareStyle = {width: '100%', aspectRatio: 1}
-    const bigSquareStyle = {width: '120%', aspectRatio: 1}
+    const bigSquareStyle = {width: '110%', aspectRatio: 1}
 
     return(
         <div className={`d-flex flex-column ${className}`} style={{style}}>
@@ -37,7 +37,7 @@ export const ProductCard = ({showType, id, title, author, image, price, fakePric
             <div className="d-flex flex-row align-items-center m-1 mx-0 product-format">
                 <p className="bordered-primary-text rounded me-1 px-1">{format}</p>
                 <img src={require('../assets/icons/product-star.png')} alt="" className="icon-rating mx-1"/>
-                <p className="product-rate me-1"><b>{rate}</b></p>
+                <p className="product-rate "><b>{rate}</b></p>
                 <p className="product-rates-count">{ratesCount}</p>
             </div>
             <button className="btn btn-tertiary btn-sm my-1 btn-to-cart w-100"><b>В корзину</b></button>

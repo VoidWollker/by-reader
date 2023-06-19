@@ -66,7 +66,7 @@ export const SearchResult = () =>{
                         navigate('?' + new URLSearchParams(urlParams))
                     }}>Поиск</button>
                 </div>
-                <div className="d-flex flex-row">
+                <div className="d-flex flex-row flex-wrap mb-3">
                     {findedProducts.map(product =>
                         <ProductCard 
                             showType={'normal'}

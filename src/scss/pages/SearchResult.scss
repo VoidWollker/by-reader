@@ -25,28 +25,32 @@ input[type='radio'] {
     outline: none;
   }
   
-  input[type='radio']::before {
-    content: '';
-    position: absolute;
-    top: 45%;
-    left: 60%;
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    border: 2px solid $color-primary;
-  }
+input[type='radio']::before {
+content: '';
+position: absolute;
+top: 45%;
+left: 60%;
+width: 15px;
+height: 15px;
+border-radius: 50%;
+transform: translate(-50%, -50%);
+background-color: white;
+border: 2px solid $color-primary;
+}
   
-  input[type='radio']:checked::after {
-    content: '';
-    position: absolute;
-    top: 45%;
-    left: 60%;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: $color-primary;
-    transform: translate(-50%, -50%);
-    visibility: visible;
-  }
+input[type='radio']:checked::after {
+content: '';
+position: absolute;
+top: 45%;
+left: 60%;
+width: 10px;
+height: 10px;
+border-radius: 50%;
+background-color: $color-primary;
+transform: translate(-50%, -50%);
+visibility: visible;
+}
+// .img-page-home{
+//     width: 40px !important;
+
+// }
