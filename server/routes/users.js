@@ -162,5 +162,22 @@ userRouter.get('/find/username', async (req, res) => {
   res.status(200).json(user)
 })
 
+// userRouter.put('/upd/:id', upload.single('image'), async (req, res) => {
+//   const { id } = req.params
+
+//   if (!mongoose.Types.ObjectId.isValid(id)) {
+//     return res.status(400).json({error: 'No such user'})
+//   }
+
+//   const user = await User.findOneAndUpdate({_id: id}, {
+//     image: req.file.path 
+//   })
+
+//   if (!user) {
+//     return res.status(400).json({error: 'No such user'})
+//   }
+
+//   res.status(200).json(user)
+// })
 
 module.exports = userRouter;

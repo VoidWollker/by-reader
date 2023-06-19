@@ -87,4 +87,23 @@ productRoutes.get('/find/by', async (req, res) => {
   }
 })
 
+//Add a cover
+productRoutes.put('/upd/:id', upload.single('cover'), async (req, res) => {
+  const { id } = req.params
+
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(400).json({error: 'No such book'})
+  }
+
+  const book = await Book.findOneAndUpdate({_id: id}, {
+    cover: req.file.path 
+  })
+
+  if (!book) {
+    return res.status(400).json({error: 'No such book'})
+  }
+
+  res.status(200).json(book)
+})
+
 module.exports = productRoutes;
