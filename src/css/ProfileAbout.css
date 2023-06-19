@@ -174,4 +174,5 @@
 .btn-file {
   min-width: 98px !important;
   width: 20vw !important;
+  max-width: 300px;
 }/*# sourceMappingURL=ProfileAbout.css.map */
