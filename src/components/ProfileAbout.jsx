@@ -20,8 +20,8 @@ export const ProfileAbout = () =>{
     const createErrorComponent = (status,message) =>
         <>
             {status ?
-                <p className="alert alert-success my-2 ms-0">{message}</p> :
-                <p className="alert alert-danger my-2 ms-0">{message}</p> 
+                <p className="alert alert-success  my-2 ms-2">{message}</p> :
+                <p className="alert alert-danger my-2 ms-2">{message}</p> 
             }
         </> 
 
@@ -95,7 +95,7 @@ export const ProfileAbout = () =>{
     }
 
     return(
-            <div className="d-flex flex-column profile-p ms-5">
+            <div className="d-flex flex-column profile-p ms-3">
                 <p className="h2">Обо мне</p>
                 <div className="d-flex flex-row my-3">
                     <img src={require("../assets/icons/profile-avatar.png")} alt="" className="profile-avatar me-3 "/>
