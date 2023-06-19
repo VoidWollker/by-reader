@@ -1,6 +1,7 @@
 import "../css/ProductQuotes.css"
 
 export const ProductQuotes = ({elementID, quotes}) =>{
+    console.log(quotes);
     const createQuoteBlock = (quote, rate) =>{
         return(
             <div className="w-75 mx-auto" id={elementID}>
