@@ -10,11 +10,24 @@ import { useAuth } from '../context/UserContext'
 export const Product = () =>{
     const {user, changeUserData} = useAuth()
     const [book, setBook] = useState({})
+    const [reviews, setReviews] = useState([])
     const [pathParams] = useSearchParams()
 
     useEffect(() =>{
         getBook(pathParams.get('id'))
+        setReviews([])
     }, [pathParams])
+
+    useEffect(() =>{
+        try{
+            book.reviews.map(async review =>{
+                await fetch(`http://localhost:5000/user/getByID/${review.user}`) 
+                    .then(userData => userData.json())
+                    .then(userData => {
+                        setReviews(reviews => [...reviews, {username: userData.username, text: review.text, writeDate: '11.11.2011'}])})
+            })
+        } catch {}
+    }, [book])
 
     const getBook = async (id) =>
         await fetch(`http://localhost:5000/book/${id}`)
@@ -23,7 +36,6 @@ export const Product = () =>{
                 setBook(res)
                 changeUserData({viewed: [...new Set([...user.viewed, {_id:id}].map(item => item._id))].map(item => item = {'_id': item})})
             })
-        
     return(
         <>
         <div className='pb-4 '>
@@ -53,11 +65,15 @@ export const Product = () =>{
                     <a className="link-active" href="#product-reviews">Отзывы</a>
                 </li>
             </ul>
-            <ProductDescription description={'Best Book'} elementID={'product-description'} />
-            <ProductQuotes quotes={['Война — это мир, свобода — это рабство, незнание — сила.', `— Сколько я показываю пальцев, Уинстон?
-— Четыре.
-— А если партия говорит, что их не четыре, а пять, — тогда сколько?..`]} elementID={'product-quotes'}/>
-            <ProductReviews reviews={['BEEEEST', 'It sad, but that is real']} elementID={'product-reviews'}/>
+            <ProductDescription description={book.description} elementID={'product-description'} />
+            {book.quotes !== undefined ? 
+                <ProductQuotes quotes={book.quotes} elementID={'product-quotes'}/> :
+                ''
+            }
+            {book.reviews !== undefined ?
+                <ProductReviews reviews={reviews} elementID={'product-reviews'}/> :
+                ''
+            }
             </div>
         </>
     )

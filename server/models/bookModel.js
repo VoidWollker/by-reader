@@ -2,6 +2,24 @@ const mongoose = require('mongoose')
 
 const Schema = mongoose.Schema
 
+const quoteSchema = new Schema({
+    text: {
+        type: String,
+        required: true
+    }
+}, { timestamps: false })
+
+const reviewSchema = new Schema({
+    text: {
+        type: String,
+        required: true
+    },
+    user: {
+        type: mongoose.Types.ObjectId,
+        required: false
+    }
+}, { timestamps: true })
+
 const bookSchema = new Schema({
     title: {
         type: String,
@@ -55,7 +73,11 @@ const bookSchema = new Schema({
         type: Number,
         required: true
     },
+    quotes: [quoteSchema],
+    reviews: [reviewSchema],
 }, { timestamps: true })
+
+
 
 module.exports = mongoose.model('Book', bookSchema)
 
