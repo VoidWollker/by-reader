@@ -47,7 +47,8 @@ productRoutes.get('/:id', async (req, res) => {
 // This section will help you get records by title, author, genre, etc.
 productRoutes.get('/find/by', async (req, res) => {
 
-  const data = req.body
+  const data = req.query
+  console.log(data);
 
   try {
     const books = await Book.find()

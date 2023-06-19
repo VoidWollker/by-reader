@@ -9,6 +9,7 @@ import { BookShelf } from "./pages/BookShelf"
 
 import "./css/App.css"
 import { UserProvider } from './context/UserContext';
+import { SearchResult } from './pages/SearchResult';
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
           <div className="app-body">
             <Routes>
               <Route path='/' element={<Home />} />
+              <Route path='/search' element={<SearchResult />} />
               <Route path='/enter' element={<EnterOrRegister />} />
               <Route path='/product' element={<Product />} />
               <Route path='/profile' element={<Profile selectedIndex={0}/>} />
