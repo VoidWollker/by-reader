@@ -6,6 +6,10 @@ const quoteSchema = new Schema({
     text: {
         type: String,
         required: true
+    },
+    rate: {
+        type: Number,
+        required: true
     }
 }, { timestamps: false })
 
