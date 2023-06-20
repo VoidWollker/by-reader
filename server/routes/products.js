@@ -2,6 +2,34 @@ const { Router } = require("express");
 const Book = require('../models/bookModel')
 const mongoose = require('mongoose')
 const Fuse = require('fuse.js')
+const multer = require('multer')
+const storage = multer.diskStorage({
+    destination: function(req, file, cb) {
+      cb(null, './uploads/');
+    },
+    filename: function(req, file, cb) {
+      cb(null, file.originalname);
+    }
+  });
+  
+  const fileFilter = (req, file, cb) => {
+    // reject a file
+    if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {
+      cb(null, true);
+    } else {
+      cb(null, false);
+    }
+  };
+  
+  const upload = multer({
+    storage: storage,
+    limits: {
+      fileSize: 1024 * 1024 * 5
+    },
+    fileFilter: fileFilter
+  });
+
+module.exports = upload;
  
 // productRoutes is an instance of the express router.
 // We use it to define our routes.
@@ -85,6 +113,25 @@ productRoutes.get('/find/by', async (req, res) => {
   } catch (error) {
     res.status(404).json({ error: 'No such book' })
   }
+})
+
+//Add a cover
+productRoutes.put('/upd/:id', upload.single('cover'), async (req, res) => {
+  const { id } = req.params
+
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(400).json({error: 'No such book'})
+  }
+
+  const book = await Book.findOneAndUpdate({_id: id}, {
+    cover: req.file.path 
+  })
+
+  if (!book) {
+    return res.status(400).json({error: 'No such book'})
+  }
+
+  res.status(200).json(book)
 })
 
 module.exports = productRoutes;

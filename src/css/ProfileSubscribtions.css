@@ -96,26 +96,6 @@
   padding-top: 1vw !important;
 }
 
-.h2 {
-  font-size: calc(10px + 0.8vw) !important;
-}
-
-.h3 {
-  font-size: calc(8px + 0.5vw) !important;
-  font-weight: 500 !important;
-  min-width: 230px;
-}
-
-.h5 {
-  font-size: calc(8px + 0.4vw) !important;
-  font-weight: inherit !important;
-  max-width: 532px !important;
-}
-
-.text-p input {
-  width: 20px !important;
-}
-
 .switch {
   position: relative;
   display: inline-block;
@@ -177,4 +157,24 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+.h2 {
+  font-size: calc(10px + 0.8vw) !important;
+}
+
+.h3 {
+  font-size: calc(8px + 0.5vw) !important;
+  font-weight: 500 !important;
+  min-width: 230px;
+}
+
+.h5 {
+  font-size: calc(8px + 0.4vw) !important;
+  font-weight: inherit !important;
+  max-width: 532px !important;
+}
+
+.text-p input {
+  width: 20px !important;
 }/*# sourceMappingURL=ProfileSubscribtions.css.map */

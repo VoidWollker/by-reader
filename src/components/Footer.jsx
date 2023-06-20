@@ -41,18 +41,18 @@ export const Footer = () =>{
                             <div className="d-flex flex-column ">
                                 <a href=""className="genres-link"> <li>Художественная литература</li> </a>
                                 <a href=""className="genres-link"><li>Нехудожественная литература</li></a>
-                                <a href=""className="genres-link"><li>На иностранных языках</li></a>
-                                <a href=""className="genres-link"><li>Бизнес-литература</li></a>
+                                <a href=""className="genres-link"><li>Юмористическая литература</li></a>
+                                <a href=""className="genres-link"><li>Ужасы</li></a>
                                 <a href=""className="genres-link"><li>Искусство и культура</li></a>
-                                <a href=""className="genres-link"><li>Эзотерика и спиритизм</li></a>
+                                <a href=""className="genres-link"><li>Зарубежная классика</li></a>
                             </div>
                             <div className="d-flex flex-column">
-                                <a href=""className="genres-link"> <li>Саморазвитие</li></a>
-                                <a href=""className="genres-link"><li>Научная литература</li></a>
-                                <a href=""className="genres-link"><li>Детям и родителям</li></a>
-                                <a href=""className="genres-link"><li>Психология</li></a>
-                                <a href=""className="genres-link"><li>Комиксы</li></a>
-                                <a href=""className="genres-link"><li>Учебная литература</li></a>
+                                <a href=""className="genres-link"> <li>Боевики</li></a>
+                                <a href=""className="genres-link"><li>Фэнтези</li></a>
+                                <a href=""className="genres-link"><li>Детективы</li></a>
+                                <a href=""className="genres-link"><li>Фантастика</li></a>
+                                <a href=""className="genres-link"><li>Роман</li></a>
+                                <a href=""className="genres-link"><li>Приключения</li></a>
                             </div>
                         </div>
                     </ul>

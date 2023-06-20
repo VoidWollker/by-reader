@@ -105,3 +105,69 @@ $text-color-light-secondary: #B3B3A5;
     padding-top: 1vw !important;
 
 }
+
+
+.switch {
+    position: relative;
+    display: inline-block;
+    min-width: 27px;
+    width: 2.9vw;
+    min-height: 18px;
+    height: 1.7vw;
+  }
+  
+  .switch input {display:none;}
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $bc-secondary;
+    border: 3px solid;
+    border-radius: 6px !important;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 1.4vw;
+    min-height: 15px;
+    min-width: 15px;
+    width: 1.4vw;
+    left: 0;
+    right: 0;
+    top: 1;
+    bottom: 0;
+    border-radius:2px !important;
+    background-color: $color-tertiary;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider:before {
+    background-color: $color-primary;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px $color-primary;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(1.2vw);
+    -ms-transform: translateX(1.2vw);
+    transform: translateX(1.2vw);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }

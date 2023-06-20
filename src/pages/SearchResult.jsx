@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { ProductCard } from "../components/ProductCard"
 
+import "../css/SearchResult.css"
+
 export const SearchResult = () =>{
     const navigate = useNavigate()
     const [pathParams] = useSearchParams()
@@ -29,31 +31,31 @@ export const SearchResult = () =>{
     } 
 
     return(
-        <div className="d-flex flex-column">
-            <p></p>
-            <div className="d-flex flex-row">
-                <div className="d-flex flex-column">
-                    <input type="text" placeholder='Название' value={searchParams.title}
+        <div className="d-flex flex-column pt-4 w-75 mx-auto">
+            <p className='pb-4 h2'>Результат поиска</p>
+            <div className="d-flex flex-row ">
+                <div className="d-flex flex-column me-5 label-format">
+                    <input className='my-1 ps-2 border-0 rounded input-SearchResult' type="text" placeholder='Название' value={searchParams.title}
                         onChange={e => setSearchParams({...searchParams, title: e.target.value})}/>
-                    <input type="text" placeholder='Автор' value={searchParams.author}
+                    <input className='my-1 ps-2 border-0 rounded input-SearchResult' type="text" placeholder='Автор' value={searchParams.author}
                         onChange={e => setSearchParams({...searchParams, author: e.target.value})}/>
-                    <input type="text" placeholder='Издательство' value={searchParams.publisher}
+                    <input className='my-1 ps-2 border-0 rounded input-SearchResult' type="text" placeholder='Издательство' value={searchParams.publisher}
                         onChange={e => setSearchParams({...searchParams, publisher: e.target.value})} />
-                    <input type="text" placeholder='Серия' value={searchParams.seria}
+                    <input className='my-1 ps-2 border-0 rounded input-SearchResult' type="text" placeholder='Серия' value={searchParams.seria}
                         onChange={e => setSearchParams({...searchParams, seria: e.target.value})} />
-                    <div className="d-flex flex-row">
+                    <div className="d-flex flex-row form_radio">
                         <label htmlFor="all">Все</label>
                         <input type="radio" id="all" name="format" onClick={() => setSearchParams({...searchParams, format: ''})}/>
                     </div>
-                    <div className="d-flex flex-row">
+                    <div className="d-flex flex-row form_radio">
                         <label htmlFor="text">Текст</label>
                         <input type="radio" id="text" name="format" onClick={() => setSearchParams({...searchParams, format: 'Текст'})}/>
                     </div>
-                    <div className="d-flex flex-row">
+                    <div className="d-flex flex-row form_radio">
                         <label htmlFor="audio">Аудио</label> 
                         <input type="radio" id="audio" name="format" onClick={() => setSearchParams({...searchParams, format: 'Аудио'})}/>
                     </div>
-                    <div className="d-flex flex-row">
+                    <div className="d-flex flex-row form_radio">
                         <label htmlFor="podcast">Подкаст</label>
                         <input type="radio" id="podcast" name="format" onClick={() => setSearchParams({...searchParams, format: 'Подкаст'})}/>
                     </div>
@@ -64,7 +66,7 @@ export const SearchResult = () =>{
                         navigate('?' + new URLSearchParams(urlParams))
                     }}>Поиск</button>
                 </div>
-                <div className="d-flex flex-column">
+                <div className="d-flex flex-row flex-wrap mb-3">
                     {findedProducts.map(product =>
                         <ProductCard 
                             showType={'normal'}
