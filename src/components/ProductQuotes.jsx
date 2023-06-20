@@ -1,7 +1,6 @@
 import "../css/ProductQuotes.css"
 
 export const ProductQuotes = ({elementID, quotes}) =>{
-    console.log(quotes);
     const createQuoteBlock = (quote, rate) =>{
         return(
             <div className="w-75 mx-auto" id={elementID}>
@@ -28,7 +27,7 @@ export const ProductQuotes = ({elementID, quotes}) =>{
                 <div className="">
                     <h1 className="pt-4 w-75 mx-auto">Цитаты</h1>
                     {quotes.map(quote =>{
-                        return createQuoteBlock(quote, 54)
+                        return createQuoteBlock(quote.text, quote.rate)
                     })}
                     <button className="btn btn-fivefold my-3 btn-quote">Ещё 3 цитаты</button>
                 </div>

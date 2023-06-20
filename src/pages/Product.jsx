@@ -11,6 +11,7 @@ export const Product = () =>{
     const {user, changeUserData} = useAuth()
     const [book, setBook] = useState({})
     const [reviews, setReviews] = useState([])
+    const [quotes, setQuotes] = useState([])
     const [pathParams] = useSearchParams()
 
     useEffect(() =>{
@@ -19,14 +20,7 @@ export const Product = () =>{
     }, [pathParams])
 
     useEffect(() =>{
-        try{
-            book.reviews.map(async review =>{
-                await fetch(`http://localhost:5000/user/getByID/${review.user}`) 
-                    .then(userData => userData.json())
-                    .then(userData => {
-                        setReviews(reviews => [...reviews, {username: userData.username, text: review.text, writeDate: '11.11.2011'}])})
-            })
-        } catch {}
+        getReviews()
     }, [book])
 
     const getBook = async (id) =>
@@ -36,6 +30,18 @@ export const Product = () =>{
                 setBook(res)
                 changeUserData({viewed: [...new Set([...user.viewed, {_id:id}].map(item => item._id))].map(item => item = {'_id': item})})
             })
+
+    const getReviews = () =>{
+        try{
+            book.reviews.map(async review =>{
+                await fetch(`http://localhost:5000/user/getByID/${review.user}`) 
+                    .then(userData => userData.json())
+                    .then(userData => {
+                        setReviews(reviews => [...reviews, {username: userData.username, text: review.text, writeDate: '11.11.2011'}])})
+            })
+        } catch (err){console.log(err);}
+    }
+    
     return(
         <>
         <div className='pb-4 '>
@@ -66,14 +72,19 @@ export const Product = () =>{
                 </li>
             </ul>
             <ProductDescription description={book.description} elementID={'product-description'} />
-            {book.quotes !== undefined ? 
-                <ProductQuotes quotes={book.quotes} elementID={'product-quotes'}/> :
-                ''
-            }
-            {book.reviews !== undefined ?
-                <ProductReviews reviews={reviews} elementID={'product-reviews'}/> :
-                ''
-            }
+            <div id="product-quotes">
+                {book.quotes !== undefined ? 
+                    <ProductQuotes quotes={book.quotes}/> :
+                    ''
+                }
+            </div>
+            <div id="product-reviews">
+                {book.reviews !== undefined ?
+                    <ProductReviews reviews={reviews}/> :
+                    ''
+                }
+            </div>
+            
             </div>
         </>
     )
