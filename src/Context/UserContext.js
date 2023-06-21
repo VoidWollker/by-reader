@@ -61,6 +61,7 @@ export const UserProvider = ({children}) =>{
     }
 
     const updateUserData = async (data) =>{
+        console.log(data);
         await fetch('http://localhost:5000/user/update', {
             method: 'POST',
             body: JSON.stringify({...data, _id:user._id}),
