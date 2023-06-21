@@ -8,7 +8,7 @@ export const ProductQuotes = ({elementID, quotes, quotesCount, increaseQuotesCou
                 <div className="quotes">
                     <p className="py-2 px-3">{quote.text}</p>
                     <div className="d-flex flex-row ps-3 pb-1">
-                        <button onClick={() => increaseQuoteRate(index)}>
+                        <button className="p-0 border-0 bg-white btn-like" onClick={() => increaseQuoteRate(index)}>
                             <img src={require("../assets/icons/product-likes.png")} alt="" className="quote-like" />
                         </button>
                         
@@ -17,7 +17,7 @@ export const ProductQuotes = ({elementID, quotes, quotesCount, increaseQuotesCou
                         quote.rate < 0 ? `${quote.rate}`:
                         `${quote.rate}`}
                         </div>
-                        <button onClick={() => decreaseQuoteRate(index)}>
+                        <button className="p-0 border-0 bg-white btn-like" onClick={() => decreaseQuoteRate(index)}>
                             <img src={require("../assets/icons/product-dislikes.png")} alt="" className="quote-dislike ms-1" />
                         </button>
                         

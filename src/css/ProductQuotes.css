@@ -198,4 +198,8 @@ input:checked + .slider:before {
   max-width: 200px;
   margin: 0 auto;
   display: block !important;
+}
+
+.btn-like {
+  width: 30px;
 }/*# sourceMappingURL=ProductQuotes.css.map */
