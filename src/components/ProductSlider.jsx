@@ -19,8 +19,8 @@ export const ProductSlider = ({slides, slidesPerView, style, className}) => {
 
     return(
         <div className={className} style={style}>
-           <button className='prev-arrow' onClick={e => swiper.slidePrev()}>Prev</button>
-           <button className='next-arrow' onClick={e => swiper.slideNext()}>Next</button>
+           <button className='prev-arrow' onClick={e => swiper.slidePrev()}></button>
+           <button className='next-arrow' onClick={e => swiper.slideNext()}></button>
             <Swiper
                 slidesPerView={slidesPerView}
                 spaceBetween={100}
