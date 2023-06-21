@@ -73,6 +73,45 @@ productRoutes.get('/:id', async (req, res) => {
 })
 
 // This section will help you get records by title, author, genre, etc.
+productRoutes.get('/find/byall', async (req, res) => {
+
+  const data = req.query
+  console.log(data);
+
+  try {
+    const books = await Book.find()
+
+    const options = {
+      keys: [
+        'title',
+        'author',
+        'genre',
+        'format',
+        'seria',
+        'publisher',
+        'price',
+        'recommendedAge'
+      ]
+    }
+
+    const fuse = new Fuse(books, options)
+
+    const result = fuse.search(data.data)
+
+    const filteredBooks = result
+      .filter((item) => 
+        (data.price === undefined || item.item.price.toString() === data.price) &&
+        (data.recommendedAge === undefined || item.item.recommendedAge.toString() === data.recommendedAge)
+      )
+      .map((item) => item.item)
+
+    res.status(200).json(filteredBooks)
+  } catch (error) {
+    res.status(404).json({ error: 'No such book' })
+  }
+})
+
+// This section will help you get records by a certain field (e.g., title, author, etc.)
 productRoutes.get('/find/by', async (req, res) => {
 
   const data = req.query
@@ -100,10 +139,6 @@ productRoutes.get('/find/by', async (req, res) => {
 
     const filteredBooks = result
       .filter((item) => 
-        // (item.item.genre === data.genre || !data.genre) &&
-        // (item.item.format === data.format || !data.format) &&
-        // (item.item.seria === data.seria || !data.seria) &&
-        // (item.item.publisher === data.publisher || !data.publisher) &&
         (data.price === undefined || item.item.price.toString() === data.price) &&
         (data.recommendedAge === undefined || item.item.recommendedAge.toString() === data.recommendedAge)
       )
