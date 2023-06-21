@@ -1,27 +1,8 @@
-import { useState, useEffect} from 'react'
+import { useState} from 'react'
 import "../css/ProductReviews.css"
 
-export const ProductReviews = ({elementID, reviews}) =>{
-    // const [reviewsData, setReviewsData] = useState([])
-
-    // useEffect(() =>{
-    //     const result = []
-    //     reviews.map(async review => {
-    //         await fetch(`http://localhost:5000/user/getByID/${review.user}`)
-    //             .then(userData => userData.json())
-    //             .then(user => {
-    //                 result.push({
-    //                     username: require(user.username),
-    //                     writingDate: '22.10.2003',
-    //                     text: review.text
-    //                     })
-    //             }) 
-    //     })
-    //     console.log(result);
-    //     setReviewsData(result)
-    // }, [])
-
-    // useEffect(() => {}, [reviewsData])
+export const ProductReviews = ({elementID, reviews, writeReview}) =>{
+    const [reviewText, setReviewText] = useState('')
 
     const createReview = (avatar, userName, date, rate, text) =>{
         return(
@@ -38,6 +19,8 @@ export const ProductReviews = ({elementID, reviews}) =>{
         )
     }
 
+    
+
     return(
         <div className="d-flex flex-column w-75 mx-auto" id={elementID}>
             <h1 className="pt-4">Отзывы</h1>
@@ -48,8 +31,10 @@ export const ProductReviews = ({elementID, reviews}) =>{
             <h1 className="pt-4 pb-2">Оставьте отзыв</h1>
             <div className="d-flex flex-row review-add p-3 flex-wrap justify-content-center">
                 <img src={require("../assets/icons/foto-avatar.png")} alt="" className="avatar mt-2"/>
-                <input className="add-review ps-2 mx-3 mb-2 mt-2" placeholder="Что вы думаете о книге?"></input>
-                <button className="btn btn-tertiary btn-addReview px-0">Опубликовать</button>
+                <input className="add-review ps-2 mx-3 mb-2 mt-2" placeholder="Что вы думаете о книге?"
+                    onChange={e => setReviewText(e.target.value)}    
+                />
+                <button className="btn btn-tertiary btn-addReview px-0" onClick={() => writeReview(reviewText)}>Опубликовать</button>
             </div>
         </div>
     )
