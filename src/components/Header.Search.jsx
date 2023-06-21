@@ -9,8 +9,8 @@ export default function Search(){
     return(
         <div className="d-flex flex-row ">
             <input type="text" className="header-search-input"
-                onKeyDown={e => e.key === 'Enter' ?
-                    navigate(`/search?title=${searchParams}`) :
+                onKeyUp={e => e.key === 'Enter' ?
+                    navigate(`/search?data=${searchParams}`) :
                     setSearchParams(e.target.value)
             }/>
             <button className="btn btn-primary my-1 px-3 py-3 search-btn position-relative" onClick={() => navigate(`/search?title=${searchParams}`)}>

@@ -79,7 +79,7 @@ productRoutes.get('/find/byall', async (req, res) => {
   console.log(data);
 
   try {
-    const books = await Book.find()
+    const books = await Product.find()
 
     const options = {
       keys: [

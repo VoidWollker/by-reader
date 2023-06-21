@@ -15,11 +15,21 @@ export const SearchResult = () =>{
     }, [pathParams])
 
     const getProducts = async () =>{
-        return await fetch('http://localhost:5000/book/find/by?' + new URLSearchParams(pathParamsToObject(pathParams.entries())))
+        if (pathParamsToObject(pathParams.entries()).data !== undefined){
+            console.log('data is finde');
+            return await fetch('http://localhost:5000/book/find/byall?' + new URLSearchParams(pathParamsToObject(pathParams.entries())))
             .then(res => res.json())
             .then(products =>{
                 setFindedProducts(products)
-            })     
+            }) 
+        } else{
+            return await fetch('http://localhost:5000/book/find/by?' + new URLSearchParams(pathParamsToObject(pathParams.entries())))
+            .then(res => res.json())
+            .then(products =>{
+                setFindedProducts(products)
+            })    
+        }
+         
     } 
 
     function pathParamsToObject(entries) {
@@ -70,16 +80,7 @@ export const SearchResult = () =>{
                     {findedProducts.map(product =>
                         <ProductCard 
                             showType={'normal'}
-                            id={product._id}
-                            title={product.title}
-                            author={product.author}
-                            image={(product.cover).toString()}
-                            price={product.price}
-                            fakePrice={product.fakePrice}
-                            format={product.format}
-                            pageCount={product.pageCount}
-                            rate={product.rate}
-                            ratesCount={product.ratesCount}
+                            book={product}
                     />)}
                 </div>
             </div>
