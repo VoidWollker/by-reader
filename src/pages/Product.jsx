@@ -9,7 +9,7 @@ import { useAuth } from '../context/UserContext'
 
 export const Product = () =>{
     const {user, changeUserData} = useAuth()
-    const [book, setBook] = useState({})
+    const [book, setBook] = useState(null)
     const [reviews, setReviews] = useState([])
     const [quotesCount, setQuotesCount] = useState(3)
     const [pathParams] = useSearchParams()
@@ -74,57 +74,48 @@ export const Product = () =>{
     
     return(
         <>
-            <div className='pb-4 '>
-                <ProductDetials 
-                    title={book.title}
-                    format={book.format}
-                    author={book.author}
-                    recomendedAge={book.recomendedAge}
-                    publisher={book.publisher}
-                    rate={book.rate}
-                    ratesCount={book.ratesCount}
-                    reviewCount={book.reviewCount}
-                    price={book.price}
-                    fakePrice={book.fakePrice}
-                    pageCount={book.pageCount}
-                    genre={book.genre}
-                    dateWriting={book.dateWriting}
-                />
-                <ul className="nav nav-tabs my-4 w-75 mx-auto">
-                    <li className="nav-item mx-2 product-detials">
-                        <a className="link-active" href="#product-description">Краткое описание</a>
-                    </li>
-                    <li className="nav-item mx-2 product-detials">
-                        <a className="link-active" href="#product-quotes">Известные цитаты</a>
-                    </li>
-                    <li className="nav-item mx-2 product-detials">
-                        <a className="link-active" href="#product-reviews">Отзывы</a>
-                    </li>
-                </ul>
-                {book.description !== undefined ? 
-                    <ProductDescription description={book.description} elementID={'product-description'} /> :
-                    ''
-                }
-                
-                <div id="product-quotes">
-                    {book.quotes !== undefined ? 
-                        <ProductQuotes quotes={book.quotes} 
-                        quotesCount={quotesCount} 
-                        increaseQuotesCount={increaseQuotesCount}
-                        increaseQuoteRate={increaseQuoteRate}
-                        decreaseQuoteRate={decreaseQuoteRate}
-                        /> :
+            {book !== null ?
+                <div className='pb-4 '>
+                    <ProductDetials 
+                        product={book}
+                    />
+                    <ul className="nav nav-tabs my-4 w-75 mx-auto">
+                        <li className="nav-item mx-2 product-detials">
+                            <a className="link-active" href="#product-description">Краткое описание</a>
+                        </li>
+                        <li className="nav-item mx-2 product-detials">
+                            <a className="link-active" href="#product-quotes">Известные цитаты</a>
+                        </li>
+                        <li className="nav-item mx-2 product-detials">
+                            <a className="link-active" href="#product-reviews">Отзывы</a>
+                        </li>
+                    </ul>
+                    {book.description !== undefined ? 
+                        <ProductDescription description={book.description} elementID={'product-description'} /> :
                         ''
                     }
-                </div>
-                <div id="product-reviews">
-                    {book.reviews !== undefined ?
-                        <ProductReviews reviews={reviews} bookID={book._id} writeReview={writeReview}/> :
-                        ''
-                    }
-                </div>
-                
-            </div>
+                    
+                    <div id="product-quotes">
+                        {book.quotes !== undefined ? 
+                            <ProductQuotes quotes={book.quotes} 
+                            quotesCount={quotesCount} 
+                            increaseQuotesCount={increaseQuotesCount}
+                            increaseQuoteRate={increaseQuoteRate}
+                            decreaseQuoteRate={decreaseQuoteRate}
+                            /> :
+                            ''
+                        }
+                    </div>
+                    <div id="product-reviews">
+                        {book.reviews !== undefined ?
+                            <ProductReviews reviews={reviews} bookID={book._id} writeReview={writeReview}/> :
+                            ''
+                        }
+                    </div>
+                    
+                </div> :
+                ''
+            }
         </>
     )
 }
