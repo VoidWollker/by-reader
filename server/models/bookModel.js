@@ -48,7 +48,7 @@ const bookSchema = new Schema({
     },
     seria: {
         type: String,
-        required: true
+        required: false
     },
     recomendedAge:{
         type: Number,
