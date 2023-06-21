@@ -73,7 +73,7 @@ export const SearchResult = () =>{
                             id={product._id}
                             title={product.title}
                             author={product.author}
-                            image={'Дизайн 10.png'}
+                            image={(product.cover).toString()}
                             price={product.price}
                             fakePrice={product.fakePrice}
                             format={product.format}
