@@ -63,7 +63,7 @@ const bookSchema = new Schema({
         required: true
     },
     description: {
-        type: String,
+        type: Array,
         required: true
     },
     dateWriting: {
