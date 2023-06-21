@@ -20,8 +20,8 @@ export const ProfileAbout = () =>{
     const createErrorComponent = (status,message) =>
         <>
             {status ?
-                <p className="alert alert-success  success ms-2">{message}</p> :
-                <p className="alert alert-danger  danger my-2 ms-2">{message}</p> 
+                <p className="alert alert-success  success ms-2 mt-1 px-auto py-2"><img src={require("../assets/icons/profile-ok.png")} alt="" className="profile-ok me-1"/>{message}</p> :
+                <p className="alert alert-danger  danger ms-2 mt-1 px-auto py-2"><img src={require("../assets/icons/profile-nook.png")} alt="" className="profile-nook me-1"/>{message}</p> 
             }
         </> 
 
@@ -138,7 +138,7 @@ export const ProfileAbout = () =>{
                         <p className="ps-1">Пользователи Почитателя увидят ваше фото и имя<br/>Личные данные защищены <b>политикой конфиденциальности</b></p>
                     </div>
                 </div>
-                <div className="d-flex flex-row  flex-wrap">
+                <div className="d-flex flex-row flex-wrap align-items-center">
                     <button onClick={changePersonData} className="btn btn-primary btn-profile-save my-3">Сохранить изменения</button>
                     {sendDataStatus.personalData !== undefined ?
                         createErrorComponent(sendDataStatus.personalData.status, sendDataStatus.personalData.message):
@@ -154,11 +154,13 @@ export const ProfileAbout = () =>{
                             setUserData({...userData, email: e.target.value}) :
                             e.target.value = userData.email
                     }/>
-                    <button className="btn btn-quaternary btns-changes mt-1 ms-3" onClick={changeEmail}>Изменить эл. почту</button>
-                    {sendDataStatus.email !== undefined ?
-                        createErrorComponent(sendDataStatus.email.status, sendDataStatus.phone.message):
-                        ''
-                    }
+                    <div className='d-flex flex-row flex-wrap'>
+                        <button className="btn btn-quaternary btns-changes mt-1 ms-3" onClick={changeEmail}>Изменить эл. почту</button>
+                        {sendDataStatus.email !== undefined ?
+                            createErrorComponent(sendDataStatus.email.status, sendDataStatus.phone.message):
+                            ''
+                        }
+                    </div>
                 </div>
                 <p>Для восстановления доступа и писем</p>
                 <div className="d-flex flex-row profile-input flex-wrap">
@@ -167,11 +169,13 @@ export const ProfileAbout = () =>{
                             setUserData({...userData, phone: e.target.value}) :
                             e.target.value = userData.phone
                     }/>
-                    <button onClick={changePhone} className="btn btn-quaternary btns-changes mt-1 ms-3">Добавить телефон</button>
-                    {sendDataStatus.phone !== undefined ?
-                        createErrorComponent(sendDataStatus.phone.status, sendDataStatus.phone.message):
-                        ''
-                    }
+                    <div className='d-flex flex-row flex-wrap'>
+                        <button onClick={changePhone} className="btn btn-quaternary btns-changes mt-1 ms-3">Добавить телефон</button>
+                        {sendDataStatus.phone !== undefined ?
+                            createErrorComponent(sendDataStatus.phone.status, sendDataStatus.phone.message):
+                            ''
+                        }
+                    </div>
                 </div>
                 <div className="profile-input">
                     <p className="mb-3">Для входа и сообщений</p>

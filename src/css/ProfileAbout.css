@@ -81,21 +81,6 @@
   font-weight: bold;
 }
 
-.success {
-  max-height: 50px;
-  height: 5vw;
-  min-height: 25px;
-  padding-top: 1vw !important;
-  margin-top: 10px !important;
-}
-
-.danger {
-  max-height: 50px;
-  height: 5vw;
-  min-height: 25px;
-  padding-top: 1vw !important;
-}
-
 .switch {
   position: relative;
   display: inline-block;
@@ -238,4 +223,50 @@ input:checked + .slider:before {
   min-width: 98px !important;
   width: 20vw !important;
   max-width: 300px;
+}
+
+.profile-ok {
+  min-width: 10px;
+  width: 5vw;
+  max-width: 15px;
+}
+
+.profile-nook {
+  min-width: 10px;
+  width: 5vw;
+  max-width: 18px;
+}
+
+.success {
+  max-height: 45px;
+  width: 20vw;
+  font-size: calc(5px + 0.6vw) !important;
+  max-width: 190px !important;
+  min-width: 130px !important;
+  min-height: 15px !important;
+  padding-top: 1vw !important;
+  margin-top: 10px !important;
+  --bs-alert-color: $color-primary !important;
+  --bs-alert-bg: #d1e7dd !important;
+  --bs-alert-border-color: #badbcc !important;
+  --bs-alert-border: 3px outset #335B50 !important;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.danger {
+  max-height: 45px;
+  width: 20vw;
+  font-size: calc(5px + 0.6vw) !important;
+  max-width: 190px !important;
+  min-width: 130px !important;
+  min-height: 15px !important;
+  padding-top: 1vw !important;
+  margin-top: 10px !important;
+  --bs-alert-color: #842029;
+  --bs-alert-border: 3px outset #842029!important;
+  --bs-alert-bg: #f8d7da;
+  --bs-alert-border-color: #f5c2c7;
+  font-size: 15px;
+  font-weight: 500;
 }/*# sourceMappingURL=ProfileAbout.css.map */

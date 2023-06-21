@@ -115,7 +115,10 @@ export const Product = () =>{
                     </div>
                     
                 </div> :
-                'Загрузка'
+                <div className='d-flex flex-row'>
+                    <img src={require("../assets/icons/loading.png")} alt="" className="foto-loading" />
+                    <p>Загрузка</p>
+                </div>
             }
         </>
     )
