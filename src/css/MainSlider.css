@@ -162,4 +162,8 @@ input:checked + .slider:before {
 .swiper {
   --swiper-navigation-color: #F2F2EA;
   --swiper-pagination-color: #F2F2EA;
+}
+
+.swiper-pagination-bullet {
+  background-color: #335B50;
 }/*# sourceMappingURL=MainSlider.css.map */

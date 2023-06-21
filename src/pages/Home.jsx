@@ -36,7 +36,7 @@ export const Home = () =>{
                             id={book._id}
                             title={book.title}
                             author={book.author}
-                            image={'Дизайн 10.png'}
+                            image={(book.cover).toString()}
                             price={book.price}
                             fakePrice={book.fakePrice}
                             format={book.format}
