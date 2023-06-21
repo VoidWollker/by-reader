@@ -59,7 +59,7 @@ export const SearchResult = () =>{
                         <label htmlFor="podcast">Подкаст</label>
                         <input type="radio" id="podcast" name="format" onClick={() => setSearchParams({...searchParams, format: 'Подкаст'})}/>
                     </div>
-                    <button className='btn btn-primary' onClick={() => {
+                    <button className='btn btn-primary mb-4' onClick={() => {
                         let urlParams = Object.keys(searchParams)
                             .filter(param => searchParams[param] !== '')
                             .reduce((res, key) => (res[key] = searchParams[key], res), {})
