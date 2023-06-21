@@ -182,10 +182,6 @@ input:checked + .slider:before {
   height: 20px;
 }
 
-img:hover {
-  filter: brightness(90%);
-}
-
 .search-btn {
   min-width: 3vw !important;
   min-height: 2.8vw !important;

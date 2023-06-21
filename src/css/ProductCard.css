@@ -244,6 +244,10 @@ input:checked + .slider:before {
   max-width: 320px !important;
 }
 
+.img-page-home:hover {
+  filter: brightness(90%);
+}
+
 .product-format {
   min-width: 3em !important;
   text-align: center;
