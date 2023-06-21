@@ -21,7 +21,7 @@ export const Home = () =>{
     return(
         <div className="d-flex flex-column pb-5">
             <MainSlider 
-                slides={["main-slider slide-1.png", "main-slider slide-2.png"]}
+                slides={["main-slider slide-1.png", "main-slider slide-2.png","main-slider slide-3.png","main-slider slide-4.png"]}
                 style={{
                     'maxHeight': 80 + 'vh'
                 }}

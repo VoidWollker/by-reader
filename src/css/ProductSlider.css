@@ -161,4 +161,13 @@ input:checked + .slider:before {
 
 .swiper {
   --swiper-navigation-color: #335B50;
+}
+
+.prev-arrow {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
 }/*# sourceMappingURL=ProductSlider.css.map */
