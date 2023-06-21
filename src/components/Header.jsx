@@ -13,12 +13,12 @@ export const Header = () =>{
     return(
         <header className="d-flex flex-row ">
             <a href="/"><img src={require("../assets/icons/header-logo.png")} alt="Логотип сайта" className="logo mb-3" /></a>
-            <div className="d-flex flex-row flex-wrap justify-content-center">
+            <div className="d-flex flex-row flex-wrap justify-content-center mt-4">
                 <div className="d-flex flex-column search-and-menu">    
                     <Search />
                     <div className="d-flex flex-row position-relative ">
                         <nav>
-                            <ul className="d-flex flex-row  menu position-absolute top-0 start-0 flex-container flex-wrap justify-content-center ms-2 my-1" style={undottedUL}>
+                            <ul className="d-flex flex-row  menu position-absolute top-0 start-0 flex-container flex-wrap justify-content-center my-1 ms-0" style={undottedUL}>
                                 <li className="d-flex flex-row"><img src={require("../assets/icons/header-popular.png")} alt="" className="mini-icons" /><a href="" className="mt-1">Популярное</a></li>
                                 <li className="d-flex flex-row"><img src={require("../assets/icons/header-new.png")} alt="" className="mini-icons" /><a href="" className="mt-1">Новинки</a></li>
                                 <li className="d-flex flex-row w-min"><img src={require("../assets/icons/header-exclusive.png")} alt="" className="mini-icons" /><a href="" className="mt-1">Эксклюзив от Почитателя</a></li>
