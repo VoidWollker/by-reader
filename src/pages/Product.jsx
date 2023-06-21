@@ -28,7 +28,8 @@ export const Product = () =>{
             .then(res => res.json())
             .then(res => {
                 setBook(res)
-                changeUserData({viewed: [...new Set([...user.viewed, {_id:id}].map(item => item._id))].map(item => item = {'_id': item})})
+                changeUserData({viewed: [...new Set([...user.viewed, {_id:id}].map(item => item._id))]
+                .map(item => item = {'_id': item})})
             })
 
     const increaseQuotesCount = () => setQuotesCount(quotesCount => quotesCount + 3)
@@ -114,7 +115,7 @@ export const Product = () =>{
                     </div>
                     
                 </div> :
-                ''
+                'Загрузка'
             }
         </>
     )

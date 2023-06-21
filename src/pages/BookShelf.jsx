@@ -42,7 +42,7 @@ export const BookShelf = ({selectedIndex}) =>{
 
     const showViewedProducts = () =>{
         return viewedProducts.length > 0 ?
-            viewedProducts.map(product =>
+            viewedProducts.sort((a,b) => a.updatedAt + b.updatedAt).map(product =>
                 <ProductCard 
                     showType={'normal'}
                     book={product}

@@ -1,7 +1,6 @@
 import "../css/ProductDescription.css"
 
 export const ProductDescription = ({elementID, description}) =>{
-    console.log(description);
     return(
         <>
             <div className="d-flex flex-column w-75 mx-auto" id={elementID}>

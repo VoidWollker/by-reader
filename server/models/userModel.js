@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const userViewedSchema = new Schema({
-}, { timestamps: false})
+}, { timestamps: true})
 
 const userFavSchema = new Schema({
     product: {
