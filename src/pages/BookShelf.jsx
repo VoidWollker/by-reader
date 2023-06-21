@@ -10,15 +10,11 @@ export const BookShelf = ({selectedIndex}) =>{
     const [viewedProducts, setViewedProducts] = useState([])
 
     const getViewedProducts = () =>{
-        let result = []
         user.viewed.forEach(viewedProduct =>{
             getProductData(viewedProduct._id)
-                .then(productData => {console.log('add to result'); result.push(productData)})
+                .then(productData => {setViewedProducts(viewedProducts => [...viewedProducts, productData])})
             
         })
-        console.log('Result is ');
-        console.log(result);
-        setViewedProducts(result)
     }
 
     const getProductData = async (id) => 
@@ -26,19 +22,17 @@ export const BookShelf = ({selectedIndex}) =>{
             .then(productData => productData.json())
 
     useEffect(() => {
-        console.log(`Select category - ${selectedCategory}`);
         const items = document.getElementsByClassName('bookshelf-category')
         items[selectedCategory].classList.add('bookshelf-category-selected')
+        if (selectedCategory === 1 && viewedProducts.length <= 0){
+            getViewedProducts()
+        }
     }, [selectedCategory])
 
     const selectBookShelfListItem = (index) =>{
         const items = document.getElementsByClassName('bookshelf-category')
         items[selectedCategory].classList.remove('bookshelf-category-selected')
         setSelectedCategory(index)
-
-        if (selectedCategory === 1){
-            getViewedProducts()
-        }
     }
 
     const showSelectedCategory = () =>
@@ -47,21 +41,11 @@ export const BookShelf = ({selectedIndex}) =>{
             ''
 
     const showViewedProducts = () =>{
-        console.log(viewedProducts);
-        return viewedProducts !== null ?
+        return viewedProducts.length > 0 ?
             viewedProducts.map(product =>
                 <ProductCard 
                     showType={'normal'}
-                    id={product._id}
-                    title={product.title}
-                    author={product.author}
-                    image={'Дизайн 10.png'}
-                    price={product.price}
-                    fakePrice={product.fakePrice}
-                    format={product.format}
-                    pageCount={product.pageCount}
-                    rate={product.rate}
-                    ratesCount={product.ratesCount}
+                    book={product}
                 />
             ) :
             showEmptyInCategory()

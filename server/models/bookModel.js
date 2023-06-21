@@ -20,6 +20,7 @@ const reviewSchema = new Schema({
     },
     user: {
         type: mongoose.Types.ObjectId,
+        unique: false,
         required: false
     }
 }, { timestamps: true })
@@ -62,7 +63,7 @@ const bookSchema = new Schema({
         required: true
     },
     description: {
-        type: String,
+        type: Array,
         required: true
     },
     dateWriting: {
@@ -75,7 +76,7 @@ const bookSchema = new Schema({
     },
     avg_rate:{
         type: Number,
-        required: true
+        required: false
     },
     quotes: [quoteSchema],
     reviews: [reviewSchema],

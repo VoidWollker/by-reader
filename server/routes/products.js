@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const Book = require('../models/bookModel')
+const Product = require('../models/bookModel')
 const mongoose = require('mongoose')
 const Fuse = require('fuse.js')
 const multer = require('multer')
@@ -38,7 +38,7 @@ const productRoutes = Router();
   
 // This section will help you get a list of all the records.
 productRoutes.get('/all', async (req, res) => {
-  const book = await Book.find({}).sort({createdAt: -1})
+  const book = await Product.find({}).sort({createdAt: -1})
 
   res.status(200).json(book)
 })
@@ -48,7 +48,7 @@ productRoutes.post('/add', async (req, res) => {
   const {title, author, pages} = req.body
   
   try {
-    const book = await Book.create({title, author, pages})
+    const book = await Product.create({title, author, pages})
     res.status(200).json(book)
   } catch (error) {
     res.status(400).json({error: error.message})
@@ -63,7 +63,7 @@ productRoutes.get('/:id', async (req, res) => {
     return res.status(404).json({error: 'No such book'})
   }
 
-  const book = await Book.findById(id)
+  const book = await Product.findById(id)
 
   if (!book) {
     return res.status(404).json({error: 'No such book'})
@@ -118,7 +118,7 @@ productRoutes.get('/find/by', async (req, res) => {
   console.log(data);
 
   try {
-    const books = await Book.find()
+    const books = await Product.find()
 
     const options = {
       keys: [
@@ -150,6 +150,28 @@ productRoutes.get('/find/by', async (req, res) => {
   }
 })
 
+productRoutes.post('/update', async (req, res) =>{
+  const bookData = req.body
+  console.log(bookData);
+
+  const book = await Product.findById(bookData._id)
+
+  if (book){
+    Object.keys(bookData).forEach(key =>{
+      console.log(key, bookData[key]);
+      book[key] = bookData[key]
+    })
+
+    book.save()
+      .then(result => res.status(200).json(result))
+      .catch(err => res.status(400).json(err))
+  }
+  else{
+    res.status(400).json({errorMessage: 'Товар не найден'})
+  }
+})
+
+
 //Add a cover
 productRoutes.put('/upd/:id', upload.single('cover'), async (req, res) => {
   const { id } = req.params
@@ -158,7 +180,7 @@ productRoutes.put('/upd/:id', upload.single('cover'), async (req, res) => {
     return res.status(400).json({error: 'No such book'})
   }
 
-  const book = await Book.findOneAndUpdate({_id: id}, {
+  const book = await Product.findOneAndUpdate({_id: id}, {
     cover: req.file.path 
   })
 

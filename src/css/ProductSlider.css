@@ -161,4 +161,36 @@ input:checked + .slider:before {
 
 .swiper {
   --swiper-navigation-color: #335B50;
+}
+
+.prev-arrow {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+  border: solid #335B50;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  padding: 3px;
+  position: relative;
+  top: 10vw;
+  left: -30px;
+}
+
+.next-arrow {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  border: solid #335B50;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  width: 25px;
+  height: 25px;
+  position: relative;
+  top: 10vw;
+  left: 73vw;
+}
+
+.swiper-button-disabled {
+  visibility: hidden;
 }/*# sourceMappingURL=ProductSlider.css.map */
