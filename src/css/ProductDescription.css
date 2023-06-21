@@ -7,4 +7,8 @@ h1 {
   font-size: calc(8px + 0.5vw) !important;
   font-weight: lighter;
   margin: 0 !important;
+}
+
+.product-description-text-paragraph {
+  text-indent: 35px;
 }/*# sourceMappingURL=ProductDescription.css.map */
