@@ -7,7 +7,7 @@ export const ProductCard = ({showType, book, style, className}) => {
     const bigSquareStyle = {width: '110%', aspectRatio: 1}
 
     return(
-        <div className={`d-flex flex-column ${className}`} style={{style}}>
+        <div className={`d-flex flex-column ProductCard ${className}`} style={{style}}>
             <a href={`/product/?id=${book._id}`}>
                 <img className="img-page-home"
                     src={require('../assets/books/' + book.cover)} 
@@ -29,8 +29,8 @@ export const ProductCard = ({showType, book, style, className}) => {
             <p className="product-author w-100">{book.author}</p>
             {book.format === 'Текст' ?
                 <p className="product-page-count w-100">Страниц: {book.pageCount}</p> :
-                <div className="m-1">
-                    <p className="product-reader w-100">Читает: {book.reader}</p>
+                <div className="m-1 ms-0">
+                    <p className="product-reader w-100 ">Читает: {book.reader}</p>
                     <p className="product-length w-100">Длительность: {book.length}</p>
                 </div>
             }
