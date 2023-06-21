@@ -1,5 +1,5 @@
-import { Navigation } from 'swiper';
-import {Swiper, SwiperSlide} from 'swiper/react';
+import { Navigation} from 'swiper';
+import {Swiper, SwiperSlide, useSwiper} from 'swiper/react';
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -7,6 +7,8 @@ import "swiper/css/navigation";
 import "../css/ProductSlider.css"
 
 export const ProductSlider = ({slides, slidesPerView, style, className}) => {
+    const swiper = useSwiper()
+
     const createSlide = (slide, index) => {
         return(
             <SwiperSlide key={index + 'slide'}>
@@ -17,10 +19,14 @@ export const ProductSlider = ({slides, slidesPerView, style, className}) => {
 
     return(
         <div className={className} style={style}>
+           <button className='prev-arrow' onClick={e => swiper.slidePrev()}>Prev</button>
             <Swiper
                 slidesPerView={slidesPerView}
                 spaceBetween={100}
-                navigation = {true}
+                navigation = {{
+                    nextEl: '.next-arrow',
+                    prevEl: '.prev-arrow'
+                }}
                 modules={[Navigation]}
             >
                 {slides.map((slide, index) =>{
@@ -28,7 +34,8 @@ export const ProductSlider = ({slides, slidesPerView, style, className}) => {
                         createSlide(slide, index)
                     )
                 })}
-            </Swiper>
+            </Swiper> 
+            <button className='next-arrow' onClick={e => swiper.slideNext()}>Next</button>
         </div>
     )
 }
