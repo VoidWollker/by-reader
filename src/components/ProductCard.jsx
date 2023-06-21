@@ -10,7 +10,7 @@ export const ProductCard = ({showType, book, style, className}) => {
         <div className={`d-flex flex-column ${className}`} style={{style}}>
             <a href={`/product/?id=${book._id}`}>
                 <img className="img-page-home"
-                    // src={require('../assets/books/' + book.cover)} 
+                    src={require('../assets/books/' + book.cover)} 
                     alt={'Book frontpage'}
                     re
                     style={showType === 'normal' ? normalStyle :
