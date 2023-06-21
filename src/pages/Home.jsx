@@ -29,6 +29,7 @@ export const Home = () =>{
             <div className="d-flex flex-column w-75" style={{marginLeft: '12.5vw', marginRight: '12.5vw'}}>
                 <h2 className="my-4">Новинки</h2>
                 <ProductSlider 
+                    elementID={'newest'}
                     slidesPerView={5}
                     slides={books.sort((a,b) => a.createdAt - b.createdAt).map(book =>{
                         return <ProductCard 
@@ -39,6 +40,7 @@ export const Home = () =>{
                 />
                 <h2 className="my-4">Фантастика</h2>
                 <ProductSlider 
+                    elementID={'fantstic'}
                     slidesPerView={5}
                     slides={books.filter(book => book.genre === 'Фантастика').map(book =>{
                         return <ProductCard 
