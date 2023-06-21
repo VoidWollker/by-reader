@@ -12,8 +12,8 @@ export default function Search(){
                 <img src={require("../assets/icons/header-advanced-search.png")} alt="Расширинный поиск" className="img-advanced-search position-absolute top-50 start-50 translate-middle" />
             </button>
             <input type="text" className="header-search-input"
-                onKeyDown={e => e.key === 'Enter' ?
-                    navigate(`/search?title=${searchParams}`) :
+                onKeyUp={e => e.key === 'Enter' ?
+                    navigate(`/search?data=${searchParams}`) :
                     setSearchParams(e.target.value)
             }/>
             <button className="btn btn-primary my-1 px-3 py-3 search-btn position-relative" onClick={() => navigate(`/search?title=${searchParams}`)}>
