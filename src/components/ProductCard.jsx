@@ -94,7 +94,7 @@ export const ProductCard = ({showType, book, style, className}) => {
                 <p className="bordered-primary-text rounded me-1 px-1">{book.format}</p>
                 <img src={require('../assets/icons/product-star.png')} alt="" className="icon-rating mx-1"/>
                 <p className="product-rate "><b>{book.rate}</b></p>
-                <p className="product-rates-count">{book.ratesCount}</p>
+                <p className="product-rates-count ms-1">{book.ratesCount}</p>
             </div>
             {!inCart ?
                 <button className="btn btn-tertiary btn-sm my-1 btn-to-cart w-100 ms-3" onClick={addToCart}><b>В корзину</b></button> :
