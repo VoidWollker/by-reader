@@ -76,7 +76,6 @@ productRoutes.get('/:id', async (req, res) => {
 productRoutes.get('/find/byall', async (req, res) => {
 
   const data = req.query
-  console.log(data);
 
   try {
     const books = await Product.find()
@@ -152,13 +151,11 @@ productRoutes.get('/find/by', async (req, res) => {
 
 productRoutes.post('/update', async (req, res) =>{
   const bookData = req.body
-  console.log(bookData);
 
   const book = await Product.findById(bookData._id)
 
   if (book){
     Object.keys(bookData).forEach(key =>{
-      console.log(key, bookData[key]);
       book[key] = bookData[key]
     })
 

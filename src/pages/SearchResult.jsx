@@ -41,6 +41,14 @@ export const SearchResult = () =>{
         return result;
     } 
 
+    const search = () =>{
+        setFindedProducts(null)
+        let urlParams = Object.keys(searchParams)
+            .filter(param => searchParams[param] !== '' && param !== 'data')
+            .reduce((res, key) => (res[key] = searchParams[key], res), {})
+        navigate('/search?' + new URLSearchParams(urlParams))
+    }
+
     return(
         <div className="d-flex flex-column pt-4 w-75 mx-auto">
             <p className='pb-4 h2'>Результат поиска</p>
@@ -54,6 +62,8 @@ export const SearchResult = () =>{
                         onChange={e => setSearchParams({...searchParams, publisher: e.target.value})} />
                     <input className='my-1 ps-2 border-0 rounded input-SearchResult' type="text" placeholder='Серия' value={searchParams.seria}
                         onChange={e => setSearchParams({...searchParams, seria: e.target.value})} />
+                    <input className='my-1 ps-2 border-0 rounded input-SearchResult' type="text" placeholder='Жанр' value={searchParams.genre}
+                        onChange={e => setSearchParams({...searchParams, genre: e.target.value})} />
                     <div className="d-flex flex-row form_radio">
                         <label htmlFor="all">Все</label>
                         <input checked={searchParams.format === undefined || searchParams.format === '' ? 'checked' : ''} type="radio" id="all" name="format" 
@@ -74,13 +84,7 @@ export const SearchResult = () =>{
                         <input checked={searchParams.format === 'Подкаст' ? 'checked' : ''} type="radio" id="podcast" name="format" 
                             onChange={() => setSearchParams({...searchParams, format: 'Подкаст'})}/>
                     </div>
-                    <button className='btn btn-primary mb-4' onClick={() => {
-                        setFindedProducts(null)
-                        let urlParams = Object.keys(searchParams)
-                            .filter(param => searchParams[param] !== '')
-                            .reduce((res, key) => (res[key] = searchParams[key], res), {})
-                        navigate('?' + new URLSearchParams(urlParams))
-                    }}>Поиск</button>
+                    <button className='btn btn-primary mb-4' id={'extended-search-button'} onClick={search}>Поиск</button>
                 </div>
                 {findedProducts !== null ?
                     <div className="d-flex flex-row flex-wrap mb-3">
