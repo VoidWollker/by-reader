@@ -187,4 +187,12 @@ input:checked + .slider:before {
 
 .btn-like {
   width: 30px;
+}
+
+.btn-like-disabled img {
+  filter: brightness(0.5);
+}
+
+.btn-dislike-disabled img {
+  filter: blur();
 }/*# sourceMappingURL=ProductQuotes.css.map */

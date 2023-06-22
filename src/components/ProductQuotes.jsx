@@ -1,3 +1,4 @@
+import { ClientEmpty } from '../components/ClientEmpty'
 import "../css/ProductQuotes.css"
 
 export const ProductQuotes = ({elementID, quotes, quotesCount, increaseQuotesCount, increaseQuoteRate, decreaseQuoteRate}) =>{
@@ -63,6 +64,11 @@ export const ProductQuotes = ({elementID, quotes, quotesCount, increaseQuotesCou
                         <button className="btn btn-fivefold my-3 btn-quote" onClick={increaseQuotesCount}>Ещё 3 цитаты</button> :
                         ''
                     }
+                    {/* <ClientEmpty
+                        icon={require("../assets/icons/quotes.png")}
+                        title={'Здесь будут отображаться цитаты'}
+                        description={'Они скоро появятся на сайте!'}            
+                    /> */}
                 </div>
             </div>
         </>
