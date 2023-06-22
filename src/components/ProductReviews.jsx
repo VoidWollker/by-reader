@@ -1,7 +1,7 @@
 import { useState} from 'react'
 import "../css/ProductReviews.css"
 
-export const ProductReviews = ({elementID, reviews, writeReview}) =>{
+export const ProductReviews = ({elementID, reviews, reviewsCount, increaseReviewsCount, writeReview}) =>{
     const [reviewText, setReviewText] = useState('')
 
     const createReview = (avatar, userName, date, rate, text) =>{
@@ -19,15 +19,19 @@ export const ProductReviews = ({elementID, reviews, writeReview}) =>{
         )
     }
 
-    
 
     return(
         <div className="d-flex flex-column w-75 mx-auto" id={elementID}>
             <h1 className="pt-4">Отзывы</h1>
-            {reviews.map(review =>
-                createReview('', review.username, review.writeDate, 4, review.text))
+            {reviews.map((review, index) =>
+                index <= reviewsCount - 1 ? 
+                    createReview('', review.username, review.writeDate, 4, review.text) :
+                    ''
+            )}
+            {reviews.length > reviewsCount ?
+                <button className="btn btn-primary btn-reviews" onClick={increaseReviewsCount}>Ещё отзывы</button> :
+                ''
             }
-            <button className="btn btn-primary btn-reviews">Ещё отзывы</button>
             <h1 className="pt-4 pb-2">Оставьте отзыв</h1>
             <div className="d-flex flex-row review-add p-3 flex-wrap justify-content-center">
                 <img src={require("../assets/icons/foto-avatar.png")} alt="" className="avatar mt-2"/>
