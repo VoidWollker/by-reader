@@ -15,6 +15,12 @@ export const BookShelf = ({selectedIndex}) =>{
     const [favouriteProducts, setFavouriteProducts] = useState(null)
     const [cartProducts, setCartProducts] = useState(null)
 
+    useEffect(() =>{
+        if (!user){
+            navigate('/enter')
+        }
+    }, [user, navigate])
+
     const getPurchasedProducts = () =>{
         if (user.purchased.length !== 0){
             user.purchased.forEach(purchasedProduct =>{
@@ -68,17 +74,20 @@ export const BookShelf = ({selectedIndex}) =>{
             .then(productData => productData.json())
 
     useEffect(() => {
-        const items = document.getElementsByClassName('bookshelf-category')
-        items[selectedCategory].classList.add('bookshelf-category-selected')
-        if (selectedCategory === 0 && purchasedProducts === null){
-            getViewedProducts()
-        } else if (selectedCategory === 1 && viewedProducts === null){
-            getViewedProducts()
-        } else if (selectedCategory === 2 && favouriteProducts === null){
-            getFavouriteProducts()
-        } else if (selectedCategory === 3 && cartProducts === null){
-            getCartProducts()
-        }
+        try{
+            const items = document.getElementsByClassName('bookshelf-category')
+            items[selectedCategory].classList.add('bookshelf-category-selected')
+            if (selectedCategory === 0 && purchasedProducts === null){
+                getPurchasedProducts()
+            } else if (selectedCategory === 1 && viewedProducts === null){
+                getViewedProducts()
+            } else if (selectedCategory === 2 && favouriteProducts === null){
+                getFavouriteProducts()
+            } else if (selectedCategory === 3 && cartProducts === null){
+                getCartProducts()
+            }
+        } catch{}
+        
     }, [selectedCategory])
 
     const selectBookShelfListItem = (index) =>{
@@ -202,34 +211,39 @@ export const BookShelf = ({selectedIndex}) =>{
 
     return(
         <div className="pb-5">
-            <p className="h2 w-75 mx-auto pt-4">Книжная полка</p>
-            <ul className="list-unstyled d-flex flex-row nav nav-tabs my-4 w-75 mx-auto">
-                <li className="bookshelf-category bookshelf-category-selected" id="bookshelf-category-0">
-                    <button className="d-flex flex-row mx-2 border-0" onClick={() => selectBookShelfListItem(0)}>
-                        <img src={require("../assets/icons/bookshelf-purchased.png")} alt="" className="my-auto me-1"/>
-                        <p>Купленные</p>
-                    </button>
-                </li>
-                <li className="bookshelf-category" id="bookshelf-category-1">
-                    <button className="d-flex flex-row mx-2 border-0" onClick={() => selectBookShelfListItem(1)}>
-                        <img src={require("../assets/icons/bookshelf-viewed.png")} alt="" className="my-auto me-1"/>
-                        <p>Просмотренные</p>
-                    </button>                   
-                </li>
-                <li className="bookshelf-category" id="bookshelf-category-2">
-                    <button className="d-flex flex-row  mx-2 border-0" onClick={() => selectBookShelfListItem(2)}>
-                        <img src={require("../assets/icons/bookshelf-liked.png")} alt="" className="my-auto me-1"/>
-                        <p>Понравившиеся</p>
-                    </button>                    
-                    </li>
-                <li className="bookshelf-category" id="bookshelf-category-3">
-                    <button className="d-flex flex-row mx-2 border-0" onClick={() => selectBookShelfListItem(3)}>
-                        <img src={require("../assets/icons/bookshelf-basket.png")} alt="" className="my-auto me-1"/>
-                        <p>Корзина</p>
-                    </button>                   
-                </li>
-            </ul>
-            {showSelectedCategory()}
+            {user ?
+                <>
+                    <p className="h2 w-75 mx-auto pt-4">Книжная полка</p>
+                    <ul className="list-unstyled d-flex flex-row nav nav-tabs my-4 w-75 mx-auto">
+                        <li className="bookshelf-category bookshelf-category-selected" id="bookshelf-category-0">
+                            <button className="d-flex flex-row mx-2 border-0" onClick={() => selectBookShelfListItem(0)}>
+                                <img src={require("../assets/icons/bookshelf-purchased.png")} alt="" className="my-auto me-1"/>
+                                <p>Купленные</p>
+                            </button>
+                        </li>
+                        <li className="bookshelf-category" id="bookshelf-category-1">
+                            <button className="d-flex flex-row mx-2 border-0" onClick={() => selectBookShelfListItem(1)}>
+                                <img src={require("../assets/icons/bookshelf-viewed.png")} alt="" className="my-auto me-1"/>
+                                <p>Просмотренные</p>
+                            </button>                   
+                        </li>
+                        <li className="bookshelf-category" id="bookshelf-category-2">
+                            <button className="d-flex flex-row  mx-2 border-0" onClick={() => selectBookShelfListItem(2)}>
+                                <img src={require("../assets/icons/bookshelf-liked.png")} alt="" className="my-auto me-1"/>
+                                <p>Понравившиеся</p>
+                            </button>                    
+                            </li>
+                        <li className="bookshelf-category" id="bookshelf-category-3">
+                            <button className="d-flex flex-row mx-2 border-0" onClick={() => selectBookShelfListItem(3)}>
+                                <img src={require("../assets/icons/bookshelf-basket.png")} alt="" className="my-auto me-1"/>
+                                <p>Корзина</p>
+                            </button>                   
+                        </li>
+                    </ul>
+                    {showSelectedCategory()}
+                </> :
+                navigate('/enter', {replace: true})
+            }
         </div>
     )
 }

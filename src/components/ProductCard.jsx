@@ -1,36 +1,55 @@
 import { useState } from 'react'
 import { useAuth } from '../context/UserContext'
 import "../css/ProductCard.css"
+import { useNavigate } from 'react-router'
 
 export const ProductCard = ({showType, book, style, className}) => {
     const {user, changeUserData} = useAuth()
-    const [inCart, setInCart] = useState(user.cart.map(product => product._id).includes(book._id))
-    const [inFavourite, setInFavourite] = useState(user.favourite.map(product => product._id).includes(book._id))
+    const navigate = useNavigate()
+    const [inCart, setInCart] = useState(user !== null ? user.cart.map(product => product._id).includes(book._id) : false)
+    const [inFavourite, setInFavourite] = useState(user !== null ? user.favourite.map(product => product._id).includes(book._id) : false)
     const normalStyle = {width: '100%'}
     const miniStyle = {width: '95%'}
     const squareStyle = {width: '100%', aspectRatio: 1}
     const bigSquareStyle = {width: '110%', aspectRatio: 1}
 
     const addToCart = () =>{
-        changeUserData({cart: [...new Set([...user.cart, {_id: book._id}].map(item => item._id))]
+        if (user !== null){
+           changeUserData({cart: [...new Set([...user.cart, {_id: book._id}].map(item => item._id))]
                 .map(item => item = {'_id': item})})
-        setInCart(true)
+        setInCart(true) 
+        } else{
+            navigate('/enter', {replace: true})
+        }
+        
     }
 
     const removeFromCart = () =>{
-        changeUserData({cart: [...new Set(user.cart.filter(product => product._id !== book._id))]})
-        setInCart(false)
+        if (user !== null){
+            changeUserData({cart: [...new Set(user.cart.filter(product => product._id !== book._id))]})
+            setInCart(false)
+        } else{
+            navigate('/enter', {replace: true})
+        }
     }
 
     const addToFavorite = () =>{
-        changeUserData({favourite: [...new Set([...user.favourite, {_id: book._id}].map(item => item._id))]
-            .map(item => item = {'_id': item})})
-        setInFavourite(true)
+        if (user !== null){
+            changeUserData({favourite: [...new Set([...user.favourite, {_id: book._id}].map(item => item._id))]
+                .map(item => item = {'_id': item})})
+            setInFavourite(true)
+        } else{
+            navigate('/enter', {replace: true})
+        }
     }
 
     const removeFromFavorite = () =>{
-        changeUserData({favourite: [...new Set(user.favourite.filter(product => product._id !== book._id))]})
-        setInFavourite(false)
+        if (user !== null){
+            changeUserData({favourite: [...new Set(user.favourite.filter(product => product._id !== book._id))]})
+            setInFavourite(false) 
+        } else{
+            navigate('/enter', {replace: true})
+        }
     }
 
     return(

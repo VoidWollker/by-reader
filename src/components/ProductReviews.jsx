@@ -1,9 +1,11 @@
 import { useState} from 'react'
 import { ClientEmpty } from '../components/ClientEmpty'
 import "../css/ProductReviews.css"
+import { useNavigate } from 'react-router'
 
 export const ProductReviews = ({elementID, currentUserName, reviews, reviewsCount, increaseReviewsCount, writeReview}) =>{
     const [reviewText, setReviewText] = useState('')
+    const navigate = useNavigate()
 
     const createReview = (avatar, userName, date, rate, text) =>{
         return(
@@ -49,12 +51,18 @@ export const ProductReviews = ({elementID, currentUserName, reviews, reviewsCoun
             
             <h1 className="pt-4 pb-2">Оставьте отзыв</h1>
             <div className="d-flex flex-row review-add p-3 flex-wrap justify-content-center">
-                <p className='my-auto h3'>{currentUserName}</p>
+                <p className='my-auto h3'>{currentUserName !== undefined ? currentUserName : ''}</p>
                 {/* <img src={require("../assets/icons/foto-avatar.png")} alt="" className="avatar mt-2"/> */}
                 <input className="add-review ps-2 mx-3 mb-2 mt-2" placeholder="Что вы думаете о книге?" value={reviewText}
                     onChange={e => setReviewText(e.target.value)}    
                 />
-                <button className="btn btn-tertiary btn-addReview px-0 mt-1" onClick={() => writeReview(reviewText)}>Опубликовать</button>
+                <button className="btn btn-tertiary btn-addReview px-0 mt-1" onClick={() => {
+                    if (currentUserName !== undefined){
+                        writeReview(reviewText)
+                    } else{
+                        navigate('/enter', {replace: true})
+                    }
+                }}>Опубликовать</button>
             </div>
         </div>
     )

@@ -34,8 +34,11 @@ export const Product = () =>{
             .then(res => res.json())
             .then(res => {
                 setBook(res)
-                changeUserData({viewed: [...new Set([...user.viewed, {_id:id}].map(item => item._id))]
-                .map(item => item = {'_id': item})})
+                if (user){
+                    changeUserData({viewed: [...new Set([...user.viewed, {_id:id}].map(item => item._id))]
+                        .map(item => item = {'_id': item})}) 
+                }
+                
             })
 
     const increaseQuotesCount = () => setQuotesCount(quotesCount => quotesCount + 3)
@@ -142,7 +145,7 @@ export const Product = () =>{
                     <div id="product-reviews">
                         {book.reviews !== undefined ?
                             <ProductReviews 
-                                currentUserName={user.username}
+                                currentUserName={user?.username ?? undefined}
                                 reviews={reviews} 
                                 reviewsCount={reviewsCount}
                                 increaseReviewsCount={increaseReviewsCount}

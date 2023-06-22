@@ -24,9 +24,10 @@ export const UserProvider = ({children}) =>{
             .then(res => res.json())
             .then(resultData => {
                 if (resultData.error) {return Promise.reject(resultData.error)}
-                const userData = resultData.createdUser
-                setUser(userData)
-                setObjectCookie('user', userData, {expires: new Date(2030, 1)})
+                logIn({email, password})
+                // const userData = resultData.createdUser
+                // setUser(userData)
+                // setObjectCookie('user', userData, {expires: new Date(2030, 1)})
             })
             .catch(error => {
                 return Promise.reject(error)
@@ -55,8 +56,13 @@ export const UserProvider = ({children}) =>{
     }
 
     const changeUserData = async (data) =>{
-        await updateUserData(data)
-            .then(() => refreshUserCookie())
+        if (user !== null){
+           await updateUserData(data)
+            .then(() => refreshUserCookie()) 
+        } else{
+            console.error('Пользователь не авторизловани');
+        }
+        
     }
 
     const updateUserData = async (data) =>{
