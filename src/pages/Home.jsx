@@ -46,47 +46,39 @@ export const Home = () =>{
                         slidesPerView={5}
                         slides={books.filter(book => book.genre === 'Фантастика').map(book =>{
                             return <ProductCard 
-                            showType={'mini'}
-                            book={book}
+                                showType={'mini'}
+                                book={book}
                             ></ProductCard>
                         })}
                     />
-                    {/* <h2 className="my-4">Аудиокниги</h2>
+                    <h2 className="my-4">Аудиокниги</h2>
                     <ProductSlider 
                         slidesPerView={5}
-                        slides={[1,2,3,4,5,6,7,8].map(i =>{
+                        slides={books.filter(book => book.format === 'Аудио').map(book =>{
                             return <ProductCard 
                                 showType={'square'}
-                                title={'1984'}
-                                author={'Джордж Оруэл'}
-                                image={'Дизайн 10.png'}
-                                price={810}
-                                fakePrice={920}
-                                format={'Текст'}
-                                pageCount={170}
-                                rate={4.8}
-                                countRates={640}
+                                book={book}
                             ></ProductCard>
                         })}
                     />
                     <h2 className="my-4">Подкасты</h2>
                     <ProductSlider 
                         slidesPerView={4}
-                        slides={[1,2,3,4,5,6,7,8].map(i =>{
+                        slides={books.filter(book => book.format === 'Подкаст').map(book =>{
                             return <ProductCard 
                                 showType={'bigSquare'}
-                                title={'1984'}
-                                author={'Джордж Оруэл'}
-                                image={'Дизайн 10.png'}
-                                price={810}
-                                fakePrice={920}
-                                format={'Текст'}
-                                pageCount={170}
-                                rate={4.8}
-                                countRates={640}
+                                book={book}
                             ></ProductCard>
                         })}
-                    /> */}
+                    />
+                    <h2 className="my-4">Жанры</h2>
+                    <div className="d-flex flex-row">
+                        {['Роман', 'Боевики', 'Фэнтези', 'Фантастика', 'Детективы', 'Приключения'].map(genreName =>
+                            <a href={`http://localhost:5000/search?genre=${genreName}`}>
+                                <img src={require(`../assets/genre/${genreName}.png`)} alt={genreName} />
+                            </a>
+                        )}
+                    </div>
                     <h2 className="my-4">Подписки от Почитателя</h2>
                     <Subscriptions/>
                 </div> :
