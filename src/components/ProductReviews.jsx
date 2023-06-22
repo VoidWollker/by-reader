@@ -2,7 +2,7 @@ import { useState} from 'react'
 import { ClientEmpty } from '../components/ClientEmpty'
 import "../css/ProductReviews.css"
 
-export const ProductReviews = ({elementID, reviews, reviewsCount, increaseReviewsCount, writeReview}) =>{
+export const ProductReviews = ({elementID, currentUserName, reviews, reviewsCount, increaseReviewsCount, writeReview}) =>{
     const [reviewText, setReviewText] = useState('')
 
     const createReview = (avatar, userName, date, rate, text) =>{
@@ -32,8 +32,8 @@ export const ProductReviews = ({elementID, reviews, reviewsCount, increaseReview
         <div className="d-flex flex-column w-75 mx-auto" id={elementID}>
             <h1 className="pt-4">Отзывы</h1>
             {reviews.map((review, index) =>
-                index <= reviewsCount - 1 ? 
-                    createReview('', review.username, review.writeDate, 4, review.text) :
+                index <= reviewsCount - 1 ?
+                    createReview('', review.username, new Date(review.createdAt).toLocaleDateString('ru-RU'), 4, review.text) :
                     ''
             )}
             {reviews.length > reviewsCount ?
@@ -42,6 +42,7 @@ export const ProductReviews = ({elementID, reviews, reviewsCount, increaseReview
             }
             <h1 className="pt-4 pb-2">Оставьте отзыв</h1>
             <div className="d-flex flex-row review-add p-3 flex-wrap justify-content-center">
+                <p>{currentUserName}</p>
                 {/* <img src={require("../assets/icons/foto-avatar.png")} alt="" className="avatar mt-2"/> */}
                 <input className="add-review ps-2 mx-3 mb-2 mt-2" placeholder="Что вы думаете о книге?"
                     onChange={e => setReviewText(e.target.value)}    

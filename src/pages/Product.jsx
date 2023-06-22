@@ -76,7 +76,7 @@ export const Product = () =>{
                 await fetch(`http://localhost:5000/user/getByID/${review.user}`) 
                     .then(userData => userData.json())
                     .then(userData => {
-                        setReviews(reviews => [...reviews, {username: userData.username, text: review.text, writeDate: '11.11.2011'}])})
+                        setReviews(reviews => [...reviews, {...review, username: userData.username}])})
             })
         } catch (err){console.log(err);}
     }
@@ -142,6 +142,7 @@ export const Product = () =>{
                     <div id="product-reviews">
                         {book.reviews !== undefined ?
                             <ProductReviews 
+                                currentUserName={user.username}
                                 reviews={reviews} 
                                 reviewsCount={reviewsCount}
                                 increaseReviewsCount={increaseReviewsCount}
