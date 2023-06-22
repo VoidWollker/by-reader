@@ -109,7 +109,9 @@
     min-height: 20px;
     width: 2vw;
     height: 2vw;
-    top: 11%;
+    max-width: 40px;
+    max-height: 40px;
+    top: 13%;
     left: 75%;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
