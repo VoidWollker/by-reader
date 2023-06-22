@@ -4,13 +4,28 @@ import { ProductCard } from "../components/ProductCard"
 import "../css/BookShelf.css"
 import { Loading } from '../components/Loading'
 import { useAuth } from "../context/UserContext"
+import { useNavigate } from "react-router"
 
 export const BookShelf = ({selectedIndex}) =>{
     const {user} = useAuth()
+    const navigate = useNavigate()
     const [selectedCategory, setSelectedCategory] = useState(selectedIndex)
+    const [purchasedProducts, setPurchasedProducts] = useState(null)
     const [viewedProducts, setViewedProducts] = useState(null)
     const [favouriteProducts, setFavouriteProducts] = useState(null)
     const [cartProducts, setCartProducts] = useState(null)
+
+    const getPurchasedProducts = () =>{
+        if (user.purchased.length !== 0){
+            user.purchased.forEach(purchasedProduct =>{
+                getProductData(purchasedProduct._id)
+                    .then(productData => {setPurchasedProducts(purchasedProducts => [...purchasedProducts ?? [], productData])})
+                
+            })
+        } else{
+            setPurchasedProducts([])
+        }
+    }
 
     const getViewedProducts = () =>{
         if (user.viewed.length !== 0){
@@ -22,7 +37,6 @@ export const BookShelf = ({selectedIndex}) =>{
         } else{
             setViewedProducts([])
         }
-        
     }
 
     const getFavouriteProducts = () =>{
@@ -35,7 +49,6 @@ export const BookShelf = ({selectedIndex}) =>{
         } else{
             setFavouriteProducts([])
         }
-        
     }
 
     const getCartProducts = () =>{
@@ -48,7 +61,6 @@ export const BookShelf = ({selectedIndex}) =>{
         } else{
             setCartProducts([])
         }
-        
     }
 
     const getProductData = async (id) => 
@@ -58,7 +70,9 @@ export const BookShelf = ({selectedIndex}) =>{
     useEffect(() => {
         const items = document.getElementsByClassName('bookshelf-category')
         items[selectedCategory].classList.add('bookshelf-category-selected')
-        if (selectedCategory === 1 && viewedProducts === null){
+        if (selectedCategory === 0 && purchasedProducts === null){
+            getViewedProducts()
+        } else if (selectedCategory === 1 && viewedProducts === null){
             getViewedProducts()
         } else if (selectedCategory === 2 && favouriteProducts === null){
             getFavouriteProducts()
@@ -75,7 +89,9 @@ export const BookShelf = ({selectedIndex}) =>{
 
     const showSelectedCategory = () =>
         <div className="d-flex flex-row w-75 mx-auto flex-wrap">
-            {selectedCategory === 1 ?
+            {selectedCategory === 0 ?
+                showPurchasedProducts() :    
+            selectedCategory === 1 ?
                 showViewedProducts() :
             selectedCategory === 2 ?
                 showFavouriteProducts() :
@@ -84,6 +100,21 @@ export const BookShelf = ({selectedIndex}) =>{
                 ''
             }
         </div>
+
+    const showPurchasedProducts = () =>
+        purchasedProducts !== null ?
+        <>{
+            purchasedProducts.length > 0 ?
+            purchasedProducts.map((product, index) =>
+                    <ProductCard 
+                        key={`viewed-product-${index}`}
+                        showType={'normal'}
+                        book={product}
+                    />
+                ) :
+            showEmptyInCategory()
+        }</> :
+        <Loading /> 
 
     const showViewedProducts = () =>
         viewedProducts !== null ?
@@ -138,7 +169,7 @@ export const BookShelf = ({selectedIndex}) =>{
                     title={'Здесь будут ваши купленные книги'}
                     description={'Здесь будут храниться книги, которые вы купили на нашем сайте'}            
                 />
-                <button className="btn btn-primary btn-add-books">Выбрать книги</button> 
+                <button className="btn btn-primary btn-add-books" onClick={() => navigate('/', {replace: true})}>Выбрать книги</button> 
             </div> :
         selectedCategory === 1 ?
             <div className="w-75"> 
@@ -147,7 +178,7 @@ export const BookShelf = ({selectedIndex}) =>{
                     title={'Здесь будут ваши просмотренные книги'}
                     description={'Здесь будут храниться книги, которые вы просматриваете на нашем сайте'}            
                 />
-                <button className="btn btn-primary btn-add-books">Выбрать книги</button> 
+                <button className="btn btn-primary btn-add-books" onClick={() => navigate('/', {replace: true})}>Выбрать книги</button> 
             </div>:
         selectedCategory === 2 ?
             <div className="w-75"> 
@@ -156,7 +187,7 @@ export const BookShelf = ({selectedIndex}) =>{
                     title={'Здесь будут ваши понравившиеся книги'}
                     description={'Чтобы отложить книгу для будущей покупки, нажмите «Отложить» рядом с ней'}            
                 />
-                <button className="btn btn-primary btn-add-books">Выбрать книги</button> 
+                <button className="btn btn-primary btn-add-books" onClick={() => navigate('/', {replace: true})}>Выбрать книги</button> 
             </div>:
         selectedCategory === 3 ?
             <div className="w-75"> 
@@ -165,7 +196,7 @@ export const BookShelf = ({selectedIndex}) =>{
                     title={'Добавьте сюда книги для покупки'}
                     description={'Чтобы добавить книги в корзину, нажмите на кнопку «В корзину» у понравившихся книги'}            
                 />
-                <button className="btn btn-primary btn-add-books">Выбрать книги</button> 
+                <button className="btn btn-primary btn-add-books" onClick={() => navigate('/', {replace: true})}>Выбрать книги</button> 
             </div>:
         ''
 
