@@ -45,7 +45,6 @@ userRouter.post('/add', (req, res) => {
   user
     .save()
     .then(result => {
-      console.log(result);
       res.status(200).json({
         message: "Created successfully",
         createdUser: {
@@ -94,7 +93,6 @@ userRouter.post('/create', upload.single('avatar'), (req, res, next) => {
   user
     .save()
     .then(result => {
-      console.log(result);
       res.status(200).json({
         message: "Created successfully",
         createdUser: {
@@ -107,7 +105,6 @@ userRouter.post('/create', upload.single('avatar'), (req, res, next) => {
       });
     })
     .catch(err => {
-      console.log(err);
       res.status(400).json({
         error: err
       });

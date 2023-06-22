@@ -24,7 +24,6 @@ export const SearchResult = () =>{
                 setFindedProducts(products)
             }) 
         } else{
-            console.log('dd');
             return await fetch('http://localhost:5000/book/find/by?' + new URLSearchParams(pathParamsToObject(pathParams.entries())))
             .then(res => res.json())
             .then(products =>{

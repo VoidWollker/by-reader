@@ -38,7 +38,6 @@ export const UserProvider = ({children}) =>{
             .then(res => res.json())
             .then(userData =>{
                 if (userData.password === password){
-                    console.log(userData);
                     setUser(userData)
                     setObjectCookie('user', userData, {expires: new Date(2030, 1)})
                 } else{
@@ -61,7 +60,6 @@ export const UserProvider = ({children}) =>{
     }
 
     const updateUserData = async (data) =>{
-        console.log(data);
         await fetch('http://localhost:5000/user/update', {
             method: 'POST',
             body: JSON.stringify({...data, _id:user._id}),
