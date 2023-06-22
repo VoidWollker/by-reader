@@ -6,8 +6,8 @@ export const ProductCard = ({showType, book, style, className}) => {
     const {user, changeUserData} = useAuth()
     const [inCart, setInCart] = useState(user.cart.map(product => product._id).includes(book._id))
     const [inFavourite, setInFavourite] = useState(user.favourite.map(product => product._id).includes(book._id))
-    const normalStyle = {width: '65%'}
-    const miniStyle = {width: '50%'}
+    const normalStyle = {width: '85%'}
+    const miniStyle = {width: '60%'}
     const squareStyle = {width: '100%', aspectRatio: 1}
     const bigSquareStyle = {width: '110%', aspectRatio: 1}
 
@@ -23,13 +23,13 @@ export const ProductCard = ({showType, book, style, className}) => {
     }
 
     const addToFavorite = () =>{
-        changeUserData({cart: [...new Set([...user.favourite, {_id: book._id}].map(item => item._id))]
+        changeUserData({favourite: [...new Set([...user.favourite, {_id: book._id}].map(item => item._id))]
             .map(item => item = {'_id': item})})
         setInFavourite(true)
     }
 
     const removeFromFavorite = () =>{
-        changeUserData({cart: [...new Set(user.favourite.filter(product => product._id !== book._id))]})
+        changeUserData({favourite: [...new Set(user.favourite.filter(product => product._id !== book._id))]})
         setInFavourite(false)
     }
 
