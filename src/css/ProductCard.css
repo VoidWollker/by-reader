@@ -227,10 +227,12 @@ input:checked + .slider:before {
 .img-page-home {
   min-width: 40px !important;
   max-width: 330px !important;
+  transition: 1s;
 }
 
 .img-page-home:hover {
   filter: brightness(90%);
+  transform: scale(1.05);
 }
 
 .product-format {
