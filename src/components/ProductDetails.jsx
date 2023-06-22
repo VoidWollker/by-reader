@@ -99,7 +99,14 @@ export const ProductDetials = ({elementID, product}) =>{
                 <button className="btn btn-tertiary py-2 mb-2 btn-buy"><b>КУПИТЬ</b></button>
                 <div className="d-flex flex-column">
                     <p className="det-info mb-2"><b>Подробная информация</b></p>
-                    <p className="detailed-information mb-1">Объем: {product.pageCount} стр.</p>
+                    {product.format === 'Текст'?
+                        <p className="detailed-information mb-1">Объем: {product.pageCount} стр.</p> :
+                        <>
+                            <p className="detailed-information mb-1">Длительность: {product.length} стр.</p>
+                            <p className="detailed-information mb-1">Голос: {product.reader} стр.</p>
+                        </>
+                        
+                    }
                     <p className="detailed-information mb-1">Жанр: {product.genre}</p>
                     <p className="detailed-information mb-1">Ограничения по возрасту: {product.recomendedAge}+</p>
                     <p className="detailed-information">Дата написания: {new Date(product.dateWriting).toLocaleDateString('ru-RU')}</p>
