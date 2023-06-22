@@ -1,6 +1,34 @@
+import { useState } from 'react'
+import { useAuth } from '../context/UserContext'
 import "../css/ProductDetails.css"
 
 export const ProductDetials = ({elementID, product}) =>{
+    const {user, changeUserData} = useAuth()
+    const [inCart, setInCart] = useState(user.cart.map(product => product._id).includes(product._id))
+    const [inFavourite, setInFavourite] = useState(user.favourite.map(product => product._id).includes(product._id))
+
+    const addToCart = () =>{
+        changeUserData({cart: [...new Set([...user.cart, {_id: product._id}].map(item => item._id))]
+                .map(item => item = {'_id': item})})
+        setInCart(true)
+    }
+
+    const removeFromCart = () =>{
+        changeUserData({cart: [...new Set(user.cart.filter(productData => productData._id !== product._id))]})
+        setInCart(false)
+    }
+
+    const addToFavorite = () =>{
+        changeUserData({favourite: [...new Set([...user.favourite, {_id: product._id}].map(item => item._id))]
+            .map(item => item = {'_id': item})})
+        setInFavourite(true)
+    }
+
+    const removeFromFavorite = () =>{
+        changeUserData({favourite: [...new Set(user.favourite.filter(productData => productData._id !== product._id))]})
+        setInFavourite(false)
+    }
+
     return(
         <div className="d-flex flex-row flex-wrap productDetails w-75 mx-auto" id={elementID}>
             <div className="d-flex flex-column mt-5 me-5">
@@ -48,10 +76,25 @@ export const ProductDetials = ({elementID, product}) =>{
                         <p className="product-fragment">Читать отрывок</p>
                     </button>
                     <button className="btn btn-quaternary btn-square me-2">
-                        <img src={require("../assets/icons/product-like.png")} alt="" className="m-1"/>
+                        {!inFavourite ?
+                            <button onClick={addToFavorite}>
+                                <img src={require("../assets/icons/product-like.png")} alt="" className="m-1"/>
+                            </button> :
+                            <button onClick={removeFromFavorite}>
+                                <img src={require("../assets/icons/product-like.png")} alt="" className="m-1"/>
+                            </button> 
+                        }
+                        
                     </button>
                     <button className="btn btn-quaternary btn-square">
-                        <img src={require("../assets/icons/product-basket.png")} alt="" />
+                        {!inCart ?
+                            <button onClick={addToCart}>
+                                <img src={require("../assets/icons/product-basket.png")} alt="" />
+                            </button> :
+                            <button onClick={removeFromCart}>
+                                <img src={require("../assets/icons/product-basket.png")} alt="" />
+                            </button> 
+                        }
                     </button>
                 </div>
                 <div className="d-flex flex-row mb-2">
