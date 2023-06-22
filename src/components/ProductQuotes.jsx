@@ -2,6 +2,9 @@ import "../css/ProductQuotes.css"
 
 export const ProductQuotes = ({elementID, quotes, quotesCount, increaseQuotesCount, increaseQuoteRate, decreaseQuoteRate}) =>{
     const createQuoteBlock = (quote, index) =>{
+        const activeLike = () => document.getElementById(`quote-${index}-like`).classList.add('btn-like-activeted')
+        const activeDislike = () => document.getElementById(`quote-${index}-like`).classList.add('btn-dislike-activeted')
+
         const disableLikes = () =>{
             document.getElementById(`quote-${index}-like`).setAttribute('disabled', 'disabled')
             document.getElementById(`quote-${index}-like`).classList.add('btn-like-disabled')
@@ -22,7 +25,10 @@ export const ProductQuotes = ({elementID, quotes, quotesCount, increaseQuotesCou
                     <div className="d-flex flex-row ps-3 pb-1">
                         <button className="p-0 border-0 bg-white btn-like" id={`quote-${index}-like`} 
                             onClick={() => {
-                                if (!isDisabled()){increaseQuoteRate(index)}
+                                if (!isDisabled()){
+                                    activeLike()
+                                    increaseQuoteRate(index)
+                                }
                                 disableLikes()
                             }}>
                             <img src={require("../assets/icons/product-likes.png")} alt="" className="quote-like" />
@@ -36,7 +42,10 @@ export const ProductQuotes = ({elementID, quotes, quotesCount, increaseQuotesCou
                         </div>
                         <button className="p-0 border-0 bg-white btn-like" id={`quote-${index}-dislike`}
                             onClick={() => {
-                                if(!isDisabled()){decreaseQuoteRate(index)}
+                                if(!isDisabled()){
+                                    activeDislike()
+                                    decreaseQuoteRate(index)
+                                }
                                 disableLikes()
                             }}>
                             <img src={require("../assets/icons/product-dislikes.png")} alt="" className="quote-dislike ms-1" />

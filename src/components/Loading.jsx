@@ -16,7 +16,7 @@ export const Loading = () =>{
     }, [loadString])
 
     return(
-        <div className='d-flex flex-row loading'>
+        <div className='d-flex flex-row align-self-center py-5 loading'>
                     <img src={require("../assets/icons/loading.png")} alt="" className="foto-loading me-2" />
                     <p>{loadString}</p>
         </div>

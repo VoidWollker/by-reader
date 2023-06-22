@@ -1,10 +1,25 @@
+import { useState } from 'react'
+import { useAuth } from '../context/UserContext'
 import "../css/ProductCard.css"
 
 export const ProductCard = ({showType, book, style, className}) => {
+    const {user, changeUserData} = useAuth()
+    const [inCart, setInCart] = useState(user.cart.map(product => product._id).includes(book._id))
     const normalStyle = {width: '65%'}
     const miniStyle = {width: '50%'}
     const squareStyle = {width: '100%', aspectRatio: 1}
     const bigSquareStyle = {width: '110%', aspectRatio: 1}
+
+    const addToCart = () =>{
+        changeUserData({cart: [...new Set([...user.cart, {_id: book._id}].map(item => item._id))]
+                .map(item => item = {'_id': item})})
+        setInCart(true)
+    }
+
+    const removeFromCart = () =>{
+        changeUserData({cart: [... new Set(user.cart.filter(product => product._id !== book._id))]})
+        setInCart(false)
+    }
 
     return(
         <div className={`d-flex flex-column ProductCard ${className}`} style={{style}}>
@@ -12,7 +27,6 @@ export const ProductCard = ({showType, book, style, className}) => {
                 <img className="img-page-home"
                     src={require('../assets/books/' + book.cover)} 
                     alt={'Book frontpage'}
-                    re
                     style={showType === 'normal' ? normalStyle :
                             showType === 'mini' ? miniStyle :
                             showType === 'square' ? squareStyle : 
@@ -40,7 +54,10 @@ export const ProductCard = ({showType, book, style, className}) => {
                 <p className="product-rate "><b>{book.rate}</b></p>
                 <p className="product-rates-count">{book.ratesCount}</p>
             </div>
-            <button className="btn btn-tertiary btn-sm my-1 btn-to-cart w-100"><b>В корзину</b></button>
+            {!inCart ?
+                <button className="btn btn-tertiary btn-sm my-1 btn-to-cart w-100" onClick={addToCart}><b>В корзину</b></button> :
+                <button className="btn btn-fivefold btn-sm my-1 btn-to-cart w-100" onClick={removeFromCart}><b>Купленно</b></button>
+            }
         </div>
     )
 }

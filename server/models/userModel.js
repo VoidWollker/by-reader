@@ -6,17 +6,12 @@ const userViewedSchema = new Schema({
 }, { timestamps: true})
 
 const userFavSchema = new Schema({
-    product: {
-        type: mongoose.Types.ObjectId,
-        required: false
-    }
 }, { timestamps: false })
 
 const userPurchasedSchema = new Schema({
-    product: {
-        type: mongoose.Types.ObjectId,
-        required: false
-    }
+}, { timestamps: true })
+
+const userCartSchema = new Schema({
 }, { timestamps: true })
 
 
@@ -60,7 +55,8 @@ const userSchema = new Schema({
     },
     viewed: [userViewedSchema],
     favourite: [userFavSchema],
-    purchased: [userPurchasedSchema]
+    purchased: [userPurchasedSchema],
+    cart: [userCartSchema]
 }, { timestamps: true })
 
 module.exports = mongoose.model('User', userSchema, 'users')

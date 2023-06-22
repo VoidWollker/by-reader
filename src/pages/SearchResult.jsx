@@ -3,20 +3,21 @@ import { useNavigate, useSearchParams } from 'react-router-dom'
 import { ProductCard } from "../components/ProductCard"
 
 import "../css/SearchResult.css"
+import { Loading } from '../components/Loading'
 
 export const SearchResult = () =>{
     const navigate = useNavigate()
     const [pathParams] = useSearchParams()
-    const [findedProducts, setFindedProducts] = useState([])
+    const [findedProducts, setFindedProducts] = useState(null)
     const [searchParams, setSearchParams] = useState({})
 
     useEffect(() =>{
+        setSearchParams(pathParamsToObject(pathParams.entries()))
         getProducts()
     }, [pathParams])
 
     const getProducts = async () =>{
         if (pathParamsToObject(pathParams.entries()).data !== undefined){
-            console.log('data is finde');
             return await fetch('http://localhost:5000/book/find/byall?' + new URLSearchParams(pathParamsToObject(pathParams.entries())))
             .then(res => res.json())
             .then(products =>{
@@ -55,34 +56,45 @@ export const SearchResult = () =>{
                         onChange={e => setSearchParams({...searchParams, seria: e.target.value})} />
                     <div className="d-flex flex-row form_radio">
                         <label htmlFor="all">Все</label>
-                        <input type="radio" id="all" name="format" onClick={() => setSearchParams({...searchParams, format: ''})}/>
+                        <input checked={searchParams.format === undefined || searchParams.format === '' ? 'checked' : ''} type="radio" id="all" name="format" 
+                            onChange={() => setSearchParams({...searchParams, format: ''})}/>
                     </div>
                     <div className="d-flex flex-row form_radio">
                         <label htmlFor="text">Текст</label>
-                        <input type="radio" id="text" name="format" onClick={() => setSearchParams({...searchParams, format: 'Текст'})}/>
+                        <input checked={searchParams.format === 'Текст' ? 'checked' : ''} type="radio" id="text" name="format" 
+                            onChange={() => setSearchParams({...searchParams, format: 'Текст'})}/>
                     </div>
                     <div className="d-flex flex-row form_radio">
                         <label htmlFor="audio">Аудио</label> 
-                        <input type="radio" id="audio" name="format" onClick={() => setSearchParams({...searchParams, format: 'Аудио'})}/>
+                        <input checked={searchParams.format === 'Аудио' ? 'checked' : ''} type="radio" id="audio" name="format" 
+                            onChange={() => setSearchParams({...searchParams, format: 'Аудио'})}/>
                     </div>
                     <div className="d-flex flex-row form_radio">
                         <label htmlFor="podcast">Подкаст</label>
-                        <input type="radio" id="podcast" name="format" onClick={() => setSearchParams({...searchParams, format: 'Подкаст'})}/>
+                        <input checked={searchParams.format === 'Подкаст' ? 'checked' : ''} type="radio" id="podcast" name="format" 
+                            onChange={() => setSearchParams({...searchParams, format: 'Подкаст'})}/>
                     </div>
                     <button className='btn btn-primary mb-4' onClick={() => {
+                        setFindedProducts(null)
                         let urlParams = Object.keys(searchParams)
                             .filter(param => searchParams[param] !== '')
                             .reduce((res, key) => (res[key] = searchParams[key], res), {})
                         navigate('?' + new URLSearchParams(urlParams))
                     }}>Поиск</button>
                 </div>
-                <div className="d-flex flex-row flex-wrap mb-3">
-                    {findedProducts.map(product =>
-                        <ProductCard 
-                            showType={'normal'}
-                            book={product}
-                    />)}
-                </div>
+                {findedProducts !== null ?
+                    <div className="d-flex flex-row flex-wrap mb-3">
+                        {findedProducts.map(product =>
+                            <ProductCard
+                                key={product._id}
+                                showType={'normal'}
+                                book={product}
+                        />)}
+                    </div> :
+                    <div>
+                        <Loading />
+                    </div>
+                }                   
             </div>
         </div>
     )
