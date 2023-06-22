@@ -161,4 +161,9 @@ a.link-active {
 a.link-active:hover {
   color: #335B50 !important;
   font-weight: 500;
+}
+
+.loading {
+  margin: 0 auto !important;
+  display: block !important;
 }/*# sourceMappingURL=Product.css.map */

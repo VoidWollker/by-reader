@@ -4,6 +4,7 @@ import { ProductSlider } from "../components/ProductSlider"
 import { ProductCard } from "../components/ProductCard"
 import { Subscriptions } from "../components/Subscriptions"
 import "../css/Home.css"
+import { Loading } from "../components/Loading"
 
 export const Home = () =>{
     const [books, setBooks] = useState([])
@@ -49,6 +50,7 @@ export const Home = () =>{
                         ></ProductCard>
                     })}
                 />
+                <Loading/>
                 {/* <h2 className="my-4">Аудиокниги</h2>
                 <ProductSlider 
                     slidesPerView={5}

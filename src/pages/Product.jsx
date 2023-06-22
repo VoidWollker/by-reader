@@ -6,6 +6,7 @@ import { ProductReviews }from "../components/ProductReviews"
 import "../css/Product.css"
 import { useSearchParams } from 'react-router-dom'
 import { useAuth } from '../context/UserContext'
+import { Loading } from '../components/Loading'
 
 export const Product = () =>{
     const {user, changeUserData} = useAuth()
@@ -115,10 +116,10 @@ export const Product = () =>{
                     </div>
                     
                 </div> :
-                <div className='d-flex flex-row'>
-                    <img src={require("../assets/icons/loading.png")} alt="" className="foto-loading" />
-                    <p>Загрузка</p>
+                <div className='my-5' style={{marginLeft: '12.5vw', marginRight: '12.5vw'}}>                
+                    <Loading/>
                 </div>
+
             }
         </>
     )
