@@ -97,10 +97,10 @@ export const ProfileAbout = () =>{
     return(
             <div className="d-flex flex-column profile-p">
                 <p className="h2">Обо мне</p>
-                <div className="d-flex flex-row my-3 ">
+                {/* <div className="d-flex flex-row my-3 ">
                     <img src={require("../assets/icons/profile-avatar.png")} alt="" className="profile-avatar me-2 "/>
                     <input type="file" className="btn btn-quaternary btns-changes btn-file my-auto py-2"/>
-                </div>
+                </div> */}
                 <div className="d-flex flex-row profile-input flex-wrap">
                     <input type="text" placeholder="Фамилия" className="me-3" value={userData.lastname}
                         onChange={e => validations.lastname.test(e.target.value) ? 
