@@ -145,8 +145,8 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
-.product-title {
-  font-size: calc(8px + 0.5vw);
+.product-titles {
+  font-size: calc(8px + 0.5vw) !important;
 }
 
 .produсе-feature {
