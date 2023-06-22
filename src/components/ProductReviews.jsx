@@ -59,6 +59,7 @@ export const ProductReviews = ({elementID, currentUserName, reviews, reviewsCoun
                 <button className="btn btn-tertiary btn-addReview px-0 mt-1" onClick={() => {
                     if (currentUserName !== undefined){
                         writeReview(reviewText)
+                        setReviewText('')
                     } else{
                         navigate('/enter', {replace: true})
                     }

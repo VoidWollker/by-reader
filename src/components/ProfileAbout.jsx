@@ -43,10 +43,10 @@ export const ProfileAbout = () =>{
         if (phoneRegex.test(userData.phone)){
             await changeUserData({_id: userData._id, phone: userData.phone.match(phoneRegex)[0]})
                 .then(() => setSendDataStatus({...sendDataStatus, phone: {status: true, message: 'Данные обновлены'}}))
-                .catch(() => setSendDataStatus({...sendDataStatus, phone: 'Ошибка отправки, повторите позже'}))
+                .catch(() => setSendDataStatus({...sendDataStatus, phone: {status: false, message: 'Ошибка отправки, повторите позже'}}))
         }
         else{
-            setSendDataStatus({...sendDataStatus, phone: 'Номер не корректен'})
+            setSendDataStatus({...sendDataStatus, phone: {status: false, message:'Номер не корректен'}})
         }
     }
 
@@ -56,7 +56,7 @@ export const ProfileAbout = () =>{
             email: userData.email
         })
         .then(() => setSendDataStatus({...sendDataStatus, email: {status: true, message: 'Данные обновлены'}}))
-        .catch(() => setSendDataStatus({...sendDataStatus, email: 'Ошибка отправки, повторите позже'}))
+        .catch(() => setSendDataStatus({...sendDataStatus, email: {status: false, message:'Ошибка отправки, повторите позже'}}))
     }
 
     const changePassword = async () =>{
@@ -67,14 +67,14 @@ export const ProfileAbout = () =>{
                     password: userData.newPassword
                 })
                 .then(() => setSendDataStatus({...sendDataStatus, password: {status: true, message: 'Данные обновлены'}}))
-                .catch(() => setSendDataStatus({...sendDataStatus, password: 'Ошибка отправки, повторите позже'}))
+                .catch(() => setSendDataStatus({...sendDataStatus, password: {status: false, message:'Ошибка отправки, повторите позже'}}))
             }
             else{
-                setSendDataStatus({...sendDataStatus, password: 'Пароли не совпадают'})
+                setSendDataStatus({...sendDataStatus, password: {status: false, message:'Пароли не совпадают'}})
             }
         }
         else{
-            setSendDataStatus({...sendDataStatus, password: 'Текущий пароль введен неверно'})
+            setSendDataStatus({...sendDataStatus, password: {status: false, message:'Текущий пароль введен неверно'}})
         }
     }
 
