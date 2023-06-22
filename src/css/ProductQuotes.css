@@ -189,10 +189,10 @@ input:checked + .slider:before {
   width: 30px;
 }
 
-.btn-like-disabled img {
+.btn-like-activeted img {
   filter: brightness(0.5);
 }
 
-.btn-dislike-disabled img {
-  filter: blur();
+.btn-dislike-activeted img {
+  filter: invert(1);
 }/*# sourceMappingURL=ProductQuotes.css.map */
