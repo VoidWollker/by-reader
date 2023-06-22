@@ -185,7 +185,7 @@ input:checked + .slider:before {
 }
 
 .btn-profile-save {
-  max-width: 235px !important;
+  max-width: 280px !important;
   width: 25vw;
   min-width: 120px !important;
   font-weight: 600 !important;
