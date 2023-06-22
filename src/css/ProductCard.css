@@ -225,8 +225,8 @@ input:checked + .slider:before {
 }
 
 .img-page-home {
-  min-width: 25px !important;
-  max-width: 320px !important;
+  min-width: 40px !important;
+  max-width: 330px !important;
 }
 
 .img-page-home:hover {
@@ -243,4 +243,39 @@ input:checked + .slider:before {
   width: 16vw;
   max-width: 150px;
   margin-right: 5vw;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+}
+
+.container .btn-favorite {
+  position: absolute;
+  min-width: 20px;
+  min-height: 20px;
+  width: 2vw;
+  height: 2vw;
+  top: 11%;
+  left: 75%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #335B50;
+  border: none;
+  border-radius: 5px;
+  z-index: 1;
+}
+
+.container .btn-favorite:hover {
+  background-color: #0F0D18;
+}
+
+.add-to-favorite {
+  min-width: 15px;
+  width: 1.5vw;
+}
+
+.remove-from-favorite {
+  min-width: 15px;
+  width: 1.5vw;
 }/*# sourceMappingURL=ProductCard.css.map */

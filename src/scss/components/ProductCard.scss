@@ -67,8 +67,8 @@
     margin-left: 0 !important;
 }
 .img-page-home{
-    min-width: 25px !important;
-    max-width: 320px !important;
+    min-width: 40px !important;
+    max-width: 330px !important;
 }
 .img-page-home:hover{
     filter: brightness(90%);
@@ -78,8 +78,54 @@
     text-align: center;
 }
 .ProductCard{
+    
     min-width: 80px;
     width: 16vw;
     max-width: 150px;
     margin-right: 5vw;
+}
+// .btn-favorite{
+//     position: absolute;
+//     min-width: 20px;
+//     min-height: 20px;
+//     width: 2vw;
+//     height: 2vw;
+//     top: 12px;
+//     left: 3vw;
+//     // transform: translate(-50%, -50%);
+//     // -ms-transform: translate(-50%, -50%);
+//     background-color: $color-primary;
+//     border: none;
+//     border-radius: 5px;
+//     z-index: 1;
+// }
+.container{
+    position: relative;
+    width: 100%;
+}
+.container .btn-favorite{
+    position: absolute;
+    min-width: 20px;
+    min-height: 20px;
+    width: 2vw;
+    height: 2vw;
+    top: 11%;
+    left: 75%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: $color-primary;
+    border: none;
+    border-radius: 5px;
+    z-index: 1;
+}
+.container .btn-favorite:hover {
+    background-color: $color-tertiary;
+}
+.add-to-favorite{
+    min-width: 15px;
+    width: 1.5vw;
+}
+.remove-from-favorite{
+    min-width: 15px;
+    width: 1.5vw;
 }
