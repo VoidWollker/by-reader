@@ -152,11 +152,9 @@ export const Product = () =>{
                     </div>
                     
                 </div> :
-
-                    <div className='py-5 loading'>                
-                        <Loading/>
-                    </div>
-
+                <div className='py-5 loading'>                
+                    <Loading/>
+                </div>
             }
         </>
     )

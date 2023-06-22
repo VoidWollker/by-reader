@@ -2,17 +2,27 @@ import { useState, useEffect } from "react"
 import { ClientEmpty } from "../components/ClientEmpty"
 import { ProductCard } from "../components/ProductCard"
 import "../css/BookShelf.css"
+import { Loading } from '../components/Loading'
 import { useAuth } from "../context/UserContext"
 
 export const BookShelf = ({selectedIndex}) =>{
     const {user} = useAuth()
     const [selectedCategory, setSelectedCategory] = useState(selectedIndex)
-    const [viewedProducts, setViewedProducts] = useState([])
+    const [cartProducts, setCartProducts] = useState(null)
+    const [viewedProducts, setViewedProducts] = useState(null)
 
     const getViewedProducts = () =>{
         user.viewed.forEach(viewedProduct =>{
             getProductData(viewedProduct._id)
-                .then(productData => {setViewedProducts(viewedProducts => [...viewedProducts, productData])})
+                .then(productData => {setViewedProducts(viewedProducts => [...viewedProducts ?? [], productData])})
+            
+        })
+    }
+
+    const getCartProducts = () =>{
+        user.cart.forEach(cartProduct =>{
+            getProductData(cartProduct._id)
+                .then(productData => {setCartProducts(cartProducts => [...cartProducts ?? [], productData])})
             
         })
     }
@@ -24,8 +34,10 @@ export const BookShelf = ({selectedIndex}) =>{
     useEffect(() => {
         const items = document.getElementsByClassName('bookshelf-category')
         items[selectedCategory].classList.add('bookshelf-category-selected')
-        if (selectedCategory === 1 && viewedProducts.length <= 0){
+        if (selectedCategory === 1 && viewedProducts === null){
             getViewedProducts()
+        } else if (selectedCategory === 3 && cartProducts === null){
+            getCartProducts()
         }
     }, [selectedCategory])
 
@@ -36,22 +48,42 @@ export const BookShelf = ({selectedIndex}) =>{
     }
 
     const showSelectedCategory = () =>
-        selectedCategory === 1 ?
-            <div className="d-flex flex-row w-75 mx-auto flex-wrap">{showViewedProducts()}</div> :
-            ''
+        <div className="d-flex flex-row w-75 mx-auto flex-wrap">
+            {selectedCategory === 1 ?
+                showViewedProducts() :
+            selectedCategory === 3 ?
+                showCartProducts() :
+                ''
+            }
+        </div>
 
-    const showViewedProducts = () =>{
-        return viewedProducts.length > 0 ?
-            viewedProducts.sort((a,b) => a.updatedAt + b.updatedAt).map(product =>
-                <ProductCard 
-                    showType={'normal'}
-                    book={product}
-                />
-            ) :
+    const showViewedProducts = () =>
+        viewedProducts !== null ?
+        <>{
+            viewedProducts.length > 0 ?
+            viewedProducts.map(product =>
+                    <ProductCard 
+                        showType={'normal'}
+                        book={product}
+                    />
+                ) :
             showEmptyInCategory()
-        }
+        }</> :
+        <Loading />     
 
-    
+    const showCartProducts = () =>
+        cartProducts !== null ?
+        <>{ 
+            cartProducts.length > 0 ?
+            cartProducts.map(product =>
+                    <ProductCard 
+                        showType={'normal'}
+                        book={product}
+                    />
+                ) :
+            showEmptyInCategory()
+        }</> :
+        <Loading />
 
     const showEmptyInCategory = () =>
         selectedCategory === 0 ?
