@@ -46,7 +46,7 @@ export const ProductReviews = ({elementID, reviews, reviewsCount, increaseReview
                 <input className="add-review ps-2 mx-3 mb-2 mt-2" placeholder="Что вы думаете о книге?"
                     onChange={e => setReviewText(e.target.value)}    
                 />
-                <button className="btn btn-tertiary btn-addReview px-0" onClick={() => writeReview(reviewText)}>Опубликовать</button>
+                <button className="btn btn-tertiary btn-addReview px-0 mt-1" onClick={() => writeReview(reviewText)}>Опубликовать</button>
             </div>
         </div>
     )
