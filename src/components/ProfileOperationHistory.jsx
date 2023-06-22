@@ -1,7 +1,10 @@
 import "../css/ProfileOperationHistory.css"
 import { ClientEmpty }from "../components/ClientEmpty"
+import { useNavigate } from "react-router"
 
 export const ProfileOperationHistory = () =>{
+    const naviagte = useNavigate()
+
     const createCheck = (id, date, status, products, sum) =>{
         return(
             <div className="ProfileOperationHistory-order ms-5 mt-4">
@@ -31,7 +34,7 @@ export const ProfileOperationHistory = () =>{
                     title={'Здесь будет отображаться история покупок'}
                     description={'Здесь будут храниться книги, которые вы купили на нашем сайте'}            
             />
-            <button className="btn btn-primary btn-add-books">Выбрать книги</button>
+            <button className="btn btn-primary btn-add-books" onClick={() => naviagte('/', {replace: true})}>Выбрать книги</button>
         </div>
     )
 }

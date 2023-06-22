@@ -46,13 +46,9 @@ export const Profile = ({selectedIndex}) =>{
                         <img src={require("../assets/icons/profile-operatio-history.png")} alt="" className="me-2"/>
                         <button className="border-0" onClick={() => selectProfileListItem(2)}>История операций</button>
                     </li>
-                    <li className="profile-list-item" id="profile-list-item-3">
+                    <li className="profile-list-item pb-5" id="profile-list-item-3">
                         <img src={require("../assets/icons/profile-bookshelf.png")} alt="" className="me-2"/>
                         <button className="border-0" onClick={() => navigate('/profile/bookShelf')}>Книжная полка</button>
-                    </li>
-                    <li className="profile-list-item pb-5" id="profile-list-item-4">
-                        <img src={require("../assets/icons/profile-support-service.png")} alt="" className="me-2"/>
-                        <button className="border-0">Служба поддержки</button>
                     </li>
                     <li className="profile-list-item" id="profile-list-item-5">
                         <img src={require("../assets/icons/profile-exit.png")} alt="" className="me-2"/>
