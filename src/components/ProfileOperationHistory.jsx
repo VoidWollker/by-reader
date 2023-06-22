@@ -25,10 +25,13 @@ export const ProfileOperationHistory = () =>{
     }
 
     return(
-        <ClientEmpty
-                icon={require("../assets/icons/profileOperationHistory-empty.png")}
-                title={'Здесь будет отображаться история покупок'}
-                description={'Здесь будут храниться книги, которые вы купили на нашем сайте'}            
-        />
+        <div className="w-75">
+            <ClientEmpty
+                    icon={require("../assets/icons/profileOperationHistory-empty.png")}
+                    title={'Здесь будет отображаться история покупок'}
+                    description={'Здесь будут храниться книги, которые вы купили на нашем сайте'}            
+            />
+            <button className="btn btn-primary btn-add-books">Выбрать книги</button>
+        </div>
     )
 }

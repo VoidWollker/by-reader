@@ -99,29 +99,41 @@ export const BookShelf = ({selectedIndex}) =>{
 
     const showEmptyInCategory = () =>
         selectedCategory === 0 ?
-            <ClientEmpty
-                icon={require("../assets/icons/profileOperationHistory-empty.png")}
-                title={'Здесь будут ваши купленные книги'}
-                description={'Здесь будут храниться книги, которые вы купили на нашем сайте'}            
-            /> :
+            <div className="w-75"> 
+                <ClientEmpty
+                    icon={require("../assets/icons/profileOperationHistory-empty.png")}
+                    title={'Здесь будут ваши купленные книги'}
+                    description={'Здесь будут храниться книги, которые вы купили на нашем сайте'}            
+                />
+                <button className="btn btn-primary btn-add-books">Выбрать книги</button> 
+            </div> :
         selectedCategory === 1 ?
-            <ClientEmpty
-                icon={require("../assets/icons/bookshelf-viewed-big.png")}
-                title={'Здесь будут ваши просмотренные книги'}
-                description={'Здесь будут храниться книги, которые вы просматриваете на нашем сайте'}            
-            /> :
+            <div className="w-75"> 
+                <ClientEmpty
+                    icon={require("../assets/icons/bookshelf-viewed-big.png")}
+                    title={'Здесь будут ваши просмотренные книги'}
+                    description={'Здесь будут храниться книги, которые вы просматриваете на нашем сайте'}            
+                />
+                <button className="btn btn-primary btn-add-books">Выбрать книги</button> 
+            </div>:
         selectedCategory === 2 ?
-            <ClientEmpty
-                icon={require("../assets/icons/bookshelf-liked-big.png")}
-                title={'Здесь будут ваши понравившиеся книги'}
-                description={'Чтобы отложить книгу для будущей покупки, нажмите «Отложить» рядом с ней'}            
-            /> :
+            <div className="w-75"> 
+                <ClientEmpty
+                    icon={require("../assets/icons/bookshelf-liked-big.png")}
+                    title={'Здесь будут ваши понравившиеся книги'}
+                    description={'Чтобы отложить книгу для будущей покупки, нажмите «Отложить» рядом с ней'}            
+                />
+                <button className="btn btn-primary btn-add-books">Выбрать книги</button> 
+            </div>:
         selectedCategory === 3 ?
-            <ClientEmpty
-                icon={require("../assets/icons/bookshelf-basket-big.png")}
-                title={'Добавьте сюда книги для покупки'}
-                description={'Чтобы добавить книги в корзину, нажмите на кнопку «В корзину» у понравившихся книги'}            
-            /> :
+            <div className="w-75"> 
+                <ClientEmpty
+                    icon={require("../assets/icons/bookshelf-basket-big.png")}
+                    title={'Добавьте сюда книги для покупки'}
+                    description={'Чтобы добавить книги в корзину, нажмите на кнопку «В корзину» у понравившихся книги'}            
+                />
+                <button className="btn btn-primary btn-add-books">Выбрать книги</button> 
+            </div>:
         ''
 
     return(

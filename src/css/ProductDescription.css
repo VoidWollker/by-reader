@@ -4,11 +4,11 @@ h1 {
 
 .product-description {
   min-width: 200px;
-  font-size: calc(8px + 0.5vw) !important;
-  font-weight: lighter;
   margin: 0 !important;
 }
 
 .product-description-text-paragraph {
   text-indent: 35px;
+  font-size: calc(8px + 0.5vw) !important;
+  font-weight: lighter;
 }/*# sourceMappingURL=ProductDescription.css.map */

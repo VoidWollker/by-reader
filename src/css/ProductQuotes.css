@@ -187,4 +187,12 @@ input:checked + .slider:before {
 
 .btn-like {
   width: 30px;
+}
+
+.btn-like-activeted img {
+  filter: brightness(0.5);
+}
+
+.btn-dislike-activeted img {
+  filter: invert(1);
 }/*# sourceMappingURL=ProductQuotes.css.map */

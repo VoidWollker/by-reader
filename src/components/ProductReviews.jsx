@@ -1,4 +1,5 @@
 import { useState} from 'react'
+import { ClientEmpty } from '../components/ClientEmpty'
 import "../css/ProductReviews.css"
 
 export const ProductReviews = ({elementID, reviews, reviewsCount, increaseReviewsCount, writeReview}) =>{
@@ -6,15 +7,22 @@ export const ProductReviews = ({elementID, reviews, reviewsCount, increaseReview
 
     const createReview = (avatar, userName, date, rate, text) =>{
         return(
-            <div className="d-flex flex-column reviews-box my-4 ">
-                <div className="d-flex flex-row justifu-content-space-between reviews-data">
-                    <div className="d-flex flex-row align-items-center py-1">
-                        <img src="" alt="" />
-                        <p className="px-2 review-userName"><b>{userName}</b></p>
-                        <p className="px-2 review-date"><b>{date}</b></p>
+            <div>
+                <div className="d-flex flex-column reviews-box my-4 ">
+                    <div className="d-flex flex-row justifu-content-space-between reviews-data">
+                        <div className="d-flex flex-row align-items-center py-1">
+                            <img src="" alt="" />
+                            <p className="px-2 review-userName"><b>{userName}</b></p>
+                            <p className="px-2 review-date"><b>{date}</b></p>
+                        </div>
                     </div>
+                    <p className="p-1 ps-3">{text}</p>
                 </div>
-                <p className="p-1 ps-3">{text}</p>
+                    {/* <ClientEmpty
+                        icon={require("../assets/icons/reviews.png")}
+                        title={'Здесь будут отображаться отзывы'}
+                        description={'Напишите отзыв первым!'}            
+                    /> */}
             </div>
         )
     }

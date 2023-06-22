@@ -5,7 +5,6 @@ export const ClientEmpty = ({icon, title,description}) =>{
                 <img src={icon} alt="" className="icon-empty"/>
             <p className="h3 text-center mb-1">{title}</p>
                 <p className="comment-p mx-auto mb-3">{description}</p>
-                <button className="btn btn-primary btn-add-books">Выбрать книги</button>
             </div>
         </div>
     )

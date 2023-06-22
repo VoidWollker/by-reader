@@ -1,15 +1,16 @@
+import { ClientEmpty } from '../components/ClientEmpty'
 import "../css/ProductQuotes.css"
 
 export const ProductQuotes = ({elementID, quotes, quotesCount, increaseQuotesCount, increaseQuoteRate, decreaseQuoteRate}) =>{
     const createQuoteBlock = (quote, index) =>{
         const activeLike = () => document.getElementById(`quote-${index}-like`).classList.add('btn-like-activeted')
-        const activeDislike = () => document.getElementById(`quote-${index}-like`).classList.add('btn-dislike-activeted')
+        const activeDislike = () => document.getElementById(`quote-${index}-dislike`).classList.add('btn-dislike-activeted')
 
         const disableLikes = () =>{
             document.getElementById(`quote-${index}-like`).setAttribute('disabled', 'disabled')
             document.getElementById(`quote-${index}-like`).classList.add('btn-like-disabled')
             document.getElementById(`quote-${index}-dislike`).setAttribute('disabled', 'disabled')
-            document.getElementById(`quote-${index}-dislike`).classList.add('btn-like-disabled')
+            document.getElementById(`quote-${index}-dislike`).classList.add('btn-dislike-disabled')
         }
 
         const isDisabled = () =>
@@ -65,13 +66,17 @@ export const ProductQuotes = ({elementID, quotes, quotesCount, increaseQuotesCou
                     {quotes.map((quote, index) =>
                         index <= quotesCount - 1 ?
                             createQuoteBlock(quote, index) :
-                            ''
-                        
+                            '' 
                     )}
                     {quotes.length > quotesCount ?
                         <button className="btn btn-fivefold my-3 btn-quote" onClick={increaseQuotesCount}>Ещё 3 цитаты</button> :
                         ''
                     }
+                    {/* <ClientEmpty
+                        icon={require("../assets/icons/quotes.png")}
+                        title={'Здесь будут отображаться цитаты'}
+                        description={'Они скоро появятся на сайте!'}            
+                    /> */}
                 </div>
             </div>
         </>
