@@ -37,10 +37,10 @@ export const ProductCard = ({showType, book, style, className}) => {
         <div className={`d-flex flex-column ProductCard ${className}`} style={{style}}>
             <div className='container'>
                 {!inFavourite ?
-                    <button className='btn-favorite p-0 pb-1' onClick={addToFavorite}>
+                    <button className='btn-favorite p-0' onClick={addToFavorite}>
                         <img src={require('../assets/icons/add-to-favorite.png')} alt="" className='add-to-favorite'/>
                     </button> :
-                    <button className='btn-favorite p-0 pb-1' onClick={removeFromFavorite}>
+                    <button className='btn-favorite p-0' onClick={removeFromFavorite}>
                         <img src={require('../assets/icons/remove-from-favorite.png')} alt="" className='remove-from-favorite'/>
                     </button>
                 }
