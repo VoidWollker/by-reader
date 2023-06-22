@@ -102,7 +102,7 @@ export const ProductDetials = ({elementID, product}) =>{
                     <p className="detailed-information mb-1">Объем: {product.pageCount} стр.</p>
                     <p className="detailed-information mb-1">Жанр: {product.genre}</p>
                     <p className="detailed-information mb-1">Ограничения по возрасту: {product.recomendedAge}+</p>
-                    <p className="detailed-information">Дата написания: {product.dateWriting}</p>
+                    <p className="detailed-information">Дата написания: {new Date(product.dateWriting).toLocaleDateString('ru-RU')}</p>
                 </div>
             </div>
         </div>
