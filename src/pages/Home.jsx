@@ -90,7 +90,9 @@ export const Home = () =>{
                     <h2 className="my-4">Подписки от Почитателя</h2>
                     <Subscriptions/>
                 </div> :
-                <Loading />
+                <div className='py-5 loading'>                
+                    <Loading/>
+                </div>
             }
         </div>
     )

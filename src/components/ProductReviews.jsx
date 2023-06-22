@@ -14,7 +14,7 @@ export const ProductReviews = ({elementID, reviews, reviewsCount, increaseReview
                         <p className="px-2 review-date"><b>{date}</b></p>
                     </div>
                 </div>
-                <p className="p-1 ps-2">{text}</p>
+                <p className="p-1 ps-3">{text}</p>
             </div>
         )
     }
