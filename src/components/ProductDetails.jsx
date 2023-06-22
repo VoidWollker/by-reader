@@ -75,27 +75,22 @@ export const ProductDetials = ({elementID, product}) =>{
                         <img src={require("../assets/icons/product-fragment.png")} alt="" className="my-1 me-1"  />
                         <p className="product-fragment">Читать отрывок</p>
                     </button>
-                    <button className="btn btn-quaternary btn-square me-2">
-                        {!inFavourite ?
-                            <button onClick={addToFavorite}>
-                                <img src={require("../assets/icons/product-like.png")} alt="" className="m-1"/>
-                            </button> :
-                            <button onClick={removeFromFavorite}>
-                                <img src={require("../assets/icons/product-like.png")} alt="" className="m-1"/>
-                            </button> 
-                        }
-                        
-                    </button>
-                    <button className="btn btn-quaternary btn-square">
-                        {!inCart ?
-                            <button onClick={addToCart}>
-                                <img src={require("../assets/icons/product-basket.png")} alt="" />
-                            </button> :
-                            <button onClick={removeFromCart}>
-                                <img src={require("../assets/icons/product-basket.png")} alt="" />
-                            </button> 
-                        }
-                    </button>
+                    {!inFavourite ?
+                        <button className='btn btn-quaternary btn-square me-2' onClick={addToFavorite}>
+                            <img src={require("../assets/icons/product-like.png")} alt="" className="m-1"/>
+                        </button> :
+                        <button className='btn btn-primary btn-square me-2' onClick={removeFromFavorite}>
+                            <img src={require("../assets/icons/remove-from-favorite.png")} alt="" className="m-1"/>
+                        </button> 
+                    }
+                    {!inCart ?
+                        <button className='btn btn-quaternary btn-square' onClick={addToCart}>
+                            <img src={require("../assets/icons/product-basket.png")} alt="" />
+                        </button> :
+                        <button className='btn btn-primary btn-square' onClick={removeFromCart}>
+                            <img src={require("../assets/icons/basket.png")} alt="" className='w-75'/>
+                        </button> 
+                    }
                 </div>
                 <div className="d-flex flex-row mb-2">
                     <p className="product-price bordered-primary-text h4 rounded me-1 p-1 "><b>{product.price} Р</b></p>
