@@ -23,13 +23,13 @@ export const ProductCard = ({showType, book, style, className}) => {
     }
 
     const addToFavorite = () =>{
-        changeUserData({cart: [...new Set([...user.favourite, {_id: book._id}].map(item => item._id))]
+        changeUserData({favourite: [...new Set([...user.favourite, {_id: book._id}].map(item => item._id))]
             .map(item => item = {'_id': item})})
         setInFavourite(true)
     }
 
     const removeFromFavorite = () =>{
-        changeUserData({cart: [...new Set(user.favourite.filter(product => product._id !== book._id))]})
+        changeUserData({favourite: [...new Set(user.favourite.filter(product => product._id !== book._id))]})
         setInFavourite(false)
     }
 
