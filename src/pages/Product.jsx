@@ -76,7 +76,7 @@ export const Product = () =>{
                 await fetch(`http://localhost:5000/user/getByID/${review.user}`) 
                     .then(userData => userData.json())
                     .then(userData => {
-                        setReviews(reviews => [...reviews, {...review, username: userData.username}])})
+                        setReviews(reviews => [{...review, username: userData.username}, ...reviews])})
             })
         } catch (err){console.log(err);}
     }
@@ -89,7 +89,7 @@ export const Product = () =>{
             body: JSON.stringify({
                 _id: book._id,
                 reviews: [
-                    ...book.reviews,
+                    ...reviews,
                     {
                         user: user._id,
                         text: reviewText
@@ -101,7 +101,7 @@ export const Product = () =>{
             }
         })
             .then(res => res.json())
-            .then(bookData => setReviews(bookData.reviews))
+            .then(bookData => setReviews(reviews => [{...bookData.reviews.slice(-1)[0], username: user.username}, ...reviews]))
     }
     
     return(
