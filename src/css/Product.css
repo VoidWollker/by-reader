@@ -164,6 +164,5 @@ a.link-active:hover {
 }
 
 .loading {
-  margin: 0 auto !important;
-  display: block !important;
+  margin-left: 21vw !important;
 }/*# sourceMappingURL=Product.css.map */

@@ -50,7 +50,7 @@ export const Home = () =>{
                         ></ProductCard>
                     })}
                 />
-                <Loading/>
+                
                 {/* <h2 className="my-4">Аудиокниги</h2>
                 <ProductSlider 
                     slidesPerView={5}

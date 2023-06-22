@@ -116,9 +116,10 @@ export const Product = () =>{
                     </div>
                     
                 </div> :
-                <div className='my-5' style={{marginLeft: '12.5vw', marginRight: '12.5vw'}}>                
-                    <Loading/>
-                </div>
+
+                    <div className='py-5 loading'>                
+                        <Loading/>
+                    </div>
 
             }
         </>
