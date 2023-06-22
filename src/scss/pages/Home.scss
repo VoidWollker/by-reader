@@ -1,3 +1,23 @@
+@import "../global/GlobalVariables";
+
 h2{
     font-size: calc(14px + 0.5vw) !important;
+}
+.home-genre img{
+    min-width: 100px;
+    width: 11vw;
+    max-width: 180px;
+    min-height: 130px;
+    height: 15vw;
+    max-width: 200px;
+    transition: 1s;
+}
+.home-genre img:hover{
+    transform: scale(1.1);
+}
+.home-genre p{
+    text-align: center;
+}
+.p-genre{
+    color: $color-tertiary;
 }
