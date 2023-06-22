@@ -239,9 +239,9 @@ input:checked + .slider:before {
 
 .success {
   max-height: 45px;
-  width: 15vw;
+  width: 20vw;
   font-size: calc(5px + 0.6vw) !important;
-  max-width: 500px !important;
+  max-width: 250px !important;
   min-width: 130px !important;
   min-height: 15px !important;
   padding-top: 1vw !important;
