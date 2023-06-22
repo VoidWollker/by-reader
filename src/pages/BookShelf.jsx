@@ -12,19 +12,29 @@ export const BookShelf = ({selectedIndex}) =>{
     const [viewedProducts, setViewedProducts] = useState(null)
 
     const getViewedProducts = () =>{
-        user.viewed.forEach(viewedProduct =>{
-            getProductData(viewedProduct._id)
-                .then(productData => {setViewedProducts(viewedProducts => [...viewedProducts ?? [], productData])})
-            
-        })
+        if (user.viewed.length !== 0){
+            user.viewed.forEach(viewedProduct =>{
+                getProductData(viewedProduct._id)
+                    .then(productData => {setViewedProducts(viewedProducts => [...viewedProducts ?? [], productData])})
+                
+            }) 
+        } else{
+            setViewedProducts([])
+        }
+        
     }
 
     const getCartProducts = () =>{
-        user.cart.forEach(cartProduct =>{
-            getProductData(cartProduct._id)
-                .then(productData => {setCartProducts(cartProducts => [...cartProducts ?? [], productData])})
-            
-        })
+        if (user.cart.length !== 0){
+            user.cart.forEach(cartProduct =>{
+                getProductData(cartProduct._id)
+                    .then(productData => {setCartProducts(cartProducts => [...cartProducts ?? [], productData])})
+                
+            })
+        } else{
+            setCartProducts([])
+        }
+        
     }
 
     const getProductData = async (id) => 
@@ -61,8 +71,9 @@ export const BookShelf = ({selectedIndex}) =>{
         viewedProducts !== null ?
         <>{
             viewedProducts.length > 0 ?
-            viewedProducts.map(product =>
+            viewedProducts.map((product, index) =>
                     <ProductCard 
+                        key={`viewed-product-${index}`}
                         showType={'normal'}
                         book={product}
                     />
@@ -75,8 +86,9 @@ export const BookShelf = ({selectedIndex}) =>{
         cartProducts !== null ?
         <>{ 
             cartProducts.length > 0 ?
-            cartProducts.map(product =>
+            cartProducts.map((product, index) =>
                     <ProductCard 
+                        key={`cart-product-${index}`}
                         showType={'normal'}
                         book={product}
                     />

@@ -5,6 +5,7 @@ import "../css/ProductCard.css"
 export const ProductCard = ({showType, book, style, className}) => {
     const {user, changeUserData} = useAuth()
     const [inCart, setInCart] = useState(user.cart.map(product => product._id).includes(book._id))
+    const [inFavourite, setInFavourite] = useState(user.favourite.map(product => product._id).includes(book._id))
     const normalStyle = {width: '65%'}
     const miniStyle = {width: '50%'}
     const squareStyle = {width: '100%', aspectRatio: 1}
@@ -17,12 +18,32 @@ export const ProductCard = ({showType, book, style, className}) => {
     }
 
     const removeFromCart = () =>{
-        changeUserData({cart: [... new Set(user.cart.filter(product => product._id !== book._id))]})
+        changeUserData({cart: [...new Set(user.cart.filter(product => product._id !== book._id))]})
         setInCart(false)
+    }
+
+    const addToFavorite = () =>{
+        changeUserData({cart: [...new Set([...user.favourite, {_id: book._id}].map(item => item._id))]
+            .map(item => item = {'_id': item})})
+        setInFavourite(true)
+    }
+
+    const removeFromFavorite = () =>{
+        changeUserData({cart: [...new Set(user.favourite.filter(product => product._id !== book._id))]})
+        setInFavourite(false)
     }
 
     return(
         <div className={`d-flex flex-column ProductCard ${className}`} style={{style}}>
+            {!inFavourite ?
+                <button onClick={addToFavorite}>
+                    <img src="" alt="" />
+                </button> :
+                <button onClick={removeFromFavorite}>
+                    <img src="" alt="" />
+                </button>
+            }
+            
             <a href={`/product/?id=${book._id}`}>
                 <img className="img-page-home"
                     src={require('../assets/books/' + book.cover)} 
