@@ -103,7 +103,7 @@ export const ProductDetials = ({elementID, product}) =>{
                         <p className="detailed-information mb-1">Объем: {product.pageCount} стр.</p> :
                         <>
                             <p className="detailed-information mb-1">Длительность: {product.length} стр.</p>
-                            <p className="detailed-information mb-1">Голос: {product.reader} стр.</p>
+                            <p className="detailed-information mb-1">Голос: {product.reader} </p>
                         </>
                         
                     }

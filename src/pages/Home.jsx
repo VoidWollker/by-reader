@@ -40,19 +40,9 @@ export const Home = () =>{
                             ></ProductCard>
                         })}
                     />
-                    <h2 className="my-4">Фантастика</h2>
-                    <ProductSlider 
-                        elementID={'fantstic'}
-                        slidesPerView={5}
-                        slides={books.filter(book => book.genre === 'Фантастика').map(book =>{
-                            return <ProductCard 
-                                showType={'mini'}
-                                book={book}
-                            ></ProductCard>
-                        })}
-                    />
                     <h2 className="my-4">Аудиокниги</h2>
                     <ProductSlider 
+                        elementID={'audio'}
                         slidesPerView={5}
                         slides={books.filter(book => book.format === 'Аудио').map(book =>{
                             return <ProductCard 
@@ -63,6 +53,7 @@ export const Home = () =>{
                     />
                     <h2 className="my-4">Подкасты</h2>
                     <ProductSlider 
+                        elementID={'podcasts'}
                         slidesPerView={4}
                         slides={books.filter(book => book.format === 'Подкаст').map(book =>{
                             return <ProductCard 

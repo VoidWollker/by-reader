@@ -67,7 +67,7 @@ export const ProductCard = ({showType, book, style, className}) => {
             {book.format === 'Текст' ?
                 <p className="product-page-count w-100 ms-3">Страниц: {book.pageCount}</p> :
                 <div className="m-1 ms-0">
-                    <p className="product-reader w-100 ms-3">Читает: {book.reader}</p>
+                    <p className="product-reader w-100 ms-3">Голос: {book.reader}</p>
                     <p className="product-length w-100 ms-3">Длительность: {book.length}</p>
                 </div>
             }

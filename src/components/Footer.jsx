@@ -43,7 +43,7 @@ export const Footer = () =>{
                                 <a href=""className="genres-link"><li>Нехудожественная литература</li></a>
                                 <a href=""className="genres-link"><li>Юмористическая литература</li></a>
                                 <a href=""className="genres-link"><li>Ужасы</li></a>
-                                <a href=""className="genres-link"><li>Искусство и культура</li></a>
+                                <a href=""className="genres-link"><li>Публицистика</li></a>
                                 <a href=""className="genres-link"><li>Зарубежная классика</li></a>
                             </div>
                             <div className="d-flex flex-column">
