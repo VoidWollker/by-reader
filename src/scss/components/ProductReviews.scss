@@ -57,6 +57,9 @@
     width: 10vw;
     min-width: 100px;
     max-width: 200px;
+    min-height: 30px !important;
+    height: 3vw;
+    max-height: 50px;
 }
 ::placeholder {
     font-size: calc(10px + 0.3vw) !important;

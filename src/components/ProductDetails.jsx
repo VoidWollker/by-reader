@@ -8,7 +8,7 @@ export const ProductDetials = ({elementID, product}) =>{
             </div>
             <div className="d-flex flex-column  mt-5">
                 <div className="d-flex flex-row mb-1">
-                    <p className="product-title me-2"><b>{product.title}</b></p>
+                    <p className="product-titles me-2"><b>{product.title}</b></p>
                     <div className="produсе-feature px-2">
                         <p className="product-format">{product.format}</p>
                     </div>

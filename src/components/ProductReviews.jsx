@@ -42,11 +42,11 @@ export const ProductReviews = ({elementID, reviews, reviewsCount, increaseReview
             }
             <h1 className="pt-4 pb-2">Оставьте отзыв</h1>
             <div className="d-flex flex-row review-add p-3 flex-wrap justify-content-center">
-                <img src={require("../assets/icons/foto-avatar.png")} alt="" className="avatar mt-2"/>
+                {/* <img src={require("../assets/icons/foto-avatar.png")} alt="" className="avatar mt-2"/> */}
                 <input className="add-review ps-2 mx-3 mb-2 mt-2" placeholder="Что вы думаете о книге?"
                     onChange={e => setReviewText(e.target.value)}    
                 />
-                <button className="btn btn-tertiary btn-addReview px-0" onClick={() => writeReview(reviewText)}>Опубликовать</button>
+                <button className="btn btn-tertiary btn-addReview px-0 mt-1" onClick={() => writeReview(reviewText)}>Опубликовать</button>
             </div>
         </div>
     )

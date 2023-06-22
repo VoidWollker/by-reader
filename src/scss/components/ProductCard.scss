@@ -126,8 +126,14 @@
 .add-to-favorite{
     min-width: 15px;
     width: 1.5vw;
+    max-width: 25px;
+    vertical-align: baseline !important;
+    margin-top: 0.3vw;
 }
 .remove-from-favorite{
     min-width: 15px;
     width: 1.5vw;
+    max-width: 25px;
+    vertical-align: baseline !important;
+    margin-top: 0.3vw;
 }

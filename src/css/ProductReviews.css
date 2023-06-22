@@ -209,6 +209,9 @@ input:checked + .slider:before {
   width: 10vw;
   min-width: 100px;
   max-width: 200px;
+  min-height: 30px !important;
+  height: 3vw;
+  max-height: 50px;
 }
 
 ::-moz-placeholder {
