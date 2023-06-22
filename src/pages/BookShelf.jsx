@@ -8,8 +8,9 @@ import { useAuth } from "../context/UserContext"
 export const BookShelf = ({selectedIndex}) =>{
     const {user} = useAuth()
     const [selectedCategory, setSelectedCategory] = useState(selectedIndex)
-    const [cartProducts, setCartProducts] = useState(null)
     const [viewedProducts, setViewedProducts] = useState(null)
+    const [favouriteProducts, setFavouriteProducts] = useState(null)
+    const [cartProducts, setCartProducts] = useState(null)
 
     const getViewedProducts = () =>{
         if (user.viewed.length !== 0){
@@ -20,6 +21,19 @@ export const BookShelf = ({selectedIndex}) =>{
             }) 
         } else{
             setViewedProducts([])
+        }
+        
+    }
+
+    const getFavouriteProducts = () =>{
+        if (user.favourite.length !== 0){
+            user.favourite.forEach(favouriteProduct =>{
+                getProductData(favouriteProduct._id)
+                    .then(productData => {setFavouriteProducts(favouriteProducts => [...favouriteProducts ?? [], productData])})
+                
+            })
+        } else{
+            setFavouriteProducts([])
         }
         
     }
@@ -46,6 +60,8 @@ export const BookShelf = ({selectedIndex}) =>{
         items[selectedCategory].classList.add('bookshelf-category-selected')
         if (selectedCategory === 1 && viewedProducts === null){
             getViewedProducts()
+        } else if (selectedCategory === 2 && favouriteProducts === null){
+            getFavouriteProducts()
         } else if (selectedCategory === 3 && cartProducts === null){
             getCartProducts()
         }
@@ -61,6 +77,8 @@ export const BookShelf = ({selectedIndex}) =>{
         <div className="d-flex flex-row w-75 mx-auto flex-wrap">
             {selectedCategory === 1 ?
                 showViewedProducts() :
+            selectedCategory === 2 ?
+                showFavouriteProducts() :
             selectedCategory === 3 ?
                 showCartProducts() :
                 ''
@@ -80,7 +98,22 @@ export const BookShelf = ({selectedIndex}) =>{
                 ) :
             showEmptyInCategory()
         }</> :
-        <Loading />     
+        <Loading />  
+        
+    const showFavouriteProducts = () =>
+        favouriteProducts !== null ?
+        <>{ 
+            favouriteProducts.length > 0 ?
+            favouriteProducts.map((product, index) =>
+                    <ProductCard 
+                        key={`favourite-product-${index}`}
+                        showType={'normal'}
+                        book={product}
+                    />
+                ) :
+            showEmptyInCategory()
+        }</> :
+        <Loading />
 
     const showCartProducts = () =>
         cartProducts !== null ?
