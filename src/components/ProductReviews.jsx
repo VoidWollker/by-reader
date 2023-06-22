@@ -49,7 +49,7 @@ export const ProductReviews = ({elementID, currentUserName, reviews, reviewsCoun
             
             <h1 className="pt-4 pb-2">Оставьте отзыв</h1>
             <div className="d-flex flex-row review-add p-3 flex-wrap justify-content-center">
-                <p>{currentUserName}</p>
+                <p className='my-auto h3'>{currentUserName}</p>
                 {/* <img src={require("../assets/icons/foto-avatar.png")} alt="" className="avatar mt-2"/> */}
                 <input className="add-review ps-2 mx-3 mb-2 mt-2" placeholder="Что вы думаете о книге?" value={reviewText}
                     onChange={e => setReviewText(e.target.value)}    
