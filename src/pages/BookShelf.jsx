@@ -37,7 +37,7 @@ export const BookShelf = ({selectedIndex}) =>{
 
     const showSelectedCategory = () =>
         selectedCategory === 1 ?
-            showViewedProducts() :
+            <div className="d-flex flex-row w-75 mx-auto flex-wrap">{showViewedProducts()}</div> :
             ''
 
     const showViewedProducts = () =>{

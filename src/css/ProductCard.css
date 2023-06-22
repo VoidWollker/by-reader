@@ -81,21 +81,6 @@
   font-weight: bold;
 }
 
-.success {
-  max-height: 50px;
-  height: 5vw;
-  min-height: 25px;
-  padding-top: 1vw !important;
-  margin-top: 10px !important;
-}
-
-.danger {
-  max-height: 50px;
-  height: 5vw;
-  min-height: 25px;
-  padding-top: 1vw !important;
-}
-
 .switch {
   position: relative;
   display: inline-block;
@@ -255,6 +240,7 @@ input:checked + .slider:before {
 
 .ProductCard {
   min-width: 80px;
-  width: 10vw;
-  max-width: 180px;
+  width: 16vw;
+  max-width: 150px;
+  margin-right: 5vw;
 }/*# sourceMappingURL=ProductCard.css.map */

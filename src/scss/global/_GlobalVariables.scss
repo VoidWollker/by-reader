@@ -12,98 +12,84 @@ $text-color-light-primary: #F2F2EA;
 $text-color-light-secondary: #B3B3A5;
 
 .btn-primary{
-    --bs-btn-color: #fff !important;
-    --bs-btn-bg: #335B50 !important;
-    --bs-btn-border-color: #335B50 !important;
-    --bs-btn-hover-color: #fff !important;
-    --bs-btn-hover-bg: #295045 !important;
-    --bs-btn-hover-border-color: #295045 !important;
-    --bs-btn-focus-shadow-rgb: 49, 132, 253 !important;
-    --bs-btn-active-color: #fff !important;
-    --bs-btn-active-bg: #335B50 !important;
-    --bs-btn-active-border-color: #335B50 !important;
-    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125) !important;
-    --bs-btn-disabled-color: #fff !important;
-    --bs-btn-disabled-bg: #0d6efd !important;
-    --bs-btn-disabled-border-color: #0d6efd !important;
+  --bs-btn-color: #fff !important;
+  --bs-btn-bg: #335B50 !important;
+  --bs-btn-border-color: #335B50 !important;
+  --bs-btn-hover-color: #fff !important;
+  --bs-btn-hover-bg: #295045 !important;
+  --bs-btn-hover-border-color: #295045 !important;
+  --bs-btn-focus-shadow-rgb: 49, 132, 253 !important;
+  --bs-btn-active-color: #fff !important;
+  --bs-btn-active-bg: #335B50 !important;
+  --bs-btn-active-border-color: #335B50 !important;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125) !important;
+  --bs-btn-disabled-color: #fff !important;
+  --bs-btn-disabled-bg: #0d6efd !important;
+  --bs-btn-disabled-border-color: #0d6efd !important;
 }
 
 .btn-tertiary{
-    --bs-btn-color: #fff !important;
-    --bs-btn-bg: #0F0D18 !important;
-    --bs-btn-border-color: #0F0D18 !important;
-    --bs-btn-hover-color: #fff !important;
-    --bs-btn-hover-bg: #2b273f !important;
-    --bs-btn-hover-border-color: #335B50 !important;
-    --bs-btn-focus-shadow-rgb: 49, 132, 253 !important;
-    --bs-btn-active-color: #fff !important;
-    --bs-btn-active-bg: #0F0D18 !important;
-    --bs-btn-active-border-color: #0F0D18 !important;
-    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125) !important;
-    --bs-btn-disabled-color: #fff !important;
-    --bs-btn-disabled-bg: #0d6efd !important;
-    --bs-btn-disabled-border-color: #0d6efd !important;
+  --bs-btn-color: #fff !important;
+  --bs-btn-bg: #0F0D18 !important;
+  --bs-btn-border-color: #0F0D18 !important;
+  --bs-btn-hover-color: #fff !important;
+  --bs-btn-hover-bg: #2b273f !important;
+  --bs-btn-hover-border-color: #335B50 !important;
+  --bs-btn-focus-shadow-rgb: 49, 132, 253 !important;
+  --bs-btn-active-color: #fff !important;
+  --bs-btn-active-bg: #0F0D18 !important;
+  --bs-btn-active-border-color: #0F0D18 !important;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125) !important;
+  --bs-btn-disabled-color: #fff !important;
+  --bs-btn-disabled-bg: #0d6efd !important;
+  --bs-btn-disabled-border-color: #0d6efd !important;
 }
 
 .btn-quaternary{
-    --bs-btn-color: #0F0D18 !important;
-    --bs-btn-bg: #F2F2EA !important;
-    --bs-btn-border-color: #0F0D18 !important;
-    --bs-btn-hover-color: #0F0D18 !important;
-    --bs-btn-hover-bg: #e2e2da !important;
-    --bs-btn-hover-border-color: #0F0D18 !important;
-    --bs-btn-focus-shadow-rgb: 49, 132, 253 !important;
-    --bs-btn-active-color: #0F0D18 !important;
-    --bs-btn-active-bg: #fff !important;
-    --bs-btn-active-border-color: #0F0D18 !important;
-    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125) !important;
-    --bs-btn-disabled-color: #fff !important;
-    --bs-btn-disabled-bg: #0d6efd !important;
-    --bs-btn-disabled-border-color: #0d6efd !important;
+  --bs-btn-color: #0F0D18 !important;
+  --bs-btn-bg: #F2F2EA !important;
+  --bs-btn-border-color: #0F0D18 !important;
+  --bs-btn-hover-color: #0F0D18 !important;
+  --bs-btn-hover-bg: #e2e2da !important;
+  --bs-btn-hover-border-color: #0F0D18 !important;
+  --bs-btn-focus-shadow-rgb: 49, 132, 253 !important;
+  --bs-btn-active-color: #0F0D18 !important;
+  --bs-btn-active-bg: #fff !important;
+  --bs-btn-active-border-color: #0F0D18 !important;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125) !important;
+  --bs-btn-disabled-color: #fff !important;
+  --bs-btn-disabled-bg: #0d6efd !important;
+  --bs-btn-disabled-border-color: #0d6efd !important;
 }
 .btn-fivefold{
-    --bs-btn-color: #fff !important;
-    --bs-btn-bg: #75B4A2 !important;
-    --bs-btn-border-color: #75B4A2 !important;
-    --bs-btn-hover-color: #fff !important;
-    --bs-btn-hover-bg: #2b273f !important;
-    --bs-btn-hover-border-color: #75B4A2 !important;
-    --bs-btn-focus-shadow-rgb: 49, 132, 253 !important;
-    --bs-btn-active-color: #fff !important;
-    --bs-btn-active-bg: #0F0D18 !important;
-    --bs-btn-active-border-color: #0F0D18 !important;
-    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125) !important;
-    --bs-btn-disabled-color: #fff !important;
-    --bs-btn-disabled-bg: #0d6efd !important;
-    --bs-btn-disabled-border-color: #0d6efd !important;
+  --bs-btn-color: #fff !important;
+  --bs-btn-bg: #75B4A2 !important;
+  --bs-btn-border-color: #75B4A2 !important;
+  --bs-btn-hover-color: #fff !important;
+  --bs-btn-hover-bg: #2b273f !important;
+  --bs-btn-hover-border-color: #75B4A2 !important;
+  --bs-btn-focus-shadow-rgb: 49, 132, 253 !important;
+  --bs-btn-active-color: #fff !important;
+  --bs-btn-active-bg: #0F0D18 !important;
+  --bs-btn-active-border-color: #0F0D18 !important;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125) !important;
+  --bs-btn-disabled-color: #fff !important;
+  --bs-btn-disabled-bg: #0d6efd !important;
+  --bs-btn-disabled-border-color: #0d6efd !important;
 }
 
 .bordered-primary-text{
-    border: solid $color-primary;
-    background-color: $color-primary;
-    color: $text-color-light-primary;
-    font-weight: bold;
+  border: solid $color-primary;
+  background-color: $color-primary;
+  color: $text-color-light-primary;
+  font-weight: bold;
 }
 
 .bordered-tertiary-text{
-    border: solid $color-tertiary;
-    background-color: $color-tertiary;
-    color: $text-color-light-primary;
-    font-weight: bold;
-}
-.success{
-    max-height: 50px;
-    height: 5vw;
-    min-height: 25px;
-    padding-top: 1vw !important;
-    margin-top: 10px !important;
-}
-.danger{
-    max-height: 50px;
-    height: 5vw;
-    min-height: 25px;
-    padding-top: 1vw !important;
-
+  border: solid $color-tertiary;
+  background-color: $color-tertiary;
+  color: $text-color-light-primary;
+  font-weight: bold;
 }
 
 
