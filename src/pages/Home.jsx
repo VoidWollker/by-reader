@@ -65,7 +65,7 @@ export const Home = () =>{
                     <h2 className="my-4">Жанры</h2>
                     <div className="d-flex flex-row home-genre flex-wrap justify-content-center" >
                         {['Роман', 'Боевики', 'Фэнтези', 'Фантастика', 'Детективы', 'Приключения'].map(genreName =>
-                            <a href={`http://localhost:5000/search?genre=${genreName}`}>
+                            <a href={`http://localhost:3000/search?genre=${genreName}`}>
                                 <img src={require(`../assets/genre/${genreName}.png`)} alt={genreName} className="mx-2"/>
                                 <p className="h3 p-genre mt-2">{genreName}</p>
                             </a>
